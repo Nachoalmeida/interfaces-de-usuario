@@ -15,13 +15,12 @@ document.getElementById('colorpicker').addEventListener('change', function() {
 
 document.getElementById('size').addEventListener('change', function() {
     size = this.value;
-    console.log(size);
 });
 
 document.getElementById('eraser').addEventListener('click', eraser);
 
 function eraser() {
-    currentColor = ctx.fillStyle;
+    currentColor ="#FFFFFF";
 }
 
 function drawfigure(){
