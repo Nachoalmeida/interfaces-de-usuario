@@ -8,23 +8,33 @@
 </head>
 
 <body>
-    <h1>Hola mundo</h1>
-    <canvas id="canvas" width="500" height="500"></canvas>
+    <div class="container">
+        <div class="row justify-content-center pt-5 pb-5">
+            <div class="col-2 border">
+                <input type="color" id="colorpicker" value="#000000">
+            </div>
+            <div class="col-2 border">
+                <button id="eraser" class="btn btn-info">Goma</button>
+                <button id="clear" class="btn btn-info">Reiniciar</button>
+            </div>
+            <div class="col-2 border">
+                <select name="size" id="size">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+            <div class="col-6 border">
+                <input type="file" id="file" name="archivosubido" accept=".jpg,.jpeg,.png">
+            </div>
+            <div class="col-12 pt-5" id="div-canvas">
+                <canvas class="border" id="canvas" height="500"></canvas>
+            </div>
+        </div>
+    </div>
 
-    <div>
-        <h3>Colour</h3>
-        <input type="color" id="colorpicker" value="#000000">
-    </div>
-    <div>
-        <button id="eraser" class="btn btn-info">Borrar</button>
-    </div>
-    <select name="size" id="size">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
-    <input type="file" id="file" name="archivosubido">
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
     </script>
     <script src="main.js"></script>

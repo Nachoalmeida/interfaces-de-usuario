@@ -1,9 +1,10 @@
 let canvas = document.querySelector('#canvas');
+
+canvas.width = document.querySelector('#div-canvas').offsetWidth;
+
 let ctx = canvas.getContext('2d');
 let canvasWidth = canvas.width;
 let canvasHeight = canvas.height;
-
-//new ImageData(canvasHeight, canvasWidth);
 let image = new Image();
 
 let currentColor = '#000000';
@@ -11,28 +12,23 @@ let size = 1;
 
 let figures = [];
 let isMouseDown = false;
+let file = document.getElementById('file');
 
-document.getElementById('file').addEventListener('change', function() {
-    /*image.src = this.value;
-    console.log(image.src);
-    image.onload = () => {
-        ctx.drawImage(this, 0, 0);
-    }*/
-
-    /*    reader.readAsDataURL(inputBox.files[0]); // Iniciar una solicitud asincrónica
-    reader.onload = function() {
-        // Después de leer, asigna el resultado al src de img
-        img.src = this.result
-    }*/
-
+file.addEventListener('change', function() {
+    image.src = window.URL.createObjectURL(file.files[0]);
+    image.onload = function() {
+        ctx.drawImage(image, 0, 0, canvasWidth, canvasHeight);
+        figures = [];
+    }
 });
 
-/*
-picture.onload = function() {
-    ctx.drawImage(picture, 270, 5);
-    let imageData = ctx.getImageData(0, 0, width, height);
-    ctx.putImageData(imageData, 0, 0);
-}*/
+function clearCanvas() {
+    figures = [];
+    ctx.fillStyle = "#FFFFFF";
+    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+}
+
+document.getElementById('clear').addEventListener('click', clearCanvas);
 
 document.getElementById('colorpicker').addEventListener('change', function() {
     currentColor = this.value;
