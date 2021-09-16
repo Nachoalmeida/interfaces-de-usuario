@@ -13,6 +13,61 @@ let size = 1;
 let figures = [];
 let isMouseDown = false;
 let file = document.getElementById('file');
+let imageData;
+
+function setPixel(imageData, x, y, r, g, b, a) {
+    let index = (x + y * imageData.width) * 4;
+    imageData.data[index + 0] = r;
+    imageData.data[index + 1] = g;
+    imageData.data[index + 2] = b;
+    imageData.data[index + 3] = a;
+
+}
+
+picture.onload = function() {
+    ctx.drawImage(picture, 270, 5);
+    let imageData = ctx.getImageData(0, 0, width, height);
+    ctx.putImageData(imageData, 0, 0);
+}
+
+
+function getRed(imageData, x, y) {
+    index = (x + y * imageData.width) * 4;
+    return imageData.data[index + 0];
+
+}
+
+function getGreen(imageData, x, y) {
+    index = (x + y * imageData.width) * 4;
+    return imageData.data[index + 0];
+
+}
+
+function getBlue(imageData, x, y) {
+    index = (x + y * imageData.width) * 4;
+    return imageData.data[index + 0];
+
+}
+
+
+/* GRIS = (R+G+B)/3*/
+
+function greyScale() {
+    //picture.src = "images/images.jpg";
+    image.onload = function() {
+        //ctx.drawImage(picture, 0, 0);
+        imageData = ctx.getImageData(0, 0, width, height);
+        for (let x = 0; x < width; x++) {
+            for (let y = 0; y < height; y++) {
+                let r = getRed(imageData, x, y);
+                let g = getGreen(imageData, x, y);
+                let b = getBlue(imageData, x, y);
+                //setPixel(imageData, x, y, r, g, b, a);
+            }
+
+        }
+    }
+}
 
 file.addEventListener('change', function() {
     image.src = window.URL.createObjectURL(file.files[0]);
