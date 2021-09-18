@@ -24,49 +24,48 @@ function setPixel(imageData, x, y, r, g, b, a) {
 
 }
 
-picture.onload = function() {
-    ctx.drawImage(picture, 270, 5);
-    let imageData = ctx.getImageData(0, 0, width, height);
-    ctx.putImageData(imageData, 0, 0);
-}
-
-
 function getRed(imageData, x, y) {
     index = (x + y * imageData.width) * 4;
     return imageData.data[index + 0];
-
 }
 
 function getGreen(imageData, x, y) {
     index = (x + y * imageData.width) * 4;
     return imageData.data[index + 0];
-
 }
 
 function getBlue(imageData, x, y) {
     index = (x + y * imageData.width) * 4;
     return imageData.data[index + 0];
-
 }
 
-
-/* GRIS = (R+G+B)/3*/
-
+/* 
+ * GRIS = (R+G+B)/3
+ */
 function greyScale() {
-    //picture.src = "images/images.jpg";
-    image.onload = function() {
-        //ctx.drawImage(picture, 0, 0);
-        imageData = ctx.getImageData(0, 0, width, height);
-        for (let x = 0; x < width; x++) {
-            for (let y = 0; y < height; y++) {
-                let r = getRed(imageData, x, y);
-                let g = getGreen(imageData, x, y);
-                let b = getBlue(imageData, x, y);
-                //setPixel(imageData, x, y, r, g, b, a);
-            }
-
+    imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+    for (let x = 0; x < canvasWidth; x++) {
+        for (let y = 0; y < canvasHeight; y++) {
+            let r = getRed(imageData, x, y);
+            let g = getGreen(imageData, x, y);
+            let b = getBlue(imageData, x, y);
+            setPixel(imageData, x, y, (r + g + b) / 3, (r + g + b) / 12, (r + g + b) / 12, 255);
         }
     }
+    ctx.putImageData(imageData, 0, 0);
+}
+
+function blackScale() {
+    imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+    for (let x = 0; x < canvasWidth; x++) {
+        for (let y = 0; y < canvasHeight; y++) {
+            let r = getRed(imageData, x, y);
+            let g = getGreen(imageData, x, y);
+            let b = getBlue(imageData, x, y);
+            setPixel(imageData, x, y, r, g, b, 255);
+        }
+    }
+    ctx.putImageData(imageData, 0, 0);
 }
 
 file.addEventListener('change', function() {
@@ -94,6 +93,9 @@ document.getElementById('size').addEventListener('change', function() {
 });
 
 document.getElementById('eraser').addEventListener('click', eraser);
+
+document.getElementById('filter').addEventListener('click', greyScale);
+document.getElementById('filterBlack').addEventListener('click', blackScale);
 
 function eraser() {
     currentColor = "#FFFFFF";
