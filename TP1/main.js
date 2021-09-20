@@ -22,7 +22,6 @@ function setPixel(imageData, x, y, r, g, b, a) {
     imageData.data[index + 1] = g;
     imageData.data[index + 2] = b;
     imageData.data[index + 3] = a;
-
 }
 
 function getRed(imageData, x, y) {
@@ -44,12 +43,13 @@ function getBlue(imageData, x, y) {
  * GRIS = (R+G+B)/3
  */
 function greyScale() {
+    let r, g, b;
     imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
     for (let x = 0; x < canvasWidth; x++) {
         for (let y = 0; y < canvasHeight; y++) {
-            let r = getRed(imageData, x, y);
-            let g = getGreen(imageData, x, y);
-            let b = getBlue(imageData, x, y);
+            r = getRed(imageData, x, y);
+            g = getGreen(imageData, x, y);
+            b = getBlue(imageData, x, y);
             setPixel(imageData, x, y, (r + g + b) / 3, (r + g + b) / 3, (r + g + b) / 3, 255);
         }
     }
@@ -57,36 +57,48 @@ function greyScale() {
 }
 
 function blur() {
+    let r, g, b;
     imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
     for (let x = 0; x < canvasWidth; x++) {
         for (let y = 0; y < canvasHeight; y++) {
-            let r = getBlur(imageData, x, y, 0);
-
-            let g = getBlur(imageData, x, y, 1);
-
-            let b = getBlur(imageData, x, y, 2);
-
+            r = getBlur(imageData, x, y);
+            g = getBlur(imageData, x, y, 1);
+            b = getBlur(imageData, x, y, 2);
             setPixel(imageData, x, y, r, g, b, 255);
         }
     }
     ctx.putImageData(imageData, 0, 0);
 }
 
-function getBlur(imageData, X, Y, i) {
-
-    let suma = getValueBlur(X + 1, Y, imageData, i) + getValueBlur(X - 1, Y, imageData, i) + getValueBlur(X, Y + 1, imageData, i) + getValueBlur(X, Y - 1, imageData, i) + getValueBlur(X + 1, Y - 1, imageData, i) + getValueBlur(X - 1, Y - 1, imageData, i) + getValueBlur(X + 1, Y + 1, imageData, i) + getValueBlur(X - 1, Y + 1, imageData, i) + getValueBlur(X, Y, imageData, i);
-    let divisor = suma / 9;
-    return divisor;
+function getBlur(imageData, X, Y, I = 0) {
+    let sum = 0;
+    let divider = 0;
+    let values = [
+        getpixel(X + 1, Y, imageData, I),
+        getpixel(X - 1, Y, imageData, I),
+        getpixel(X, Y + 1, imageData, I),
+        getpixel(X, Y - 1, imageData, I),
+        getpixel(X + 1, Y - 1, imageData, I),
+        getpixel(X - 1, Y - 1, imageData, I),
+        getpixel(X + 1, Y + 1, imageData, I),
+        getpixel(X - 1, Y + 1, imageData, I),
+        getpixel(X, Y, imageData, I)
+    ];
+    for (let i = 0; i < values.length; i++) {
+        if (values[i] !== undefined) {
+            divider++;
+            sum += values[i];
+        }
+    }
+    return sum / divider;
 }
 
-function getValueBlur(x, y, imageData, i) {
+function getpixel(x, y, imageData, i) {
     return imageData.data[((x + y * imageData.width) * 4) + i];
 }
 
 function negative() {
-    let r;
-    let g;
-    let b;
+    let r, g, b;
     imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight); //Obtiene los datos
     for (let x = 0; x < canvasWidth; x++) {
         for (let y = 0; y < canvasHeight; y++) {
@@ -101,9 +113,7 @@ function negative() {
 }
 
 function binarization() {
-    let r;
-    let g;
-    let b;
+    let r, g, b;
     let medium = 255 / 2;
     console.log(medium);
     imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight); //Obtiene los datos
@@ -123,9 +133,7 @@ function binarization() {
 }
 
 function lightness() {
-    let r;
-    let g;
-    let b;
+    let r, g, b;
     imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight); //Obtiene los datos
     for (let x = 0; x < canvasWidth; x++) {
         for (let y = 0; y < canvasHeight; y++) {
@@ -146,9 +154,7 @@ function lightness() {
 }
 
 function saturation() {
-    let r;
-    let g;
-    let b;
+    let r, g, b;
     imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight); //Obtiene los datos
     for (let x = 0; x < canvasWidth; x++) {
         for (let y = 0; y < canvasHeight; y++) {
@@ -170,13 +176,13 @@ function saturation() {
 
 function rgbToHsl(r, g, b) {
     r /= 255, g /= 255, b /= 255;
-    var max = Math.max(r, g, b),
+    let max = Math.max(r, g, b),
         min = Math.min(r, g, b);
-    var h, s, l = (max + min) / 2;
+    let h, s, l = (max + min) / 2;
     if (max == min) {
         h = s = 0; // achromatic
     } else {
-        var d = max - min;
+        let d = max - min;
         s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
         switch (max) {
             case r:
@@ -195,11 +201,11 @@ function rgbToHsl(r, g, b) {
 }
 
 function hslToRgb(h, s, l) {
-    var r, g, b;
+    let r, g, b;
     if (s == 0) {
         r = g = b = l; // achromatic
     } else {
-        var hue2rgb = function hue2rgb(p, q, t) {
+        let hue2rgb = function hue2rgb(p, q, t) {
             if (t < 0) t += 1;
             if (t > 1) t -= 1;
             if (t < 1 / 6) return p + (q - p) * 6 * t;
@@ -207,8 +213,8 @@ function hslToRgb(h, s, l) {
             if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
             return p;
         }
-        var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
-        var p = 2 * l - q;
+        let q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+        let p = 2 * l - q;
         r = hue2rgb(p, q, h + 1 / 3);
         g = hue2rgb(p, q, h);
         b = hue2rgb(p, q, h - 1 / 3);
@@ -217,9 +223,8 @@ function hslToRgb(h, s, l) {
 }
 
 function sepia() {
-    let r;
-    let g;
-    let b;
+    let r, g, b;
+    let tr, tg, tb;
     imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight); //Obtiene los datos
     for (let x = 0; x < canvasWidth; x++) {
         for (let y = 0; y < canvasHeight; y++) {
@@ -227,15 +232,14 @@ function sepia() {
             g = getGreen(imageData, x, y);
             b = getBlue(imageData, x, y);
 
-            let tr = 0.393 * r + 0.769 * g + 0.189 * b;
-            let tg = 0.349 * r + 0.686 * g + 0.168 * b;
-            let tb = 0.272 * r + 0.534 * g + 0.131 * b;
+            tr = 0.393 * r + 0.769 * g + 0.189 * b;
+            tg = 0.349 * r + 0.686 * g + 0.168 * b;
+            tb = 0.272 * r + 0.534 * g + 0.131 * b;
 
             setPixel(imageData, x, y, tr > 255 ? 255 : tr, tg > 255 ? 255 : tg, tb > 255 ? 255 : tb, a);
         }
     }
     ctx.putImageData(imageData, 0, 0); //Mostrar imagen en Canvas
-
 }
 
 file.addEventListener('change', function() {
