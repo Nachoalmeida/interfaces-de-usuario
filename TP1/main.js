@@ -16,6 +16,37 @@ let isMouseDown = false;
 let file = document.getElementById('file');
 let imageData;
 
+let dwn = document.getElementById('btndownload').addEventListener('click', function() {
+    download(canvas, 'myimage.png');
+}, false);
+
+// Event handler for download
+function download(canvas, filename) {
+    /// create an "off-screen" anchor tag
+    let lnk = document.createElement('a'),
+        e;
+
+    /// the key here is to set the download attribute of the a tag
+    lnk.download = filename;
+
+    /// convert canvas content to data-uri for link. When download
+    /// attribute is set the content pointed to by link will be
+    /// pushed as "download" in HTML5 capable browsers
+    lnk.href = canvas.toDataURL("image/png;base64");
+
+    /// create a "fake" click-event to trigger the download
+    if (document.createEvent) {
+        e = document.createEvent("MouseEvents");
+        e.initMouseEvent("click", true, true, window,
+            0, 0, 0, 0, 0, false, false, false,
+            false, 0, null);
+
+        lnk.dispatchEvent(e);
+    } else if (lnk.fireEvent) {
+        lnk.fireEvent("onclick");
+    }
+}
+
 function setPixel(imageData, x, y, r, g, b, a) {
     let index = (x + y * imageData.width) * 4;
     imageData.data[index + 0] = r;
@@ -93,7 +124,7 @@ function getBlur(imageData, X, Y, I = 0) {
     return sum / divider;
 }
 
-function getpixel(x, y, imageData, i) {
+function getpixel(x, y, imageData, i = 0) {
     return imageData.data[((x + y * imageData.width) * 4) + i];
 }
 
