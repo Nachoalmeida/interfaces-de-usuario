@@ -19,7 +19,7 @@ let file = document.getElementById('file');
 let imageData;
 
 let dwn = document.getElementById('btndownload').addEventListener('click', function() {
-    download(canvas, 'myimage.png');
+    download(canvas, 'estaParaPromocionar.png');
 }, false);
 
 // Event handler for download
@@ -274,10 +274,36 @@ function sepia() {
 }
 
 file.addEventListener('change', function() {
+    image = new Image;
     //cxt.scale(x, y);
     image.src = window.URL.createObjectURL(file.files[0]);
     image.onload = function() {
-        ctx.drawImage(image, 0, 0, canvasWidth, canvasHeight);
+
+        if (this.width > canvasWidth || this.height > canvasHeight) {
+            let difW = this.width - canvasWidth; //100 - 50 = 50  //200 - 50 = 150
+            let proporcionW = difW / this.width; //50/100 = 0.5   //150/200 = 0.75
+            let difH = this.height - canvasHeight;
+            let proporcionH = difH / this.height;
+            if (proporcionW >= proporcionH) {
+                this.width = this.width * (1 - proporcionW); //100 * 0.5 = 50  //200 *0.75
+                this.height = this.height * (1 - proporcionW);
+
+            } else {
+                this.width = this.width * (1 - proporcionH);
+                this.height = this.height * (1 - proporcionH);
+
+            }
+            //console.log(this.width);
+            //console.log(this.height);
+            /*canvas.width = this.width;
+            canvas.height = this.height;
+            canvasHeight = this.height;
+            canvasWidth = this.width;*/
+        }
+        let x = (canvasWidth - this.width) / 2;
+        let y = (canvasHeight - this.height) / 2;
+
+        ctx.drawImage(image, x, y, this.width, this.height);
         figures = [];
     }
 });
