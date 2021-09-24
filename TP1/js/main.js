@@ -27,7 +27,6 @@ function download(canvas, filename) {
     /// create an "off-screen" anchor tag
     let lnk = document.createElement('a'),
         e;
-
     /// the key here is to set the download attribute of the a tag
     lnk.download = filename;
 
@@ -148,7 +147,6 @@ function negative() {
 function binarization() {
     let r, g, b;
     let medium = 255 / 2;
-    console.log(medium);
     imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight); //Obtiene los datos
     for (let x = 0; x < canvasWidth; x++) {
         for (let y = 0; y < canvasHeight; y++) {
@@ -276,6 +274,7 @@ function sepia() {
 }
 
 file.addEventListener('change', function() {
+    //cxt.scale(x, y);
     image.src = window.URL.createObjectURL(file.files[0]);
     image.onload = function() {
         ctx.drawImage(image, 0, 0, canvasWidth, canvasHeight);
@@ -285,6 +284,7 @@ file.addEventListener('change', function() {
 
 function clearCanvas() {
     figures = [];
+    file.value = '';
     ctx.fillStyle = "#FFFFFF";
     ctx.fillRect(0, 0, canvasWidth, canvasHeight);
 }
