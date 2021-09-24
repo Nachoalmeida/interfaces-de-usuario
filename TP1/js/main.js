@@ -6,6 +6,8 @@ let ctx = canvas.getContext('2d');
 let canvasWidth = canvas.width;
 let canvasHeight = canvas.height;
 let image = new Image();
+let pencilBoolean = false;
+let eraserBoolean = false;
 
 let currentColor = '#000000';
 let size = 1;
@@ -287,10 +289,24 @@ function clearCanvas() {
     ctx.fillRect(0, 0, canvasWidth, canvasHeight);
 }
 
+function pencil() {
+    pencilBoolean = true;
+    eraserBoolean = false;
+    currentColor = colorPicker;
+}
+
+canvas.addEventListener('mousedown', onMouseDown, false);
+canvas.addEventListener('mouseup', onMouseUp, false);
+canvas.addEventListener('mousemove', onMouseMove, false);
+
 document.getElementById('clear').addEventListener('click', clearCanvas);
 
+let colorPicker = "#000000";
+
 document.getElementById('colorpicker').addEventListener('change', function() {
-    currentColor = this.value;
+    if (pencilBoolean === true) {
+        currentColor = this.value;
+    } else colorPicker = this.value;
 });
 
 document.getElementById('size').addEventListener('change', function() {
@@ -298,6 +314,7 @@ document.getElementById('size').addEventListener('change', function() {
 });
 
 document.getElementById('eraser').addEventListener('click', eraser);
+document.getElementById('pencil').addEventListener('click', pencil);
 ////////////////BOTONES FILTROS////////////////////////////////////////////
 document.getElementById('filterGrey').addEventListener('click', greyScale);
 document.getElementById('filterNegative').addEventListener('click', negative);
@@ -309,6 +326,8 @@ document.getElementById('filterBlur').addEventListener('click', blur);
 
 
 function eraser() {
+    pencilBoolean = false;
+    eraserBoolean = true;
     currentColor = "#FFFFFF";
 }
 
@@ -324,22 +343,22 @@ function addPencil(x, y) {
 }
 
 function onMouseDown(e) {
-    isMouseDown = true;
-    addPencil(e.layerX, e.layerY);
-    drawfigure();
-}
-
-function onMouseUp(e) {
-    isMouseDown = false;
-}
-
-function onMouseMove(e) {
-    if (isMouseDown) {
+    if (pencilBoolean === true || eraserBoolean === true) {
+        isMouseDown = true;
         addPencil(e.layerX, e.layerY);
         drawfigure();
     }
 }
 
-canvas.addEventListener('mousedown', onMouseDown, false);
-canvas.addEventListener('mouseup', onMouseUp, false);
-canvas.addEventListener('mousemove', onMouseMove, false);
+function onMouseUp(e) {
+    if (pencilBoolean === true || eraserBoolean === true) {
+        isMouseDown = false;
+    }
+}
+
+function onMouseMove(e) {
+    if (isMouseDown && (pencilBoolean === true || eraserBoolean === true)) {
+        addPencil(e.layerX, e.layerY);
+        drawfigure();
+    }
+}

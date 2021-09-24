@@ -4,28 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <div class="container">
-        <div class="row justify-content-center pt-5 pb-5">
-            <div class="col-2 border">
-                <input type="color" id="colorpicker" value="#000000">
+        <div class="">
+            <div class="container">
+                <div class="border margin">
+                    <button id="pencil" class="iconPencil"></button>
+                    <button id="eraser" class="iconEraser"></button>
+                    <label for="">Grosor: </label>
+                    <div class="select">
+                        <select name="size" id="size">
+                            <option value="1">-</option>
+                            <option class="line"  value="2">-</option>
+                            <option class="line1" value="3">-</option>
+                            <option class="line2" value="4">-</option>
+                        </select>
+                    </div>
+
+                    <label for="">Color: </label>
+                    <input type="color" id="colorpicker" value="#000000">
+                </div>
+                <div class="border margin">
+                    <button id="clear" class="iconReset"></button>
+                    <button class="iconDownload" id="btndownload"></button>
+                </div>
             </div>
-            <div class="col-2 border">
-                <button id="eraser" class="btn btn-info">Goma</button>
-                <button id="clear" class="btn btn-info">Reiniciar</button>
-                <button id="btndownload">Download</button>
-            </div>
-            <div class="col-2 border">
-                <select name="size" id="size">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                </select>
-            </div>
-            <div class="col-2 border">
+            <div class="">
+                <div class="file-select" id="src-file1">
+                    <input type="file" id="file" name="src-file1" accept=".jpg,.jpeg,.png">
+                </div>
                 <button id="filterGrey" class="btn btn-info">Filtro Gris</button>
                 <button id="filterNegative" class="btn btn-info">Filtro Negativo</button>
                 <button id="filterBinarization" class="btn btn-info">Filtro Binarización</button>
@@ -34,17 +44,14 @@
                 <button id="filterSaturation" class="btn btn-info">Filtro Saturación</button>
                 <button id="filterBlur" class="btn btn-info">Filtro Blur</button>
             </div>
-            <div class="col-6 border">
-                <input type="file" id="file" name="archivosubido" accept=".jpg,.jpeg,.png">
-            </div>
             <div class="col-12 pt-5" id="div-canvas">
                 <canvas class="border" id="canvas" height="500"></canvas>
             </div>
         </div>
     </div>
 
-    <script src="main.js"></script>
-    <script src="Pencil.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/Pencil.js"></script>
 </body>
 
 </html>
