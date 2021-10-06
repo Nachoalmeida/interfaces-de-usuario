@@ -5,7 +5,7 @@ canvas.width = document.querySelector('#div-canvas').offsetWidth;
 let ctx = canvas.getContext('2d');
 let canvasWidth = canvas.width;
 let canvasHeight = canvas.height;
-let image = new Image();
+let image = null;
 let pencilBoolean = false;
 let eraserBoolean = false;
 
@@ -18,6 +18,7 @@ let isMouseDown = false;
 let file = document.getElementById('file');
 let imageData;
 
+/////////////////////BOTON DOWNLOAD///////////////////////////
 let dwn = document.getElementById('btndownload').addEventListener('click', function() {
     download(canvas, 'estaParaPromocionar.png');
 }, false);
@@ -71,9 +72,7 @@ function getBlue(imageData, x, y) {
     return imageData.data[index + 2];
 }
 
-/* 
- * GRIS = (R+G+B)/3
- */
+//FILTRO GRIS
 function greyScale() {
     let r, g, b;
     imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
@@ -88,6 +87,7 @@ function greyScale() {
     ctx.putImageData(imageData, 0, 0);
 }
 
+//FILTRO BLUR
 function blur() {
     let r, g, b;
     imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
@@ -129,6 +129,7 @@ function getpixel(x, y, imageData, i = 0) {
     return imageData.data[((x + y * imageData.width) * 4) + i];
 }
 
+//FILTRO NEGATIVO
 function negative() {
     let r, g, b;
     imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight); //Obtiene los datos
@@ -144,6 +145,7 @@ function negative() {
 
 }
 
+//FILTRO BINARIZACIÓN
 function binarization() {
     let r, g, b;
     let medium = 255 / 2;
@@ -163,6 +165,7 @@ function binarization() {
 
 }
 
+//FILTRO BRILLO
 function lightness() {
     let r, g, b;
     imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight); //Obtiene los datos
@@ -184,6 +187,7 @@ function lightness() {
 
 }
 
+//FILTRO SATURACIÓN
 function saturation() {
     let r, g, b;
     imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight); //Obtiene los datos
@@ -205,6 +209,7 @@ function saturation() {
 
 }
 
+//RGB a HSL
 function rgbToHsl(r, g, b) {
     r /= 255, g /= 255, b /= 255;
     let max = Math.max(r, g, b),
@@ -231,6 +236,7 @@ function rgbToHsl(r, g, b) {
     return [h, s, l];
 }
 
+//HSL a RGB
 function hslToRgb(h, s, l) {
     let r, g, b;
     if (s == 0) {
@@ -253,6 +259,7 @@ function hslToRgb(h, s, l) {
     return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
 }
 
+//FILTRO SEPIA
 function sepia() {
     let r, g, b;
     let tr, tg, tb;
@@ -273,32 +280,23 @@ function sepia() {
     ctx.putImageData(imageData, 0, 0); //Mostrar imagen en Canvas
 }
 
+//CARGAR IMAGEN
 file.addEventListener('change', function() {
     image = new Image;
-    //cxt.scale(x, y);
     image.src = window.URL.createObjectURL(file.files[0]);
     image.onload = function() {
-
         if (this.width > canvasWidth || this.height > canvasHeight) {
-            let difW = this.width - canvasWidth; //100 - 50 = 50  //200 - 50 = 150
-            let proporcionW = difW / this.width; //50/100 = 0.5   //150/200 = 0.75
+            let difW = this.width - canvasWidth;
+            let proporcionW = difW / this.width;
             let difH = this.height - canvasHeight;
             let proporcionH = difH / this.height;
             if (proporcionW >= proporcionH) {
-                this.width = this.width * (1 - proporcionW); //100 * 0.5 = 50  //200 *0.75
+                this.width = this.width * (1 - proporcionW);
                 this.height = this.height * (1 - proporcionW);
-
             } else {
                 this.width = this.width * (1 - proporcionH);
                 this.height = this.height * (1 - proporcionH);
-
             }
-            //console.log(this.width);
-            //console.log(this.height);
-            /*canvas.width = this.width;
-            canvas.height = this.height;
-            canvasHeight = this.height;
-            canvasWidth = this.width;*/
         }
         let x = (canvasWidth - this.width) / 2;
         let y = (canvasHeight - this.height) / 2;
@@ -307,6 +305,32 @@ file.addEventListener('change', function() {
         figures = [];
     }
 });
+
+
+////////////////BOTONES RESET, COLOR Y GROSOR////////////////////////////////////////////
+document.getElementById('clear').addEventListener('click', clearCanvas);
+let colorPicker = "#000000";
+document.getElementById('colorpicker').addEventListener('change', function() {
+    if (pencilBoolean === true) {
+        currentColor = this.value;
+    } else colorPicker = this.value;
+});
+document.getElementById('size').addEventListener('change', function() {
+    size = this.value;
+});
+
+////////////////BOTONES UTILES////////////////////////////////////////////
+document.getElementById('eraser').addEventListener('click', eraser);
+document.getElementById('pencil').addEventListener('click', pencil);
+
+////////////////BOTONES FILTROS////////////////////////////////////////////
+document.getElementById('filterGrey').addEventListener('click', greyScale);
+document.getElementById('filterNegative').addEventListener('click', negative);
+document.getElementById('filterBinarization').addEventListener('click', binarization);
+document.getElementById('filterLightness').addEventListener('click', lightness);
+document.getElementById('filterSepia').addEventListener('click', sepia);
+document.getElementById('filterSaturation').addEventListener('click', saturation);
+document.getElementById('filterBlur').addEventListener('click', blur);
 
 function clearCanvas() {
     figures = [];
@@ -320,36 +344,6 @@ function pencil() {
     eraserBoolean = false;
     currentColor = colorPicker;
 }
-
-canvas.addEventListener('mousedown', onMouseDown, false);
-canvas.addEventListener('mouseup', onMouseUp, false);
-canvas.addEventListener('mousemove', onMouseMove, false);
-
-document.getElementById('clear').addEventListener('click', clearCanvas);
-
-let colorPicker = "#000000";
-
-document.getElementById('colorpicker').addEventListener('change', function() {
-    if (pencilBoolean === true) {
-        currentColor = this.value;
-    } else colorPicker = this.value;
-});
-
-document.getElementById('size').addEventListener('change', function() {
-    size = this.value;
-});
-
-document.getElementById('eraser').addEventListener('click', eraser);
-document.getElementById('pencil').addEventListener('click', pencil);
-////////////////BOTONES FILTROS////////////////////////////////////////////
-document.getElementById('filterGrey').addEventListener('click', greyScale);
-document.getElementById('filterNegative').addEventListener('click', negative);
-document.getElementById('filterBinarization').addEventListener('click', binarization);
-document.getElementById('filterLightness').addEventListener('click', lightness);
-document.getElementById('filterSepia').addEventListener('click', sepia);
-document.getElementById('filterSaturation').addEventListener('click', saturation);
-document.getElementById('filterBlur').addEventListener('click', blur);
-
 
 function eraser() {
     pencilBoolean = false;
@@ -367,6 +361,10 @@ function addPencil(x, y) {
     let pencil = new Pencil(x, y, size, currentColor, ctx);
     figures.push(pencil);
 }
+
+canvas.addEventListener('mousedown', onMouseDown, false);
+canvas.addEventListener('mouseup', onMouseUp, false);
+canvas.addEventListener('mousemove', onMouseMove, false);
 
 function onMouseDown(e) {
     if (pencilBoolean === true || eraserBoolean === true) {
