@@ -9,8 +9,24 @@ class Board {
     }
 
     createBoard() {
-        let p = this.ctx.createPattern(this.image, "repeat");
-        this.ctx.fillStyle = p;
-        this.ctx.fillRect((this.width / 4) + 16, (this.height / 4) - 4, this.columns * 32, this.rows * 32);
+        this.createMatrix();
+    }
+
+    createMatrix() {
+        let columns = [];
+        let posx = (this.width / 4);
+        let posy = (this.height / 4);
+        for (let i = 0; i < this.columns; i++) {
+            let rows = [];
+            for (let j = 0; j < this.rows; j++) {
+                let chip = new Chip(posx, posy, 15, this.image, ctx);
+                rows.push(chip);
+                chip.draw();
+                posx += this.image.width;
+            }
+            posy += this.image.height;
+            posx = (this.width / 4);
+            columns.push(rows);
+        }
     }
 }

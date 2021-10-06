@@ -6,8 +6,8 @@ let canvasHeight = canvas.height; //400
 let chips = [];
 let board = null;
 
-let rows = 7;
-let columns = 6;
+let rows = 6;
+let columns = 7;
 
 let player1 = null;
 let player2 = null;
