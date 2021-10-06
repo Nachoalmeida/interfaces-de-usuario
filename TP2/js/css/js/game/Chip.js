@@ -1,0 +1,3 @@
+class Chip {
+    constructor() {}
+}
