@@ -9,26 +9,37 @@ let board = null;
 let rows = 6;
 let columns = 7;
 
-let player1 = null;
-let player2 = null;
-
 let lasClickedChip = null;
 let isMouseDown = false;
 
-let chip1 = document.getElementById("chip_1");
-let box = document.getElementById("box");
-//let chip2 = document.getElementById("chip_2");
-let count = 0;
+let chip4 = document.getElementById("chip_4");
+let chip3 = document.getElementById("chip_3");
+let box_empty = document.getElementById("box_empty");
+let box_chip_4 = document.getElementById("box_chip_4");
+let box_chip_3 = document.getElementById("box_chip_3");
+
+let turn = 0;
+
+let player1 = {
+    value: 1,
+    chip: box_chip_3,
+};
+
+let player2 = {
+    value: 2,
+    chip: box_chip_4,
+};
+
 for (let i = 0; i < rows * columns; i++) {
     if (i < (rows * columns) / 2)
-        addChip((canvas.width / 20), (canvas.height / 3) + (i * 10), chip1);
-    else addChip(canvas.width / 1.5, (canvas.height / 3) + ((i - (rows * columns / 2)) * 10), chip1);
+        addChip((canvas.width / 20), (canvas.height / 3) + (i * 10), chip4);
+    else addChip(canvas.width / 1.5, (canvas.height / 3) + ((i - (rows * columns / 2)) * 10), chip3);
 }
-drawfigure();
+drawChip();
 addBoard();
 
 function addBoard() {
-    board = new Board(rows, columns, canvas.width, canvas.height, box, ctx);
+    board = new Board(rows, columns, canvas.width, canvas.height, box_empty, ctx);
     board.createBoard();
 }
 
@@ -37,13 +48,13 @@ function addChip(posx, posy, image) {
     chips.push(chip);
 }
 
-function drawfigure() {
+function drawChip() {
     clearCanvas();
     for (let i = 0; i < chips.length; i++) {
         chips[i].draw();
     }
     if (board !== null) {
-        board.createBoard();
+        board.draw();
     }
 }
 
@@ -56,32 +67,43 @@ function onMouseDown(e) {
     isMouseDown = true;
 
     if (lasClickedChip != null) {
-        lasClickedChip.setHighlighted(false);
         lasClickedChip = null;
     }
 
-    let clickChip = findClikedFigure(e.layerX, e.layerY);
+    let clickChip = findClikedChip(e.layerX, e.layerY);
     if (clickChip != null) {
-        clickChip.setHighlighted(true);
         lasClickedChip = clickChip;
     }
-    drawfigure();
+    drawChip();
 }
 
 
 function onMouseUp(e) {
+    let position = board.itsOnTheBoard(e.layerX, e.layerY);
+    if (position !== null && lasClickedChip !== null) {
+        let player;
+        if (turn) {
+            player = player1;
+        } else player = player2;
+        if (board.setPosition(position, player["value"], player["chip"])) {
+            chips = chips.filter(c => c.getPosx() !== lasClickedChip.getPosx() && c.getPosy() !== lasClickedChip.getPosy());
+            turn = !turn;
+            drawChip();
+        }
+    };
+    lasClickedChip = null;
     isMouseDown = false;
 }
 
 function onMouseMove(e) {
     if (isMouseDown && lasClickedChip != null) {
         lasClickedChip.setPosition(e.layerX, e.layerY);
-        drawfigure();
+        drawChip();
     }
 }
 
 
-function findClikedFigure(x, y) {
+function findClikedChip(x, y) {
     for (let i = 0; i < chips.length; i++) {
         const element = chips[i];
         if (element.isPointInside(x, y)) {

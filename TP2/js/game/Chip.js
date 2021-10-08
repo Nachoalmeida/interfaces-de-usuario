@@ -6,7 +6,7 @@ class Chip {
         this.image = image;
         this.ctx = context;
         this.highlighted = false;
-        this.highlightedStyle = 'black';
+        this.highlightedStyle = 'red';
         this.radius = radius;
     }
 
@@ -48,6 +48,9 @@ class Chip {
             this.ctx.strokeStyle = this.highlightedStyle;
             this.ctx.lineWidth = 5;
             this.ctx.stroke();
+            this.ctx.beginPath();
+            this.ctx.arc(this.posx, this.posy, this.radius, 0, 2 * Math.PI);
+            this.ctx.closePath();
         }*/
     }
 
