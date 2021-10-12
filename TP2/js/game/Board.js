@@ -23,13 +23,13 @@ class Board {
                     let chip = null;
                     if (i === 0) {
                         chip = new Chip(posx, posy, 15, new Image(), ctx);
-                        rows.push(chip);
+                        rows.push(chip); //[1,2,3,4];
                     } else {
                         chip = new Chip(posx, posy, 15, this.image, ctx);
                         rows.push({
                             chip: chip,
                             value: 0
-                        });
+                        }); //[{chip,value},{chip,value},{chip,value}];
                     }
                     chip.draw();
                     posx += this.image.width;
@@ -53,7 +53,7 @@ class Board {
 
 
     itsOnTheBoard(x, y) {
-        if (this.board.length > 1) {
+        if (this.board.length > 0) {
             let chips = this.board[0];
             for (let i = 0; i < chips.length; i++) {
                 if (chips[i].isPointInside(x, y)) {
