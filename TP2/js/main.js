@@ -111,9 +111,7 @@ function onMouseUp(e) {
         if (board.setPosition(position, playerPlay["value"], playerPlay["chipTextures"]['boxChip'])) {
             playerPlay['chips'] = playerPlay['chips'].filter(c => c.getPosx() !== lasClickedChip.getPosx() && c.getPosy() !== lasClickedChip.getPosy());
             drawChip();
-            //board.winnerX(4);
-            console.log(board.winnerX(4));
-            console.log(board.winnerY(4));
+            board.checkWinner(4);
             shifts();
         }
     };

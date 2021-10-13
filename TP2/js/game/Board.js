@@ -77,6 +77,27 @@ class Board {
         return false;
     }
 
+    checkWinner(line) {
+        let winner = false;
+        winner = this.winnerX(line);
+        if (winner) {
+            return winner;
+        }
+        winner = this.winnerY(line);
+        if (winner) {
+            return winner;
+        }
+        winner = this.left(line);
+        if (winner) {
+            return winner;
+        }
+        winner = this.right(line);
+        if (winner) {
+            return winner;
+        }
+        return false;
+    }
+
     winnerX(line) {
         for (let i = 1; i <= this.columns; i++) {
             let tmp = [];
@@ -118,6 +139,102 @@ class Board {
                     }
                 }
 
+            }
+        }
+        return false;
+    }
+
+    left(line) {
+        for (let r = 0; r < this.rows; r++) {
+            let j = r;
+            let i = 1;
+            let tmp = [];
+            while (j >= 0 && i <= this.columns) {
+                if (this.board[i][j]['value'] !== 0) {
+                    if (tmp.lenght === 0) {
+                        tmp.push(this.board[i][j]['value']);
+                    } else if (tmp[0] === this.board[i][j]['value']) {
+                        tmp.push(this.board[i][j]['value']);
+                        if (tmp.length === line) {
+                            return tmp[0];
+                        }
+                    } else {
+                        tmp = [];
+                        tmp.push(this.board[i][j]['value']);
+                    }
+                }
+                j--;
+                i++;
+            }
+        }
+        for (let i = 2; i < this.columns + 1; i++) {
+            let r = this.rows - 1;
+            let column = i;
+            let tmp = [];
+            while (column < this.columns + 1 && r >= 0) {
+                if (this.board[column][r]['value'] !== 0) {
+                    if (tmp.lenght === 0) {
+                        tmp.push(this.board[column][r]['value']);
+                    } else if (tmp[0] === this.board[column][r]['value']) {
+                        tmp.push(this.board[column][r]['value']);
+                        if (tmp.length === line) {
+                            return tmp[0];
+                        }
+                    } else {
+                        tmp = [];
+                        tmp.push(this.board[column][r]['value']);
+                    }
+                }
+                r--;
+                column++;
+            }
+        }
+        return false;
+    }
+
+    right(line) {
+        for (let r = this.rows - 1; r > 0; r--) {
+            let row = r;
+            let column = 1;
+            let tmp = [];
+            while (row < this.rows && column <= this.columns) {
+                if (this.board[column][row]['value'] !== 0) {
+                    if (tmp.lenght === 0) {
+                        tmp.push(this.board[column][row]['value']);
+                    } else if (tmp[0] === this.board[column][row]['value']) {
+                        tmp.push(this.board[column][row]['value']);
+                        if (tmp.length === line) {
+                            return tmp[0];
+                        }
+                    } else {
+                        tmp = [];
+                        tmp.push(this.board[column][row]['value']);
+                    }
+                }
+                row++;
+                column++;
+            }
+        }
+        for (let i = 2; i <= this.columns; i++) {
+            let r = 0;
+            let column = i;
+            let tmp = [];
+            while (column <= this.columns && r < this.rows) {
+                if (this.board[column][r]['value'] !== 0) {
+                    if (tmp.lenght === 0) {
+                        tmp.push(this.board[column][r]['value']);
+                    } else if (tmp[0] === this.board[column][r]['value']) {
+                        tmp.push(this.board[column][r]['value']);
+                        if (tmp.length === line) {
+                            return tmp[0];
+                        }
+                    } else {
+                        tmp = [];
+                        tmp.push(this.board[column][r]['value']);
+                    }
+                }
+                r++;
+                column++;
             }
         }
         return false;
