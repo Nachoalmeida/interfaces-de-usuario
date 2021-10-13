@@ -76,4 +76,55 @@ class Board {
         }
         return false;
     }
+
+    winnerX(line) {
+        for (let i = 1; i <= this.columns; i++) {
+            let tmp = [];
+            for (let j = 0; j < this.rows; j++) {
+                if (this.board[i][j]['value'] !== 0) {
+                    if (tmp.lenght === 0) {
+                        tmp.push(this.board[i][j]['value']);
+                    } else if (tmp[0] === this.board[i][j]['value']) {
+                        tmp.push(this.board[i][j]['value']);
+                        if (tmp.length === line) {
+                            return true;
+                        }
+                    } else {
+                        tmp = [];
+                        tmp.push(this.board[i][j]['value']);
+                    }
+                }
+
+            }
+        }
+        return false;
+    }
+
+    winnerY(line) {
+        for (let j = 0; j < this.rows; j++) {
+            let tmp = [];
+            for (let i = 1; i <= this.columns; i++) {
+                if (this.board[i][j]['value'] !== 0) {
+                    if (tmp.lenght === 0) {
+                        tmp.push(this.board[i][j]['value']);
+                    } else if (tmp[0] === this.board[i][j]['value']) {
+                        tmp.push(this.board[i][j]['value']);
+                        if (tmp.length === line) {
+                            return true;
+                        }
+                    } else {
+                        tmp = [];
+                        tmp.push(this.board[i][j]['value']);
+                    }
+                }
+
+            }
+        }
+        return false;
+    }
+
+
+
+
+
 }
