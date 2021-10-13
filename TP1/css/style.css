@@ -26,9 +26,6 @@ div {
 
 .container {
     display: flex;
-    flex-wrap: wrap;
-    padding: 10px;
-    flex-direction: row;
 }
 
 .center {

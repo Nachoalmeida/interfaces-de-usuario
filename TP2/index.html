@@ -5,11 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TP2</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <h1 id='title'>4 en linea</h1>
-    <canvas id="canvas" height="450" width="700"></canvas>
+    <div class="container">
+        <div class="divcont margin">
+            <h1 class="text_center" id='title'>4 en linea</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="margin">
+            <canvas id="canvas" height="450" width="700"></canvas>
+        </div>
+
+        <div class="cronometro">
+            <div id="hms"></div>
+        </div>
+
+        <div>
+            <label>Modo de Juego: </label>
+            <select id="gameMode">
+                <option value="0">4 en Linea</option>
+                <option value="1">5 en Linea</option>
+                <option value="2">6 en Linea</option>
+                <option value="3">7 en Linea</option>
+            </select>
+
+            <label>Tiempo de Juego: </label>
+            <select id="gameTime">
+                <option value="300000">5 minutos</option>
+                <option value="600000">10 minutos</option>
+                <option value="1800000">30 minutos</option>
+            </select>
+
+            <label>Tipo de Ficha: </label>
+            <select id="chipType">
+                <option value="0">Rojo Vs. Violeta</option>
+                <option value="1">Negro Vs. Verde</option>
+            </select>
+
+        </div>
+
+
+    </div>
+    <div class="container">
+        <button id="startGame">JUGAR</button>
+
+        <button id="resetGame">REINICIAR JUEGO</button>
+    </div>
+
     <img src="images/chip_4.png" alt="chip" id="chip_4" hidden>
     <img src="images/chip_3.png" alt="chip" id="chip_3" hidden>
     <img src="images/box_empty.png" alt="chip" id="box_empty" hidden>
@@ -19,30 +66,6 @@
     <img src="images/chip_2.png" alt="chip" id="chip_2" hidden>
     <img src="images/box_chip_1.png" alt="chip_c_1" id="box_chip_1" hidden>
     <img src="images/box_chip_2.png" alt="chip_c_1" id="box_chip_2" hidden>
-
-    <button id="resetGame" class="iconReset">REINICIAR JUEGO</button>
-    <button id="startGame" class="iconReset">JUGAR</button>
-    <label>Modo de Juego: </label>
-    <select id="gameMode">
-        <option value="0">4 en Linea</option>
-        <option value="1">5 en Linea</option>
-        <option value="2">6 en Linea</option>
-        <option value="3">7 en Linea</option>
-    </select>
-    <label>Tiempo de Juego: </label>
-    <select id="gameTime">
-        <option value="300000">5 minutos</option>
-        <option value="600000">10 minutos</option>
-        <option value="1800000">30 minutos</option>
-    </select>
-    </select>
-    <label>Tipo de Ficha: </label>
-    <select id="chipType">
-    <option value="0">Rojo Vs. Violeta</option>
-    <option value="1">Negro Vs. Verde</option>
-    </select>
-
-
 
     <script src="js/game/Board.js"></script>
     <script src="js/game/Chip.js"></script>

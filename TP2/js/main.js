@@ -15,9 +15,12 @@ let board = null;
 let timer = null;
 let time = 300000;
 
-
-
 let title = document.getElementById("title");
+
+let h = 0;
+let m = 0;
+let s = 0;
+let id = null;
 
 let box_empty = document.getElementById("box_empty");
 
@@ -30,7 +33,7 @@ let chipsTextures = [
     ]
 ];
 
-let playerPlay;
+let playerPlay = null;
 let players = [{
     value: 1,
     chipTextures: chipsTextures[0][0],
@@ -66,6 +69,8 @@ let reset = document.getElementById('resetGame').addEventListener('click', reset
 document.getElementById('resetGame').disabled = true;
 let start = document.getElementById('startGame').addEventListener('click', startGame);
 
+document.getElementById("hms").innerHTML = "00:00:00";
+
 function resetGame() {
     board = null;
     turn = 0;
@@ -80,10 +85,10 @@ function resetGame() {
     document.getElementById("gameMode").disabled = false;
     document.getElementById("gameTime").disabled = false;
     document.getElementById("chipType").disabled = false;
+    clearChronometer();
 }
 
 function startGame() {
-
     createChips();
     shifts();
     drawChip();
@@ -93,6 +98,8 @@ function startGame() {
     document.getElementById("gameMode").disabled = true;
     document.getElementById("gameTime").disabled = true;
     document.getElementById("chipType").disabled = true;
+    document.getElementById("hms").innerHTML = "00:00:00";
+    chronometer();
     timer = setTimeout(function() {
         alert("Fin del tiempo de Juego");
         resetGame();
@@ -153,38 +160,42 @@ function clearCanvas() {
 }
 
 function onMouseDown(e) {
-    isMouseDown = true;
+    if (playerPlay !== null) {
+        isMouseDown = true;
 
-    if (lasClickedChip != null) {
-        lasClickedChip = null;
+        if (lasClickedChip != null) {
+            lasClickedChip = null;
+        }
+
+        let clickChip = findClikedChip(e.layerX, e.layerY);
+
+        if (clickChip != null) {
+            lasClickedChip = clickChip;
+        }
+        drawChip();
     }
-
-    let clickChip = findClikedChip(e.layerX, e.layerY);
-
-    if (clickChip != null) {
-        lasClickedChip = clickChip;
-    }
-    drawChip();
 }
 
 function onMouseUp(e) {
-    let position = board.itsOnTheBoard(e.layerX, e.layerY);
-    if (position !== null && lasClickedChip !== null) {
-        if (board.setPosition(position, playerPlay["value"], playerPlay["chipTextures"]['boxChip'])) {
-            playerPlay['chips'] = playerPlay['chips'].filter(c => c.getPosx() !== lasClickedChip.getPosx() && c.getPosy() !== lasClickedChip.getPosy());
-            drawChip();
-            let win = board.checkWinner(check);
-            if (win) {
-                setTimeout(function() {
-                    alert('Gano el Jugador ' + win);
-                    resetGame();
-                }, 500);
+    if (playerPlay !== null) {
+        let position = board.itsOnTheBoard(e.layerX, e.layerY);
+        if (position !== null && lasClickedChip !== null) {
+            if (board.setPosition(position, playerPlay["value"], playerPlay["chipTextures"]['boxChip'])) {
+                playerPlay['chips'] = playerPlay['chips'].filter(c => c.getPosx() !== lasClickedChip.getPosx() && c.getPosy() !== lasClickedChip.getPosy());
+                drawChip();
+                let win = board.checkWinner(check);
+                if (win) {
+                    setTimeout(function() {
+                        alert('Gano el Jugador ' + win);
+                        resetGame();
+                    }, 500);
+                }
+                shifts();
             }
-            shifts();
-        }
-    };
-    lasClickedChip = null;
-    isMouseDown = false;
+        };
+        lasClickedChip = null;
+        isMouseDown = false;
+    }
 }
 
 function onMouseMove(e) {
@@ -201,4 +212,37 @@ function findClikedChip(x, y) {
             return element;
         }
     }
+}
+
+function chronometer() {
+    write();
+    id = setInterval(write, 1000);
+}
+
+function clearChronometer() {
+    clearInterval(id);
+    s = 0;
+    m = 0;
+    h = 0;
+    document.getElementById("hms").innerHTML = "00:00:00";
+}
+
+function write() {
+    let hAux, mAux, sAux;
+    s++;
+    if (s > 59) {
+        m++;
+        s = 0;
+    }
+    if (m > 59) {
+        h++;
+        m = 0;
+    }
+    if (h > 24) { h = 0; }
+
+    if (s < 10) { sAux = "0" + s; } else { sAux = s; }
+    if (m < 10) { mAux = "0" + m; } else { mAux = m; }
+    if (h < 10) { hAux = "0" + h; } else { hAux = h; }
+
+    document.getElementById("hms").innerHTML = hAux + ":" + mAux + ":" + sAux;
 }
