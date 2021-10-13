@@ -8,16 +8,42 @@
 </head>
 
 <body>
-    <h1 id='title'>4 en liena</h1>
-    <canvas id="canvas" height="400" width="700"></canvas>
+    <h1 id='title'>4 en linea</h1>
+    <canvas id="canvas" height="450" width="700"></canvas>
     <img src="images/chip_4.png" alt="chip" id="chip_4" hidden>
     <img src="images/chip_3.png" alt="chip" id="chip_3" hidden>
     <img src="images/box_empty.png" alt="chip" id="box_empty" hidden>
     <img src="images/box_chip_4.png" alt="chip_c_1" id="box_chip_4" hidden>
     <img src="images/box_chip_3.png" alt="chip_c_1" id="box_chip_3" hidden>
+    <img src="images/chip_1.png" alt="chip" id="chip_1" hidden>
+    <img src="images/chip_2.png" alt="chip" id="chip_2" hidden>
+    <img src="images/box_chip_1.png" alt="chip_c_1" id="box_chip_1" hidden>
+    <img src="images/box_chip_2.png" alt="chip_c_1" id="box_chip_2" hidden>
+
+    <button id="resetGame" class="iconReset">REINICIAR JUEGO</button>
+    <button id="startGame" class="iconReset">JUGAR</button>
+    <label>Modo de Juego: </label>
+    <select id="gameMode">
+        <option value="0">4 en Linea</option>
+        <option value="1">5 en Linea</option>
+        <option value="2">6 en Linea</option>
+        <option value="3">7 en Linea</option>
+    </select>
+    <label>Tiempo de Juego: </label>
+    <select id="gameTime">
+        <option value="300000">5 minutos</option>
+        <option value="600000">10 minutos</option>
+        <option value="1800000">30 minutos</option>
+    </select>
+    </select>
+    <label>Tipo de Ficha: </label>
+    <select id="chipType">
+    <option value="0">Rojo Vs. Violeta</option>
+    <option value="1">Negro Vs. Verde</option>
+    </select>
 
 
-    <script src="js/game/Player.js"></script>
+
     <script src="js/game/Board.js"></script>
     <script src="js/game/Chip.js"></script>
     <script src="js/main.js"></script>

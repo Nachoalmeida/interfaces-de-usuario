@@ -15,27 +15,27 @@ class Board {
 
     createMatrix() {
         if (this.board.length === 0) {
-            let posx = (this.width / 4);
-            let posy = (this.height / 4);
+            let posx = (this.width / 5);
+            let posy = (this.height / 5);
             for (let i = 0; i < this.columns + 1; i++) {
                 let rows = [];
                 for (let j = 0; j < this.rows; j++) {
                     let chip = null;
                     if (i === 0) {
                         chip = new Chip(posx, posy, 15, new Image(), ctx);
-                        rows.push(chip); //[1,2,3,4];
+                        rows.push(chip);
                     } else {
                         chip = new Chip(posx, posy, 15, this.image, ctx);
                         rows.push({
                             chip: chip,
                             value: 0
-                        }); //[{chip,value},{chip,value},{chip,value}];
+                        });
                     }
                     chip.draw();
                     posx += this.image.width;
                 }
                 posy += this.image.height;
-                posx = (this.width / 4);
+                posx = (this.width / 5);
                 this.board.push(rows);
             }
         } else draw();
@@ -108,12 +108,14 @@ class Board {
                     } else if (tmp[0] === this.board[i][j]['value']) {
                         tmp.push(this.board[i][j]['value']);
                         if (tmp.length === line) {
-                            return true;
+                            return tmp[0];
                         }
                     } else {
                         tmp = [];
                         tmp.push(this.board[i][j]['value']);
                     }
+                } else {
+                    tmp = [];
                 }
 
             }
@@ -131,12 +133,14 @@ class Board {
                     } else if (tmp[0] === this.board[i][j]['value']) {
                         tmp.push(this.board[i][j]['value']);
                         if (tmp.length === line) {
-                            return true;
+                            return tmp[0];
                         }
                     } else {
                         tmp = [];
                         tmp.push(this.board[i][j]['value']);
                     }
+                } else {
+                    tmp = [];
                 }
 
             }
@@ -162,6 +166,8 @@ class Board {
                         tmp = [];
                         tmp.push(this.board[i][j]['value']);
                     }
+                } else {
+                    tmp = [];
                 }
                 j--;
                 i++;
@@ -184,6 +190,8 @@ class Board {
                         tmp = [];
                         tmp.push(this.board[column][r]['value']);
                     }
+                } else {
+                    tmp = [];
                 }
                 r--;
                 column++;
@@ -210,6 +218,8 @@ class Board {
                         tmp = [];
                         tmp.push(this.board[column][row]['value']);
                     }
+                } else {
+                    tmp = [];
                 }
                 row++;
                 column++;
@@ -232,6 +242,8 @@ class Board {
                         tmp = [];
                         tmp.push(this.board[column][r]['value']);
                     }
+                } else {
+                    tmp = [];
                 }
                 r++;
                 column++;

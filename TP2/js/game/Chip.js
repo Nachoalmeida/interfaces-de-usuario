@@ -44,14 +44,6 @@ class Chip {
 
     draw() {
         this.ctx.drawImage(this.image, this.posx - this.radius, this.posy - this.radius, this.radius * 2, this.radius * 2);
-        /*if (this.highlighted === true) {
-            this.ctx.strokeStyle = this.highlightedStyle;
-            this.ctx.lineWidth = 5;
-            this.ctx.stroke();
-            this.ctx.beginPath();
-            this.ctx.arc(this.posx, this.posy, this.radius, 0, 2 * Math.PI);
-            this.ctx.closePath();
-        }*/
     }
 
     getRadius() {
