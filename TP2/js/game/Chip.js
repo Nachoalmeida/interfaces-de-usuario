@@ -42,6 +42,7 @@ class Chip {
         this.highlighted = r;
     }
 
+    //Dibuja el Chip
     draw() {
         this.ctx.drawImage(this.image, this.posx - this.radius, this.posy - this.radius, this.radius * 2, this.radius * 2);
     }
