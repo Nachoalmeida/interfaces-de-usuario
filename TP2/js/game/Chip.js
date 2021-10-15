@@ -51,6 +51,7 @@ class Chip {
         return this.radius;
     }
 
+    //Verifica si un elemento se encuentra dentro del circulo.
     isPointInside(x, y) {
         let _x = this.posx - x;
         let _y = this.posy - y;

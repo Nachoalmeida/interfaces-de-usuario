@@ -5,23 +5,27 @@ let canvasHeight = canvas.height; //400
 
 let rows = 6;
 let columns = 7;
-let check = 4;
+let check = 4; //Cantidad de fichas contiguas para ganar el juego.
 
-let lasClickedChip = null;
-let isMouseDown = false;
+let lasClickedChip = null; //Ultima ficha cliqueada.
+let isMouseDown = false; //Mouse apretado.
 
-let turn = 0;
+let turn = 0; //Turno del jugador.
 let board = null;
-let timer = null;
+let timer = null; //Reloj
 let time = 300000;
 
 let title = document.getElementById("title");
 
+//Variables cronometro.  
 let h = 0;
 let m = 0;
 let s = 0;
 let id = null;
+document.getElementById("hms").innerHTML = "00:00:00";
+//////////////////////
 
+//Texturas de las fichas y casillas.
 let box_empty = document.getElementById("box_empty");
 
 let chipsTextures = [
@@ -32,9 +36,10 @@ let chipsTextures = [
         { chip: document.getElementById("chip_2"), boxChip: document.getElementById("box_chip_2") }
     ]
 ];
+///////////////////////////////////////////////////////
 
-let playerPlay = null;
-let players = [{
+let playerPlay = null; //Guarda los datos del jugador que tiene el turno.
+let players = [{ //Jugadores
     value: 1,
     chipTextures: chipsTextures[0][0],
     chips: [],
@@ -69,8 +74,8 @@ let reset = document.getElementById('resetGame').addEventListener('click', reset
 document.getElementById('resetGame').disabled = true;
 let start = document.getElementById('startGame').addEventListener('click', startGame);
 
-document.getElementById("hms").innerHTML = "00:00:00";
 
+//Reinicia el juego.
 function resetGame() {
     board = null;
     turn = 0;
@@ -88,6 +93,7 @@ function resetGame() {
     clearChronometer();
 }
 
+//Inicia el juego.
 function startGame() {
     createChips();
     shifts();
@@ -98,23 +104,24 @@ function startGame() {
     document.getElementById("gameMode").disabled = true;
     document.getElementById("gameTime").disabled = true;
     document.getElementById("chipType").disabled = true;
-    document.getElementById("hms").innerHTML = "00:00:00";
+    document.getElementById("hms").innerHTML = "00:00:00"; //inicia cronometro en cero:
     chronometer();
     timer = setTimeout(function() {
         alert("Fin del tiempo de Juego");
         resetGame();
-    }, time); //5 min de juego
+    }, time); //5 min de juego por defecto
 
 }
 
-
+/////////////////////EVENTOS MOUSE///////////////////////////
 canvas.addEventListener('mousedown', onMouseDown, false);
 canvas.addEventListener('mouseup', onMouseUp, false);
 canvas.addEventListener('mousemove', onMouseMove, false);
 
+//Controla los turnos.
 function shifts() {
     turn = !turn;
-    if (turn) {
+    if (turn) { //Si es true, playerPlay pasa a ser player 1 de lo contrario playerPlay pasa a ser player 2.
         playerPlay = players[0];
         title.innerHTML = 'Juega: Jugador 1';
     } else {
@@ -123,6 +130,7 @@ function shifts() {
     }
 }
 
+//Crea 1 a 1 las fichas que utilizara cada jugador, a partir del alto y ancho del tablero.
 function createChips() {
     for (let i = 0; i < rows * columns; i++) {
         if (i < (rows * columns) / 2)
@@ -131,16 +139,19 @@ function createChips() {
     }
 }
 
+//Crea un tablero.
 function addBoard() {
     board = new Board(rows, columns, canvas.width, canvas.height, box_empty, ctx);
     board.createBoard();
 }
 
+//Crea una ficha con las caracteristicas enviadas por parametro.
 function addChip(posx, posy, player) {
     let chip = new Chip(posx, posy, 14, player['chipTextures']['chip'], ctx);
-    player['chips'].push(chip);
+    player['chips'].push(chip); //Añade la ficha al jugador
 }
 
+//Redibuja el canvas. 
 function drawChip() {
     clearCanvas();
     for (let i = 0; i < players[0]['chips'].length; i++) {
@@ -154,11 +165,13 @@ function drawChip() {
     }
 }
 
+//Dibuja un rectangulo en blaco con las medidas del canvas y lo coloca sobre el anterior. 
 function clearCanvas() {
     ctx.fillStyle = "#F8F8FF";
     ctx.fillRect(0, 0, canvasWidth, canvasHeight);
 }
 
+//Detecta cuando el mouse hace click sobre una ficha 
 function onMouseDown(e) {
     if (playerPlay !== null) {
         isMouseDown = true;
@@ -167,7 +180,7 @@ function onMouseDown(e) {
             lasClickedChip = null;
         }
 
-        let clickChip = findClikedChip(e.layerX, e.layerY);
+        let clickChip = findClikedChip(e.layerX, e.layerY); //Retorna la ficha ubicada en esa posicion.
 
         if (clickChip != null) {
             lasClickedChip = clickChip;
@@ -176,21 +189,23 @@ function onMouseDown(e) {
     }
 }
 
+
+//Detecta cuando el mouse hace deja de hacer click sobre una ficha. 
 function onMouseUp(e) {
     if (playerPlay !== null) {
-        let position = board.itsOnTheBoard(e.layerX, e.layerY);
-        if (position !== null && lasClickedChip !== null) {
-            if (board.setPosition(position, playerPlay["value"], playerPlay["chipTextures"]['boxChip'])) {
-                playerPlay['chips'] = playerPlay['chips'].filter(c => c.getPosx() !== lasClickedChip.getPosx() && c.getPosy() !== lasClickedChip.getPosy());
+        let position = board.itsOnTheBoard(e.layerX, e.layerY); // Verifica si la ficha esta sobre una posicion del tablero.
+        if (position !== null && lasClickedChip !== null) { //si devuelve una posicion y existe una ficha.
+            if (board.setPosition(position, playerPlay["value"], playerPlay["chipTextures"]['boxChip'])) { //Coloca la ficha en el tablero, si esta no esta lleno.
+                playerPlay['chips'] = playerPlay['chips'].filter(c => c.getPosx() !== lasClickedChip.getPosx() && c.getPosy() !== lasClickedChip.getPosy()); //Elimina la ficha de las que aun tiene diponibles el jugador.
                 drawChip();
-                let win = board.checkWinner(check);
-                if (win) {
+                let win = board.checkWinner(check); //Chequea si hay 'x' fichas en linea.
+                if (win) { //Si hay ganador 
                     setTimeout(function() {
-                        alert('Gano el Jugador ' + win);
-                        resetGame();
-                    }, 500);
+                        alert('Gano el Jugador ' + win); //Envia una alerta de quien gano.
+                        resetGame(); //Reinicia el juego.
+                    }, 500); //se crea un delay de medio segundo para que muestre la ficha en su lugar antes de emitir el alert.  
                 }
-                shifts();
+                shifts(); //Cambia el turno.
             }
         };
         lasClickedChip = null;
@@ -198,6 +213,7 @@ function onMouseUp(e) {
     }
 }
 
+//Cambia la posicion de la ficha en el canvas.
 function onMouseMove(e) {
     if (isMouseDown && lasClickedChip != null) {
         lasClickedChip.setPosition(e.layerX, e.layerY);
@@ -205,6 +221,7 @@ function onMouseMove(e) {
     }
 }
 
+//Retorna una ficha si esta se encuentra en dicha posicion.
 function findClikedChip(x, y) {
     for (let i = 0; i < playerPlay['chips'].length; i++) {
         const element = playerPlay['chips'][i];
@@ -214,11 +231,13 @@ function findClikedChip(x, y) {
     }
 }
 
+//Comienza con el cronometro.
 function chronometer() {
     write();
-    id = setInterval(write, 1000);
+    id = setInterval(write, 1000); //Cada 1 segundo manda a escribir el cronometro.
 }
 
+//Reinicia el cronometro.
 function clearChronometer() {
     clearInterval(id);
     s = 0;
@@ -227,6 +246,7 @@ function clearChronometer() {
     document.getElementById("hms").innerHTML = "00:00:00";
 }
 
+//Escribe el cronometro con segundos,minutos y horas.
 function write() {
     let hAux, mAux, sAux;
     s++;

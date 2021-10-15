@@ -19,15 +19,15 @@ class Board {
             let posx = (this.width / 5); //Define la posicion x,y para determinar la posicion en el canvas de cada casilla.
             let posy = (this.height / 5);
             for (let i = 0; i < this.columns + 1; i++) {
-                let rows = [];
+                let tmp = [];
                 for (let j = 0; j < this.rows; j++) {
                     let chip = null;
                     if (i === 0) { //Crea la primer fila que no será visible, su finalidad es la de identificar en cual columna caerá la ficha al ser soltada.
                         chip = new Chip(posx, posy, 15, new Image(), ctx);
-                        rows.push(chip);
+                        tmp.push(chip);
                     } else { //Crea el resto de las casillas visibles de la matriz en el Canvas.
                         chip = new Chip(posx, posy, 15, this.image, ctx);
-                        rows.push({ //Se crea un objeto que contiene la casilla (Chip) y un valor para identificar si la casilla esta vacía o al jugador que colocó alli su ficha.
+                        tmp.push({ //Se crea un objeto que contiene la casilla (Chip) y un valor para identificar si la casilla esta vacía o al jugador que colocó alli su ficha.
                             chip: chip,
                             value: 0
                         });
@@ -37,7 +37,7 @@ class Board {
                 }
                 posy += this.image.height; //Se corre hacia abajo la posicion de y segun el alto de la imagen de la casilla.
                 posx = (this.width / 5); //Se reinicia la posicion de x.
-                this.board.push(rows);
+                this.board.push(tmp);
             }
         } else draw(); //Si la matriz ya está creada sólo la dibuja.
     }
@@ -136,7 +136,7 @@ class Board {
             let j = r;
             let i = 1;
             let tmp = [];
-            while (j >= 0 && i <= this.columns) { //Recorre de der a izq (j) y de arriba a abajo(i).
+            while (j >= 0 && i <= this.columns) { //Recorre de der a izq (j) y de arriba a abajo (i).
                 tmp = this.checkArray(this.board[i][j]['value'], tmp);
                 if (tmp.length === line) { //Si tmp alcanza la cantidad "line" retorna el valor del jugador.
                     return tmp[0];
@@ -165,27 +165,27 @@ class Board {
 
     //Verifica de manera diagonal de izquierda a derecha si existen "line" cantidad de fichas consecutivas de un mismo jugador
     right(line) {
-        for (let r = this.rows - 1; r > 0; r--) { //Recorre de izquierda a derecha
+        for (let r = this.rows - 1; r > 0; r--) { //Recorre de abajo a arriba
             let row = r;
             let column = 1;
             let tmp = [];
-            while (row < this.rows && column <= this.columns) {
+            while (row < this.rows && column <= this.columns) { //Recorre de izq a der(row) y de arriba hacia abajo (column).
                 tmp = this.checkArray(this.board[column][row]['value'], tmp);
-                if (tmp.length === line) {
+                if (tmp.length === line) { //Si tmp alcanza la cantidad "line" retorna el valor del jugador.
                     return tmp[0];
                 }
                 row++;
                 column++;
             }
         }
-        for (let i = 2; i <= this.columns; i++) {
+        for (let i = 2; i <= this.columns; i++) { //Recorre de izquierda a derecha.
             let r = 0;
             let column = i;
             let tmp = [];
-            while (column <= this.columns && r < this.rows) {
+            while (column <= this.columns && r < this.rows) { //Recorre de izq a der(r) y de arriba hacia abajo (column).
                 tmp = this.checkArray(this.board[column][r]['value'], tmp);
                 if (tmp.length === line) {
-                    return tmp[0];
+                    return tmp[0]; //Si tmp alcanza la cantidad "line" retorna el valor del jugador.
                 }
                 r++;
                 column++;
@@ -194,6 +194,7 @@ class Board {
         return false;
     }
 
+    //Chequea si hay fichas contiguas del mismo jugador. Si hay la agrega al arreglo sino, lo reinicia y luego agrega.
     checkArray(value, tmp) {
         if (value !== 0) {
             if (tmp.lenght === 0) {
