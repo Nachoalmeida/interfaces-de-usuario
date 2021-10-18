@@ -13,10 +13,14 @@ let currentColor = '#000000';
 let size = 1;
 let a = 255;
 
-let figures = [];
+
 let isMouseDown = false;
 let file = document.getElementById('file');
 let imageData;
+
+let x = 0;
+let y = 0;
+let r = canvas.getBoundingClientRect();
 
 /////////////////////BOTON DOWNLOAD///////////////////////////
 let dwn = document.getElementById('btndownload').addEventListener('click', function() {
@@ -302,7 +306,6 @@ file.addEventListener('change', function() {
         let y = (canvasHeight - this.height) / 2;
 
         ctx.drawImage(image, x, y, this.width, this.height);
-        figures = [];
     }
 });
 
@@ -333,7 +336,8 @@ document.getElementById('filterSaturation').addEventListener('click', saturation
 document.getElementById('filterBlur').addEventListener('click', blur);
 
 function clearCanvas() {
-    figures = [];
+    x = 0;
+    y = 0;
     file.value = '';
     ctx.fillStyle = "#FFFFFF";
     ctx.fillRect(0, 0, canvasWidth, canvasHeight);
@@ -351,15 +355,9 @@ function eraser() {
     currentColor = "#FFFFFF";
 }
 
-function drawfigure() {
-    for (let i = 0; i < figures.length; i++) {
-        figures[i].draw();
-    }
-}
-
-function addPencil(x, y) {
-    let pencil = new Pencil(x, y, size, currentColor, ctx);
-    figures.push(pencil);
+function addPencil(x1, y1, x2, y2) {
+    let pencil = new Pencil(size, currentColor, ctx);
+    pencil.draw(x1, y1, x2, y2);
 }
 
 canvas.addEventListener('mousedown', onMouseDown, false);
@@ -368,21 +366,25 @@ canvas.addEventListener('mousemove', onMouseMove, false);
 
 function onMouseDown(e) {
     if (pencilBoolean === true || eraserBoolean === true) {
+        x = e.clientX - r.left;
+        y = e.clientY - r.top;
         isMouseDown = true;
-        addPencil(e.layerX, e.layerY);
-        drawfigure();
     }
 }
 
 function onMouseUp(e) {
     if (pencilBoolean === true || eraserBoolean === true) {
+        addPencil(x, y, e.clientX - r.left, e.clientY - r.top);
+        x = 0;
+        y = 0;
         isMouseDown = false;
     }
 }
 
 function onMouseMove(e) {
     if (isMouseDown && (pencilBoolean === true || eraserBoolean === true)) {
-        addPencil(e.layerX, e.layerY);
-        drawfigure();
+        addPencil(x, y, e.clientX - r.left, e.clientY - r.top);
+        x = e.clientX - r.left;
+        y = e.clientY - r.top;
     }
 }

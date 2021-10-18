@@ -189,7 +189,6 @@ function onMouseDown(e) {
     }
 }
 
-
 //Detecta cuando el mouse hace deja de hacer click sobre una ficha. 
 function onMouseUp(e) {
     if (playerPlay !== null) {
