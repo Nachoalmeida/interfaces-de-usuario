@@ -1,10 +1,12 @@
-let canvas = document.querySelector('#canvas');
+"use strict";
 
-canvas.width = document.querySelector('#div-canvas').offsetWidth;
+let canvas = document.querySelector('#canvas');
 
 let ctx = canvas.getContext('2d');
 let canvasWidth = canvas.width;
 let canvasHeight = canvas.height;
+let canvasWidthB = canvas.width;
+let canvasHeightB = canvas.height;
 let image = null;
 let pencilBoolean = false;
 let eraserBoolean = false;
@@ -62,17 +64,17 @@ function setPixel(imageData, x, y, r, g, b, a) {
 }
 
 function getRed(imageData, x, y) {
-    index = (x + y * imageData.width) * 4;
+    let index = (x + y * imageData.width) * 4;
     return imageData.data[index + 0];
 }
 
 function getGreen(imageData, x, y) {
-    index = (x + y * imageData.width) * 4;
+    let index = (x + y * imageData.width) * 4;
     return imageData.data[index + 1];
 }
 
 function getBlue(imageData, x, y) {
-    index = (x + y * imageData.width) * 4;
+    let index = (x + y * imageData.width) * 4;
     return imageData.data[index + 2];
 }
 
@@ -285,29 +287,7 @@ function sepia() {
 }
 
 //CARGAR IMAGEN
-file.addEventListener('change', function() {
-    image = new Image;
-    image.src = window.URL.createObjectURL(file.files[0]);
-    image.onload = function() {
-        if (this.width > canvasWidth || this.height > canvasHeight) {
-            let difW = this.width - canvasWidth;
-            let proporcionW = difW / this.width;
-            let difH = this.height - canvasHeight;
-            let proporcionH = difH / this.height;
-            if (proporcionW >= proporcionH) {
-                this.width = this.width * (1 - proporcionW);
-                this.height = this.height * (1 - proporcionW);
-            } else {
-                this.width = this.width * (1 - proporcionH);
-                this.height = this.height * (1 - proporcionH);
-            }
-        }
-        let x = (canvasWidth - this.width) / 2;
-        let y = (canvasHeight - this.height) / 2;
-
-        ctx.drawImage(image, x, y, this.width, this.height);
-    }
-});
+file.addEventListener('change', loadImage);
 
 
 ////////////////BOTONES RESET, COLOR Y GROSOR////////////////////////////////////////////
@@ -334,11 +314,38 @@ document.getElementById('filterLightness').addEventListener('click', lightness);
 document.getElementById('filterSepia').addEventListener('click', sepia);
 document.getElementById('filterSaturation').addEventListener('click', saturation);
 document.getElementById('filterBlur').addEventListener('click', blur);
+document.getElementById('resetImage').addEventListener('click', loadImage);
+
+function loadImage() {
+
+    image = new Image;
+    image.src = window.URL.createObjectURL(file.files[0]);
+    image.onload = function() {
+        if (this.width > canvasWidthB || this.height > canvasHeightB) {
+            let difW = this.width - canvasWidthB;
+            let proporcionW = difW / this.width;
+            let difH = this.height - canvasHeightB;
+            let proporcionH = difH / this.height;
+            if (proporcionW >= proporcionH) {
+                this.width = this.width * (1 - proporcionW);
+                this.height = this.height * (1 - proporcionW);
+            } else {
+                this.width = this.width * (1 - proporcionH);
+                this.height = this.height * (1 - proporcionH);
+            }
+        }
+        canvas.height = this.height;
+        canvas.width = this.width;
+        canvasHeight = this.height;
+        canvasWidth = this.width;
+        clearCanvas();
+        ctx.drawImage(image, 0, 0, this.width, this.height);
+    }
+}
 
 function clearCanvas() {
     x = 0;
     y = 0;
-    file.value = '';
     ctx.fillStyle = "#FFFFFF";
     ctx.fillRect(0, 0, canvasWidth, canvasHeight);
 }

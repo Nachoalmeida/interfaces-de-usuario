@@ -9,11 +9,17 @@ button {
     width: 130px;
     height: 30px;
     border-radius: 3px;
+    border: none;
     font-family: Helvetica;
+}
+
+.btnResetImage {
+    background-color: gray;
 }
 
 button:hover {
     cursor: pointer;
+    background-color: aqua;
 }
 
 body {
