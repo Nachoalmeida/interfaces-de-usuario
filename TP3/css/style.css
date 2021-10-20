@@ -1,0 +1,95 @@
+body{
+    margin: 0;
+}
+
+#player{
+    width: 100px;
+    height: 153px;
+    background-image: url(../images/playerRun.png);
+    animation: walk .7s steps(10) infinite;
+    position: absolute;
+    bottom: 2%;
+    left: 20%;
+}
+
+@keyframes walk{
+    0%{
+        background-position: 0px;
+    }
+    100%{
+        background-position: -1000px;
+    }
+}
+
+#cat{
+    width: 86.17px;
+    height: 69px;
+    background-image: url(../images/cat.png);
+    animation: catA .5s steps(6) infinite;
+    position: absolute;
+    bottom: 2%;
+    left: 18%;
+}
+
+@keyframes catA{
+    0%{
+        background-position: 0px;
+    }
+    100%{
+        background-position: -517px;
+    }
+}
+
+#bear{
+    width: 86.5px;
+    height: 68px;
+    transform: scale(-2,2);
+    background-image: url(../images/bear.png);
+    animation: bearA 1s steps(6) 1s infinite,bearARun 10s linear infinite;
+    position: absolute;
+    bottom: 14%;
+    right: 18%;
+}
+
+@keyframes bearA{
+    0%{
+        background-position: 0px;
+    }
+    100%{
+        background-position: -519px;
+    }
+}
+
+@keyframes bearARun{
+    0%{
+        right: 0%;
+    }
+    100%{
+        right: 100%;
+    }
+}
+
+#backgroundTwo{
+    position: absolute;
+    width: 100%;
+    height: 259px;
+    background-image: url(../images/background.jpg);
+    animation: backgroundA 5s linear infinite;
+    top: 30%;
+}
+
+@keyframes backgroundA{
+    0%{
+        background-position: 0px;
+    }
+    100%{
+        background-position: -660px;
+    }
+}
+
+#backgroundOne{
+    position: relative;
+    width: 100%;
+    height: 370px;
+    background-image: url(../images/background2.jpg);
+}
