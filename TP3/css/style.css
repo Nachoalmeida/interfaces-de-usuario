@@ -1,11 +1,15 @@
 body{
     margin: 0;
+    background: rgb(58, 58, 58);
+    font-family: 'Roboto', sans-serif;
+    color: white;
 }
 
+/*********************************PLAYER*************************************************/
 #player{
     width: 100px;
     height: 153px;
-    background-image: url(../images/playerRun.png);
+    background-image: url(../images/player/playerRun.png);
     animation: walk .7s steps(10) infinite;
     position: absolute;
     bottom: 2%;
@@ -20,7 +24,9 @@ body{
         background-position: -1000px;
     }
 }
+/*********************************FIN PLAYER*************************************************/
 
+/*********************************CAT*************************************************/
 #cat{
     width: 86.17px;
     height: 69px;
@@ -39,7 +45,9 @@ body{
         background-position: -517px;
     }
 }
+/*********************************FIN CAT*************************************************/
 
+/*********************************BEAR*************************************************/
 #bear{
     width: 86.5px;
     height: 68px;
@@ -47,8 +55,7 @@ body{
     background-image: url(../images/bear.png);
     animation: bearA 1s steps(6) 1s infinite,bearARun 10s linear infinite;
     position: absolute;
-    bottom: 14%;
-    right: 18%;
+    bottom: 30%;
 }
 
 @keyframes bearA{
@@ -60,6 +67,7 @@ body{
     }
 }
 
+
 @keyframes bearARun{
     0%{
         right: 0%;
@@ -68,14 +76,47 @@ body{
         right: 100%;
     }
 }
+/*********************************FIN BEAR*************************************************/
 
+
+/*********************************BIRD*************************************************/
+#bird{
+    width: 60.5px;
+    height: 54px;
+    transform: scale(-1.4,1.4);
+    background-image: url(../images/bird.png);
+    animation: bird .6s steps(4) infinite,birdRun 10s linear infinite;
+    position: absolute;
+    top: -120%;
+}
+
+@keyframes bird{
+    0%{
+        background-position: 0px;
+    }
+    100%{
+        background-position: -242px;
+    }
+}
+
+@keyframes birdRun{
+    0%{
+        right: 0%;
+    }
+    100%{
+        right: 100%;
+    }
+}
+/*********************************FIN BIRD*************************************************/
+
+/*********************************backgroundTwo*************************************************/
 #backgroundTwo{
     position: absolute;
     width: 100%;
-    height: 259px;
-    background-image: url(../images/background.jpg);
-    animation: backgroundA 5s linear infinite;
-    top: 30%;
+    height: 93px;
+    background-image: url(../images/backgrounds/road.png);
+    animation: backgroundA 10s linear infinite;
+    bottom: -5;
 }
 
 @keyframes backgroundA{
@@ -83,13 +124,144 @@ body{
         background-position: 0px;
     }
     100%{
+        background-position: -1332px;
+    }
+}
+/*********************************FIN backgroundTwo*************************************************/
+
+/*********************************backgroundOne*************************************************/
+#backgroundOne{
+    position: absolute;
+    width: 100%;
+    height: 259px;
+    background-image: url(../images/backgrounds/backgroundOne.png);
+    animation: backgroundB 25s linear infinite;
+    bottom: -5;
+}
+
+@keyframes backgroundB{
+    0%{
+        background-position: 0px;
+    }
+    100%{
+        background-position: -1332px;
+    }
+}
+/*********************************FIN backgroundOne*************************************************/
+
+/*********************************background*************************************************/
+#background{
+    position: absolute;
+    width: 100%;
+    height: 259px;
+    transform: scale(1,1.2);
+    background-image: url(../images/backgrounds/background.jpg);
+    animation: backgroundC 60s linear infinite;
+    bottom: 38px;
+}
+
+@keyframes backgroundC{
+    0%{
+        background-position: 0px;
+    }
+    100%{
         background-position: -660px;
     }
 }
+/*********************************FIN background*************************************************/
 
-#backgroundOne{
+
+/*********************************GRID*************************************************/
+.grid{
+    display: grid;
+    grid-template-areas: "head head head"
+                         "aside body main"
+                         "foot foot foot";
+    grid-template-columns: .5fr 3fr .5fr;
+    grid-template-rows: 50px 1fr 100px;
     position: relative;
+}
+
+.head{ 
+    grid-area: head;
+}
+.body{ 
+    grid-area: body;
+    background-image: url(../images/backgrounds/backgroundBody.png);
+    min-height: 500px;
+    position: relative;
+    border: 5px solid rgb(43, 42, 42);
+}
+.main{ 
+    grid-area: main;
+    background: rgb(58, 58, 58);
+    z-index: 1;
+}
+.aside{ 
+    grid-area: aside;
+    background: rgb(58, 58, 58);
+    z-index: 1;
+}
+.foot{ 
+    grid-area: foot;
+}
+
+.container{
+    display: flex;
+}
+
+.center{
+    align-items: center;
+}
+
+.margin{
+    margin: auto;
+}
+/*********************************FIN GRID*************************************************/
+
+.pause{
+    background-color: rgba(0, 0, 0, 0.637);
     width: 100%;
-    height: 370px;
-    background-image: url(../images/background2.jpg);
+    top: 0;
+    position: absolute;
+    height: 100%;
+    z-index: 1;
+    transition: all 1s ease;
+}
+
+.puase2{
+    background: rgba(0, 0, 0, 0.582);
+    width: 100%;
+    height:20%;
+    top: 0;
+    position: absolute;
+}
+
+.button.play {
+    border-style: solid;
+    border-width: 37px 0 37px 60px;
+}
+  
+.button {
+    border: 0;
+    background: transparent;
+    box-sizing: border-box;
+    width: 0;
+    height: 74px;
+    border-color: transparent transparent transparent #d6d1d1;
+    transition: 1000ms all ease;
+    cursor: pointer;
+    border-style: double;
+    border-width: 0px 0 0px 60px;
+}
+
+.button:hover {
+    border-color: transparent transparent transparent #ffffff;
+}
+
+#hms {
+    border-radius: 5px; 
+    padding: 10px;
+    background-color: #ffffffbe;
+    color: black;
 }
