@@ -1,4 +1,5 @@
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,24 +7,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <title>TP3</title>
 </head>
+
 <body>
     <div class="grid">
-        <div class="head"> 
+        <div class="head">
 
         </div>
         <div class="aside">
 
         </div>
-        <div class="body container center">
+        <div class="game container center">
             <div class="pause container center" id="pause">
                 <div class="margin">
-                    <h3>Vidas: <span id="points">5</span></h3>
+                    <h3>Vidas: <span id="lifes">5</span></h3>
                     <h3>Puntos: <span id="points">0</span></h3>
                 </div>
-                <div class="margin" >
+                <div class="margin">
                     <button id="buttonPlayStop" class="button play"></button>
                 </div>
-                <div class="margin" >
+                <div class="margin">
                     <div id="hms"></div>
                 </div>
             </div>
@@ -42,9 +44,13 @@
 
         </div>
         <div class="foot">
-            
+
         </div>
     </div>
+    <script src="js/Character.js"></script>
+    <script src="js/Enemy.js"></script>
+    <script src="js/Points.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>
