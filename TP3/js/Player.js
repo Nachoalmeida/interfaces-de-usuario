@@ -1,13 +1,13 @@
 class Player extends Character {
-    constructor(character) {
-        super(character);
+    constructor(character, id, idValue, clase) {
+        super(character, id, idValue, clase);
         this.jumpDone = 1;
     }
 
     jump(clase) {
         this.jumpDone = 0;
         this.character.classList.add(clase);
-        setTimeout(()=> {
+        setTimeout(() => {
             this.character.classList.remove(clase);
             this.jumpDone = 1;
         }, 2500);

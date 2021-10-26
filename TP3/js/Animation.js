@@ -10,4 +10,13 @@ class Animation {
     animationDuration(state) {
         this.character.style.animationDuration = state;
     }
-}   
+    addClass(clase) {
+        this.character.classList.add(clase);
+    }
+    appendChild(child) {
+        this.character.appendChild(child);
+    }
+    removeChild(child) {
+        this.character.removeChild(child);
+    }
+}
