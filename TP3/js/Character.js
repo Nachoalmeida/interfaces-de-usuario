@@ -1,29 +1,21 @@
-class Character {
+class Character extends Animation{
     constructor(character) {
-        this.character = character;
-
-    }
-
-    jump(clase) {
-        //console.log(clase);
-        this.character.classList.add(clase);
-
-
-
-
-    }
-    removeClass(clase) {
-        this.character.classList.remove(clase);
-    }
-
-    bend() {
-
+        super(character);
     }
 
     getTop() {
-        return this.top;
+        return parseInt(window.getComputedStyle(this.character).getPropertyValue("top"));
     }
 
+    getRight(){
+        return parseInt(window.getComputedStyle(this.character).getPropertyValue("right"));
+    }
 
+    getWidth(){
+        return parseInt(this.character.offsetWidth);
+    }
 
+    getHeight(){
+        return parseInt(this.character.offsetHeight);
+    }
 }
