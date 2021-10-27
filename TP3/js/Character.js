@@ -9,6 +9,10 @@ class Character extends Animation {
         this.addClass(this.clase);
     }
 
+    getId() {
+        return this.idValue;
+    }
+
     getTop() {
         return parseInt(window.getComputedStyle(this.character).getPropertyValue("top"));
     }

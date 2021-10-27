@@ -1,5 +1,5 @@
-class Coin extends Animation{
-    constructor(character){
-        super(character);
+class Coin extends Character {
+    constructor(character, id, idValue, clase) {
+        super(character, id, idValue, clase);
     }
 }

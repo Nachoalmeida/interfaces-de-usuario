@@ -5,15 +5,20 @@ const buttonPlayStop = document.getElementById("buttonPlayStop");
 let player = null;
 let pet = null;
 let enemies = [];
+let coins = [];
 
 const background = new Animation(document.getElementById("background"));
 const backgroundOne = new Animation(document.getElementById("backgroundOne"));
 const backgroundTwo = new Animation(document.getElementById("backgroundTwo"));
-const coin = new Animation(document.getElementById("coin"));
 
 let game = null;
 let timer = null;
 let timerEnemy = null;
+let timerCoin = null;
+let spanLife = document.getElementById("lifes");
+spanLife.innerHTML = 5;
+let lifes = 5;
+let lastEnemy = null;
 
 /////////////////SALTAR////////////////////////////////
 document.addEventListener('keydown', (e) => {
@@ -50,11 +55,14 @@ let id = null;
 document.getElementById("hms").innerHTML = "00:00:00";
 //////////////////////
 
-
-
 function gameRun() {
     for (let i = 0; i < enemies.length; i++) {
-        collision(enemies[i]);
+        if (collision(enemies[i]) && enemies[i].getId() !== lastEnemy) {
+            lifes--;
+            console.log(lifes);
+            spanLife.innerHTML = lifes;
+            lastEnemy = enemies[i].getId();
+        };
     }
     if (enemies.length > 0) {
         if (enemies[0].getRight() > 900) {
@@ -64,11 +72,27 @@ function gameRun() {
             console.log("enemies[]:", enemies);
         }
     }
+    for (let i = 0; i < coins.length; i++) {
+        let check = collision(coins[i]);
+        if (check) {
+            backgroundTwo.removeChild(coins[0].returnDiv());
+            coins.shift();
+        }
+    }
+    if (coins.length > 0) {
+        if (coins[0].getRight() > 900) {
+            backgroundTwo.removeChild(coins[0].returnDiv());
+            coins.shift();
+        }
+    }
 }
 
 function collision(enemy) {
     if (player.getRight() < enemy.getRight() + enemy.getWidth() && player.getRight() + player.getWidth() > enemy.getRight() && player.getTop() < enemy.getTop() + enemy.getHeight() && player.getTop() + player.getHeight() > enemy.getTop()) {
         console.log("colision");
+        return true;
+    } else {
+        return false;
     }
 }
 
@@ -95,9 +119,11 @@ function timers() {
     timer = setInterval(() => {
         gameRun();
     }, 50);
+    timerCoin = setInterval(() => {
+        createCoins();
+    }, parseInt(Math.random() * (6000 - 1000) + 1000));
     timerEnemy = setInterval(() => {
         createEnemies();
-        //console.log("enemigo!!")
     }, parseInt(Math.random() * (10000 - 3000) + 3000));
 }
 
@@ -109,9 +135,11 @@ function unPauseGame() {
     background.animationState('running');
     backgroundOne.animationState('running');
     backgroundTwo.animationState('running');
-    //coin.animationState('running');
     for (let i = 0; i < enemies.length; i++) {
         enemies[i].animationState('running');
+    }
+    for (let i = 0; i < coins.length; i++) {
+        coins[i].animationState('running');
     }
 }
 
@@ -119,16 +147,18 @@ function pauseGame() {
     game = 0;
     clearInterval(timer);
     clearInterval(timerEnemy);
+    clearInterval(timerCoin);
     player.animationState('paused');
     pet.animationState('paused');
     background.animationState('paused');
     backgroundOne.animationState('paused');
     backgroundTwo.animationState('paused');
-    //coin.animationState('paused');
     for (let i = 0; i < enemies.length; i++) {
         enemies[i].animationState('paused');
     }
-
+    for (let i = 0; i < coins.length; i++) {
+        coins[i].animationState('paused');
+    }
 }
 
 function createEnemies() {
@@ -143,4 +173,11 @@ function createEnemies() {
     backgroundTwo.appendChild(getEnemy.returnDiv());
     enemies.push(getEnemy);
 
+}
+
+function createCoins() {
+    let tmp = Math.random();
+    let getCoin = new Character(document.createElement("div"), "id", "coin" + tmp, "coin");
+    backgroundTwo.appendChild(getCoin.returnDiv());
+    coins.push(getCoin);
 }

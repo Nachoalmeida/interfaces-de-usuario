@@ -171,17 +171,14 @@ body {
 
 /*********************************COIN*************************************************/
 
-#coin {
+.coin {
     width: 118px;
     height: 126px;
     transform: scale(.28, .28);
     background-image: url(../images/coins/coin.png);
     position: absolute;
     top: -120%;
-}
-
-.coin {
-    animation: coin .6s steps(4) infinite;
+    animation: coin .6s steps(4) infinite, coinRun 10s linear infinite;
 }
 
 @keyframes coin {
@@ -190,6 +187,15 @@ body {
     }
     100% {
         background-position: -472px;
+    }
+}
+
+@keyframes coinRun {
+    0% {
+        right: 0%;
+    }
+    100% {
+        right: 110%;
     }
 }
 
