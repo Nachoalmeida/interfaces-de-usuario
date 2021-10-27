@@ -1,14 +1,10 @@
 class Timers{
     constructor(){
-        this.timer = null;
         this.timerEnemy = null;
         this.timerCoin = null;
     }
 
-    startTimers(game) {
-        this.timer = setInterval(() => {
-            game.gameRun();
-        }, 50);
+    startTimers(game,over) {
         this.timerCoin = setInterval(() => {
             game.createCoins();
         }, parseInt(Math.random() * (3000 - 1000) + 1000));
@@ -18,7 +14,6 @@ class Timers{
     }
 
     clearTimers(){
-        clearInterval(this.timer);
         clearInterval(this.timerEnemy);
         clearInterval(this.timerCoin);
     }

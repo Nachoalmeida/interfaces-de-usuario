@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <title>TP3</title>
 </head>
 
@@ -31,18 +34,17 @@
                             <label for="">Elegir Personaje:</label>
                         </div>
                         <select name="" id="select">
-                            <option value="id,player,runPlayer,jumpPlayer,bendPlayer-id,cat,runCat,jumpCat,null">Astronauta y Gato</option>
-                            <option value="id,player,runPlayerTwo,jumpPlayerTwo,bendPlayerTwo-id,dog,runDog,jumpDog,null">Amigo Astronauta y Perro</option>
+                            <option value="id,player,runPlayer,jumpPlayer,bendPlayer,diePlayer-id,cat,runCat,jumpCat,null,null">Astronauta y Gato</option>
+                            <option value="id,player,runPlayerTwo,jumpPlayerTwo,bendPlayerTwo,diePlayerTwo-id,dog,runDog,jumpDog,null,null">Amigo Astronauta y Perro</option>
                         </select>
                     </div>
                 </div>
                 <div class="margin containerRow center">
+                    <h1 class="gameOver" id="gameOver">GAME OVER</h1>
                     <button id="buttonPlayStop" class="button play margin-bottom"></button>
-                   
                     <div class="btn" id="btnRestart">
                         <span>Reiniciar</span>
                     </div>
-                    
                 </div>
                 <div class="margin">
                     <div id="hms"></div>

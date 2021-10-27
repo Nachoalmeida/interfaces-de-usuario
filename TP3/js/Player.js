@@ -1,8 +1,9 @@
 class Player extends Character {
-    constructor(character, id, idValue, clase,clase2,clase3) {
+    constructor(character, id, idValue, clase,clase2,clase3,clase4) {
         super(character, id, idValue, clase);
         this.clase2 = clase2;
         this.clase3 = clase3;
+        this.clase4 = clase4;
         this.jumpDone = 1;
         this.bendDone = 1;
     }
@@ -22,7 +23,14 @@ class Player extends Character {
         setTimeout(() => {
             this.character.classList.remove(this.clase3);
             this.bendDone = 1;
-        }, 1500);
+        }, 500);
+    }
+
+    die() {
+        this.character.classList.add(this.clase4);
+        setTimeout(() => {
+            this.animationState('paused');
+        }, 1000);
     }
 
     getBendDone() {

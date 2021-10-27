@@ -18,6 +18,15 @@ body {
     animation: walk .7s steps(10) infinite;
 }
 
+.diePlayer {
+    width: 120px;
+    height: 113px;
+    background-image: url(../images/player/playerDie.png);
+    animation: die 1s steps(6);
+    background-position: -600px;
+    top: -20px;
+}
+
 .jumpPlayer {
     animation: jump 2.5s linear;
 }
@@ -26,18 +35,28 @@ body {
     width: 71px;
     height: 92px;
     background-image: url(../images/player/playerBend.png);
-    animation: bend 1.5s steps(4);
+    animation: bend .5s steps(4);
     top: -20px;
 }
 
 @keyframes walk {
-    0% {
+    0% {  
         background-position: 0px;
     }
     100% {
         background-position: -1000px;
     }
 }
+
+@keyframes die {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: -720px;
+    }
+}
+
 
 @keyframes jump {
     0% {
@@ -67,7 +86,7 @@ body {
 /*********************************FIN PLAYER*************************************************/
 
 
-/*********************************PLAYER*************************************************/
+/*********************************PLAYER TWO*************************************************/
 .runPlayerTwo {
     width: 100px;
     height: 105px;
@@ -78,6 +97,15 @@ body {
     animation: walkTwo .7s steps(10) infinite;
 }
 
+.diePlayerTwo{
+    width: 120px;
+    height: 113px;
+    background-image: url(../images/player/playerTwoDie.png);
+    animation: dieTwo 1s steps(6);
+    background-position: -600px;
+    top: -20px;
+}
+
 .jumpPlayerTwo {
     animation: jumpTwo 2.5s linear;
 }
@@ -85,9 +113,18 @@ body {
 .bendPlayerTwo {
     width: 71px;
     height: 92px;
-    background-image: url(../images/player/playerBend.png);
-    animation: bendTwo 1.5s steps(4);
+    background-image: url(../images/player/playerTwoBend.png);
+    animation: bendTwo .5s steps(4);
     top: -20px;
+}
+
+@keyframes dieTwo {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: -720px;
+    }
 }
 
 @keyframes walkTwo {
@@ -123,7 +160,7 @@ body {
     }
 }
 
-/*********************************FIN PLAYER*************************************************/
+/*********************************FIN PLAYER TWO*************************************************/
 
 
 /*********************************CAT*************************************************/
@@ -475,7 +512,7 @@ body {
     transition: all 1s ease;
 }
 
-.pause2 {
+.pauseShow {
     background: rgba(0, 0, 0, 0.582);
     width: 100%;
     height: 20%;
@@ -552,7 +589,7 @@ select{
 
 /*********************************FIN SELECT*************************************************/
 
-
+/*********************************BTN reiniciar*************************************************/
 .btn {
     line-height: 34px;
 	height: 30px;
@@ -611,3 +648,30 @@ select{
   transform: rotate(45deg);
   background-color: rgba(255,255,255,0);
 }
+
+/*********************************FIN BTN reiniciar*************************************************/
+
+/*********************************GAME OVER*************************************************/
+
+.gameOver{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 50px;
+    color: rgb(158, 78, 78);
+    border: 5px solid #ffffff;
+    padding: 15px;
+    opacity: 0;
+    position: absolute;
+    transition: all .5s ease;
+    visibility: hidden;
+}
+
+.gameOverShow{
+    font-size: 100px;
+    opacity: 1;
+    color: rgb(201, 52, 52);
+    border: 5px solid #ffffffbe;
+    position: relative;
+    visibility: visible;
+}
+
+/*********************************FIN   GAME OVER*************************************************/

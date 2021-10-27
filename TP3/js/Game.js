@@ -3,19 +3,17 @@ class Game {
         this.chronometer = new Chronometer(chronometer);
         this.backgrounds = backgrounds;
         this.backgrounds[1].appendChild(this.backgrounds[2].returnDiv());
-        this.spanLife = new Points(spanLife,5);
+        this.spanLife = new Points(spanLife,1);
         this.spanPoints = new Points(spanPoints,0);
         this.player = null;
         this.pet = null;
         this.enemies = [];
         this.coins = [];
         this.game = null;
-        this.timers = new Timers();
     }
 
     unPauseGame() {
         this.game = 1;
-        this.timers.startTimers(this);
         this.chronometer.start();
         this.animatiosState('running')
     }
@@ -24,7 +22,6 @@ class Game {
         this.game = 0;
         this.chronometer.pause();
         this.animatiosState('paused')
-        this.timers.clearTimers();
     }
 
     animatiosState(state){
@@ -65,7 +62,7 @@ class Game {
         const players = value.split("-");
         for (let i = 0; i < players.length; i++) {
             const values = players[i].split(","); //[0] id,[1]value,[2]clase,[3]clase,[4]clase
-            const getPlayer = new Player(document.createElement("div"), values[0], values[1],values[2],values[3],values[4]);
+            const getPlayer = new Player(document.createElement("div"), values[0], values[1],values[2],values[3],values[4],values[5]);
             this.backgrounds[2].appendChild(getPlayer.returnDiv());
             if (i == 0) {
                 this.player = getPlayer;
@@ -73,11 +70,14 @@ class Game {
                 this.pet = getPlayer;
             }
         }
-        this.timers.startTimers(this);
     }
 
     getGame(){
         return this.game;
+    }
+
+    getLifes(){
+        return this.spanLife.getPoints();
     }
 
     doneEvent(key){
@@ -126,5 +126,10 @@ class Game {
         } else {
             return false;
         }
+    }
+
+    diePlayer(){
+        this.player.animationState('running');
+        this.player.die();
     }
 }
