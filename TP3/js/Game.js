@@ -3,7 +3,7 @@ class Game {
         this.chronometer = new Chronometer(chronometer);
         this.backgrounds = backgrounds;
         this.backgrounds[1].appendChild(this.backgrounds[2].returnDiv());
-        this.spanLife = new Points(spanLife,1);
+        this.spanLife = new Points(spanLife,5);
         this.spanPoints = new Points(spanPoints,0);
         this.player = null;
         this.pet = null;
@@ -106,10 +106,15 @@ class Game {
         }
         for (let i = 0; i < this.coins.length; i++) {
             let check = this.collision(this.coins[i]);
-            if (check) {
-                this.backgrounds[2].removeChild(this.coins[0].returnDiv());
-                this.coins.shift();
-                this.spanPoints.setPoints(this.spanPoints.getPoints() + 1);
+            if (this.coins[i].getId() !== this.spanPoints.getLast() && check) {
+                this.spanPoints.setLast(this.coins[i].getId());
+                this.coins[i].addClass('coinShow');
+                let coin = this.coins[i];
+                this.coins.splice(i,1);
+                setTimeout(()=>{
+                    this.spanPoints.setPoints(this.spanPoints.getPoints() + 1);
+                    this.backgrounds[2].removeChild(coin.returnDiv());
+                },500);
             }
         }
         if (this.coins.length > 0) {

@@ -4,7 +4,7 @@ class Timers{
         this.timerCoin = null;
     }
 
-    startTimers(game,over) {
+    startTimers(game) {
         this.timerCoin = setInterval(() => {
             game.createCoins();
         }, parseInt(Math.random() * (3000 - 1000) + 1000));

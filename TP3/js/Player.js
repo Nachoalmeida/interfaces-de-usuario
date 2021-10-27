@@ -23,7 +23,7 @@ class Player extends Character {
         setTimeout(() => {
             this.character.classList.remove(this.clase3);
             this.bendDone = 1;
-        }, 500);
+        }, 2000);
     }
 
     die() {

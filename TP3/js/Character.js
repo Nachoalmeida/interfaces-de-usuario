@@ -16,10 +16,10 @@ class Character extends Animation {
     }
 
     getWidth() {
-        return parseInt(this.character.offsetWidth);
+        return parseInt(this.character.offsetWidth)-10;
     }
 
     getHeight() {
-        return parseInt(this.character.offsetHeight);
+        return parseInt(this.character.offsetHeight)-10;
     }
 }
