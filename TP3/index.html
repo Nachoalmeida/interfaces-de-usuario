@@ -22,27 +22,34 @@
         <div class="game container center">
             <div class="pause container center" id="pause">
                 <div class="margin">
-                    <h3>Vidas: <span id="lifes" value=""></span></h3>
-                    <h3>Puntos: <span id="points">0</span></h3>
-                    <label for="">Seleccionar Personaje:</label>
-                    <select name="" id="select">
-                        <option value="id,player,runPlayer,jumpPlayer,bendPlayer-id,cat,runCat,jumpCat,null">Astronauta y Gato</option>
-                        <option value="id,player,runPlayerTwo,jumpPlayerTwo,bendPlayerTwo-id,dog,runDog,jumpDog,null">Amigo Astronauta y Perro</option>
-                    </select>
+                    <div class="points" id="divPoints">
+                        <h3>Vidas: <span id="lifes" value=""></span></h3>
+                        <h3>Puntos: <span id="points">0</span></h3>
+                    </div>
+                    <div id="divSelect" class="select containerRow center">
+                        <div class="margin-bottom">
+                            <label for="">Elegir Personaje:</label>
+                        </div>
+                        <select name="" id="select">
+                            <option value="id,player,runPlayer,jumpPlayer,bendPlayer-id,cat,runCat,jumpCat,null">Astronauta y Gato</option>
+                            <option value="id,player,runPlayerTwo,jumpPlayerTwo,bendPlayerTwo-id,dog,runDog,jumpDog,null">Amigo Astronauta y Perro</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="margin">
-                    <button id="buttonPlayStop" class="button play"></button>
+                <div class="margin containerRow center">
+                    <button id="buttonPlayStop" class="button play margin-bottom"></button>
+                   
+                    <div class="btn" id="btnRestart">
+                        <span>Reiniciar</span>
+                    </div>
+                    
                 </div>
                 <div class="margin">
                     <div id="hms"></div>
                 </div>
             </div>
-            <div class="animationBackground" id="background">
-                <div class="animationBackgroundOne" id="backgroundOne">
-                    <div class="animationBackgroundTwo" id="backgroundTwo">
-
-                    </div>
-                </div>
+            <div id="game">
+                
             </div>
         </div>
 

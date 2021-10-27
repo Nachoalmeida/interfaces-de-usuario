@@ -1,18 +1,22 @@
 "use strict";
 
 const buttonPlayStop = document.getElementById("buttonPlayStop");
+const buttonRestart = document.getElementById("btnRestart");
 
-const background = new Animation(document.getElementById("background"));
-const backgroundOne = new Animation(document.getElementById("backgroundOne"));
-const backgroundTwo = new Animation(document.getElementById("backgroundTwo"));
+const gameBoard = document.getElementById("game");
+let background = new Animation(document.createElement("div"),'id','background','animationBackground');
+let backgroundOne = new Animation(document.createElement("div"),'id','backgroundOne','animationBackgroundOne');
+let backgroundTwo = new Animation(document.createElement("div"),'id','backgroundTwo','animationBackgroundTwo');
 
-const chronometer = new Chronometer(document.getElementById("hms"));
+gameBoard.appendChild(background.returnDiv());
+background.appendChild(backgroundOne.returnDiv());
 
-const spanLife = new Points(document.getElementById("lifes"),5);
+const chronometer = document.getElementById("hms");
 
-const spanPoints = new Points(document.getElementById("points"),0);
+const spanLife = document.getElementById("lifes");
+const spanPoints = document.getElementById("points");
 
-const game = new Game(chronometer,[background,backgroundOne,backgroundTwo],spanLife,spanPoints);
+let game = new Game(chronometer,[background,backgroundOne,backgroundTwo],spanLife,spanPoints);
 
 /////////////////SALTAR////////////////////////////////
 document.addEventListener('keydown', (e) => {
@@ -27,6 +31,7 @@ buttonPlayStop.addEventListener('click', () => {
     const button = buttonPlayStop.classList.toggle("play");
     if (!button) {
         document.getElementById("pause").classList.add('pause2');
+        buttonRestart.classList.remove('btnTrue');
         if (game.getGame() == null) {
             startGame();
         } else {
@@ -34,13 +39,34 @@ buttonPlayStop.addEventListener('click', () => {
         }
     } else {
         document.getElementById("pause").classList.remove('pause2');
+        buttonRestart.classList.add('btnTrue');
         game.pauseGame();
     }
 });
+
+/////////////////BOTON REINICIAR////////////////////////////////
+buttonRestart.addEventListener('click', () => {
+    buttonRestart.classList.remove('btnTrue');
+    document.getElementById("divSelect").classList.remove('selectTwo');
+    document.getElementById("divPoints").classList.remove('pointsTwo');
+    createBackgrouds();
+    game = new Game(chronometer,[background,backgroundOne,backgroundTwo],spanLife,spanPoints);
+});
+
+function createBackgrouds(){
+    backgroundTwo = new Animation(document.createElement("div"),'id','backgroundTwo','animationBackgroundTwo');
+    backgroundOne = new Animation(document.createElement("div"),'id','backgroundOne','animationBackgroundOne');
+    gameBoard.removeChild(background.returnDiv());
+    background = new Animation(document.createElement("div"),'id','background','animationBackground');
+    gameBoard.appendChild(background.returnDiv());
+    background.appendChild(backgroundOne.returnDiv());
+}
 
 ////////////////////////////////////////////CREAR ENEMIGOS/////////////////////
 function startGame() {
     const value = document.getElementById("select").value;
     game.startGame(value);
+    document.getElementById("divSelect").classList.add('selectTwo');
+    document.getElementById("divPoints").classList.add('pointsTwo');
 }
 

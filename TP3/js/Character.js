@@ -1,11 +1,6 @@
 class Character extends Animation {
     constructor(character, id, idValue, clase) {
-        super(character);
-        this.id = id;
-        this.idValue = idValue;
-        this.clase = clase;
-        this.setAttribute(this.id, this.idValue);
-        this.addClass(this.clase);
+        super(character,id, idValue, clase);
     }
 
     getId() {
@@ -26,11 +21,5 @@ class Character extends Animation {
 
     getHeight() {
         return parseInt(this.character.offsetHeight);
-    }
-    setAttribute(atributo, valor) {
-        this.character.setAttribute(atributo, valor);
-    }
-    returnDiv() {
-        return this.character;
     }
 }

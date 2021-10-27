@@ -1,9 +1,10 @@
 class Game {
     constructor(chronometer,backgrounds,spanLife,spanPoints){
-        this.chronometer = chronometer;
+        this.chronometer = new Chronometer(chronometer);
         this.backgrounds = backgrounds;
-        this.spanLife = spanLife;
-        this.spanPoints = spanPoints;
+        this.backgrounds[1].appendChild(this.backgrounds[2].returnDiv());
+        this.spanLife = new Points(spanLife,5);
+        this.spanPoints = new Points(spanPoints,0);
         this.player = null;
         this.pet = null;
         this.enemies = [];
@@ -109,7 +110,6 @@ class Game {
                 this.backgrounds[2].removeChild(this.coins[0].returnDiv());
                 this.coins.shift();
                 this.spanPoints.setPoints(this.spanPoints.getPoints() + 1);
-                this.spanPoints.setLast(this.coins[i].getId());
             }
         }
         if (this.coins.length > 0) {
