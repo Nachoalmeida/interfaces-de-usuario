@@ -6,8 +6,14 @@ body {
     color: white;
 }
 
+.head h1 {
+    font-family: 'Bebas Neue', cursive;
+    margin-left: 200px;
+}
+
 
 /*********************************PLAYER*************************************************/
+
 .runPlayer {
     width: 100px;
     height: 114px;
@@ -40,7 +46,7 @@ body {
 }
 
 @keyframes walk {
-    0% {  
+    0% {
         background-position: 0px;
     }
     100% {
@@ -56,7 +62,6 @@ body {
         background-position: -720px;
     }
 }
-
 
 @keyframes jump {
     0% {
@@ -87,17 +92,18 @@ body {
 
 
 /*********************************PLAYER TWO*************************************************/
+
 .runPlayerTwo {
     width: 100px;
     height: 105px;
     background-image: url(../images/player/playerTwoRun.png);
     position: absolute;
-    top: -30px;
+    top: -40px;
     left: 220px;
     animation: walkTwo .7s steps(10) infinite;
 }
 
-.diePlayerTwo{
+.diePlayerTwo {
     width: 120px;
     height: 113px;
     background-image: url(../images/player/playerTwoDie.png);
@@ -160,6 +166,7 @@ body {
     }
 }
 
+
 /*********************************FIN PLAYER TWO*************************************************/
 
 
@@ -208,6 +215,7 @@ body {
 
 
 /*********************************FIN CAT*************************************************/
+
 
 /*********************************CAT*************************************************/
 
@@ -334,11 +342,11 @@ body {
     position: absolute;
     top: -180%;
     animation: coin .6s steps(4) infinite, coinRun 10s linear infinite;
-    transition: all .5s ease-in; 
+    transition: all .5s ease-in;
 }
 
-.coinShow{
-    transform: scale(1.1,1.1);
+.coinShow {
+    transform: scale(1.1, 1.1);
 }
 
 @keyframes coin {
@@ -451,7 +459,7 @@ body {
     display: grid;
     grid-template-areas: "head head head" "aside body main" "foot foot foot";
     grid-template-columns: .5fr 3fr .5fr;
-    grid-template-rows: 50px 1fr 100px;
+    grid-template-rows: 80px 1fr 100px;
     position: relative;
 }
 
@@ -501,9 +509,10 @@ body {
     margin: auto;
 }
 
-.margin-bottom{
+.margin-bottom {
     margin-bottom: 10px;
 }
+
 
 /*********************************FIN GRID*************************************************/
 
@@ -554,37 +563,39 @@ body {
     color: black;
 }
 
+
 /*********************************Puntos*************************************************/
 
-.points{
+.points {
     opacity: 0;
     position: absolute;
-    
 }
 
-.pointsTwo{
+.pointsTwo {
     opacity: 1;
     position: relative;
     transition: all 2s ease;
 }
 
+
 /*********************************FIN Puntos*************************************************/
+
 
 /*********************************SELECT*************************************************/
 
-.select{
+.select {
     opacity: 1;
     position: relative;
     transition: all 1s ease;
 }
 
-.selectTwo{
+.selectTwo {
     opacity: 0;
     z-index: 0;
     position: absolute;
 }
 
-select{
+select {
     border: none;
     background-color: rgb(2, 2, 2);
     color: white;
@@ -592,73 +603,82 @@ select{
     padding: 5px;
 }
 
+
 /*********************************FIN SELECT*************************************************/
 
+
 /*********************************BTN reiniciar*************************************************/
+
 .btn {
     line-height: 34px;
-	height: 30px;
-	text-align: center;
+    height: 30px;
+    text-align: center;
     width: 150px;
-	cursor: pointer;
-	color: #FFF;
-	transition: all 0.5s;
+    cursor: pointer;
+    color: #FFF;
+    transition: all 0.5s;
     position: relative;
     margin-top: 100px;
     display: none;
     opacity: 0;
 }
 
-.btnTrue{
+.btnTrue {
     display: block;
     opacity: 1;
 }
 
 .btn span {
-	z-index: 2;	
-	display: block;
-	position: absolute;
-	width: 100%;
-	height: 100%;	
+    z-index: 2;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
+
 .btn::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 1;
-	transition: all 0.5s;
-	border: 1px solid rgba(255,255,255,0.2);
-	background-color: rgba(255,255,255,0.1);
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.5s;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
 }
+
 .btn::after {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 1;
-	transition: all 0.5s;
-	border: 1px solid rgba(255,255,255,0.2);
-	background-color: rgba(255,255,255,0.1);
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.5s;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
 }
+
 .btn:hover::before {
-  transform: rotate(-45deg);
-  background-color: rgba(255,255,255,0);
+    transform: rotate(-45deg);
+    background-color: rgba(255, 255, 255, 0);
 }
+
 .btn:hover::after {
-  transform: rotate(45deg);
-  background-color: rgba(255,255,255,0);
+    transform: rotate(45deg);
+    background-color: rgba(255, 255, 255, 0);
 }
+
 
 /*********************************FIN BTN reiniciar*************************************************/
 
+
 /*********************************GAME OVER*************************************************/
 
-.gameOver{
+.gameOver {
     font-family: 'Bebas Neue', cursive;
     font-size: 50px;
     color: rgb(158, 78, 78);
@@ -670,7 +690,7 @@ select{
     visibility: hidden;
 }
 
-.gameOverShow{
+.gameOverShow {
     font-size: 100px;
     opacity: 1;
     color: rgb(201, 52, 52);
@@ -678,5 +698,6 @@ select{
     position: relative;
     visibility: visible;
 }
+
 
 /*********************************FIN   GAME OVER*************************************************/
