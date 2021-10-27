@@ -1,7 +1,6 @@
 class Character extends Animation {
     constructor(character, id, idValue, clase) {
         super(character);
-        //console.log(character);
         this.id = id;
         this.idValue = idValue;
         this.clase = clase;

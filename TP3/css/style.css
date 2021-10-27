@@ -8,22 +8,26 @@ body {
 
 
 /*********************************PLAYER*************************************************/
-
-#player {
+.runPlayer {
     width: 100px;
     height: 153px;
     background-image: url(../images/player/playerRun.png);
     position: absolute;
     top: -50px;
     left: 220px;
-}
-
-.runPlayer {
     animation: walk .7s steps(10) infinite;
 }
 
 .jumpPlayer {
     animation: jump 2.5s linear;
+}
+
+.bendPlayer {
+    width: 71px;
+    height: 92px;
+    background-image: url(../images/player/playerBend.png);
+    animation: bend 1.5s steps(4);
+    top: -20px;
 }
 
 @keyframes walk {
@@ -50,6 +54,74 @@ body {
     }
 }
 
+@keyframes bend {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: -284px;
+    }
+}
+
+
+/*********************************FIN PLAYER*************************************************/
+
+
+/*********************************PLAYER*************************************************/
+.runPlayerTwo {
+    width: 100px;
+    height: 153px;
+    background-image: url(../images/player/playerTwoRun.png);
+    position: absolute;
+    top: -50px;
+    left: 220px;
+    animation: walkTwo .7s steps(10) infinite;
+}
+
+.jumpPlayerTwo {
+    animation: jumpTwo 2.5s linear;
+}
+
+.bendPlayerTwo {
+    width: 71px;
+    height: 92px;
+    background-image: url(../images/player/playerBend.png);
+    animation: bendTwo 1.5s steps(4);
+    top: -20px;
+}
+
+@keyframes walkTwo {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: -1000px;
+    }
+}
+
+@keyframes jumpTwo {
+    0% {
+        top: -50px;
+    }
+    30% {
+        top: -200px;
+    }
+    80% {
+        top: -200px;
+    }
+    100% {
+        top: -50px;
+    }
+}
+
+@keyframes bendTwo {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: -284px;
+    }
+}
 
 /*********************************FIN PLAYER*************************************************/
 
@@ -83,6 +155,52 @@ body {
 }
 
 @keyframes jumpCat {
+    0% {
+        top: 25px;
+    }
+    30% {
+        top: -125px;
+    }
+    80% {
+        top: -125px;
+    }
+    100% {
+        top: 25px;
+    }
+}
+
+
+/*********************************FIN CAT*************************************************/
+
+/*********************************CAT*************************************************/
+
+#dog {
+    width: 86.17px;
+    height: 56px;
+    background-image: url(../images/pets/dog.png);
+    position: absolute;
+    top: 25px;
+    left: 180px;
+}
+
+.runDog {
+    animation: DogA .5s steps(6) infinite;
+}
+
+.jumpDog {
+    animation: jumpDog 2.5s linear .2s;
+}
+
+@keyframes DogA {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: -517px;
+    }
+}
+
+@keyframes jumpDog {
     0% {
         top: 25px;
     }
