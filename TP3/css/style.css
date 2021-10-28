@@ -324,13 +324,15 @@ body {
         top: -100%;
         right: 0%;
     }
-    30%,50%{
+    30%,
+    50% {
         top: -70%;
     }
-    60%,95% {
+    60%,
+    95% {
         top: -55%;
     }
-    100%{
+    100% {
         top: -100%;
         right: 100%;
     }
@@ -467,7 +469,7 @@ body {
     display: grid;
     grid-template-areas: "head head head" "aside body main" "foot foot foot";
     grid-template-columns: .5fr 3fr .5fr;
-    grid-template-rows: 80px 1fr 100px;
+    grid-template-rows: 80px 1fr 0px;
     position: relative;
 }
 
@@ -521,7 +523,7 @@ body {
     margin-bottom: 10px;
 }
 
-.tutorial{
+.tutorial {
     grid-area: body;
     background-image: none;
     width: 900px;
@@ -532,14 +534,14 @@ body {
     text-align: justify;
 }
 
-.tutorial h2{
+.tutorial h2 {
     font-family: 'Bebas Neue', cursive;
     color: rgb(177, 54, 54);
     font-size: 45px;
     text-align: center;
 }
 
-.tutorial h3{
+.tutorial h3 {
     font-family: 'Bebas Neue', cursive;
     color: rgb(177, 54, 54);
     font-size: 25px;
@@ -735,8 +737,7 @@ select {
 
 /*********************************FIN   GAME OVER*************************************************/
 
-
-a{
+a {
     border: 5px solid rgb(43, 42, 42);
     border-radius: 5px;
     padding: 5px;
@@ -750,5 +751,5 @@ a{
 
 a:hover {
     color: white;
-    transform: scale(1.1,1.1);
+    transform: scale(1.1, 1.1);
 }
