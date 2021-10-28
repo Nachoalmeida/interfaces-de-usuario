@@ -73,14 +73,14 @@ class Game {
     }
 
     getGame() {
-        return this.game; //Devuelve si el juego, p saber si esta iniciado
+        return this.game; //Devuelve un valor (null,1,0) para saber si el juego esta iniciado.
     }
 
     getLifes() {
         return this.spanLife.getPoints(); //Devuelve el numero de vidas
     }
 
-    doneEvent(key) { //Chequea la tecla presionada, tambien que hayan terminado de ejecutar otra accion, y ejecuta lo que corresponda
+    doneEvent(key) { //Chequea la tecla presionada, tambien que hayan terminado de ejecutar otra accion previa, y ejecuta lo que corresponda
         if (key === 'ArrowUp' && (this.player.getJumpDone() && this.pet.getJumpDone()) && this.player.getBendDone()) {
             this.player.jump(); //Saltan jugador y mascota
             this.pet.jump();
@@ -135,6 +135,6 @@ class Game {
 
     diePlayer() {
         this.player.animationState('running');
-        this.player.die(); //Setea una clase para que efectue la animacion correspondiente y luego pausa el jugador
+        this.player.die(); //Setea una clase para que efectue la animacion correspondiente.
     }
 }
