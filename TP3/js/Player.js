@@ -8,35 +8,37 @@ class Player extends Character {
         this.bendDone = 1;
     }
 
+    //Coloca animacion saltar al jugador
     jump() {
-        this.jumpDone = 0;
-        this.character.classList.add(this.clase2);
-        setTimeout(() => {
-            this.character.classList.remove(this.clase2);
-            this.jumpDone = 1;
-        }, 2500);
+        this.jumpDone = 0;//parámetro que chequea si la animación ya termino de ejecutarse. (0 no termino, 1 si)
+        this.character.classList.add(this.clase2);//agrega la clase saltar al player
+        setTimeout(() => {//se inicializa una un temporizador para remover la clase saltar cunado esta finalice
+            this.character.classList.remove(this.clase2);//Se remueve la clase saltar
+            this.jumpDone = 1;//el parámetro se vuelve 1 indicando que la acción ya finalizo
+        }, 1700);
     }
 
+    //Coloca animacion agacharse al jugador
     bend() {
-        this.bendDone = 0;
-        this.character.classList.add(this.clase3);
-        setTimeout(() => {
-            this.character.classList.remove(this.clase3);
-            this.bendDone = 1;
-        }, 2000);
-    }
-
-    die() {
-        this.character.classList.add(this.clase4);
-        setTimeout(() => {
-            this.animationState('paused');
+        this.bendDone = 0;//parámetro que chequea si la animación ya termino de ejecutarse. (0 no termino, 1 si)
+        this.character.classList.add(this.clase3);//agrega la clase agacharse al player
+        setTimeout(() => {//se inicializa una un temporizador para remover la clase agacharse cunado esta finalice
+            this.character.classList.remove(this.clase3);//Se remueve la clase agacharse
+            this.bendDone = 1;//el parámetro se vuelve 1 indicando que la acción ya finalizo
         }, 1000);
     }
 
-    getBendDone() {
+    //Coloca animacion morir agacharse al jugador
+    die() {
+        this.character.classList.add(this.clase4);//agrega la morir al player
+    }
+
+    //Retorna un valor entre 0 y 1, que indica si la acción de agacharse ya finalizo.
+    getBendDone(){
         return this.bendDone;
     }
 
+    //Retorna un valor entre 0 y 1, que indica si la acción de saltar ya finalizo.
     getJumpDone() {
         return this.jumpDone;
     }

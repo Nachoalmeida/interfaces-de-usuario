@@ -34,14 +34,14 @@ body {
 }
 
 .jumpPlayer {
-    animation: jump 2.5s linear;
+    animation: jump 1.7s linear;
 }
 
 .bendPlayer {
     width: 71px;
     height: 92px;
     background-image: url(../images/player/playerBend.png);
-    animation: bend 2s steps(4);
+    animation: bend 1s steps(4);
     top: -20px;
 }
 
@@ -113,14 +113,14 @@ body {
 }
 
 .jumpPlayerTwo {
-    animation: jumpTwo 2.5s linear;
+    animation: jumpTwo 1.7s linear;
 }
 
 .bendPlayerTwo {
     width: 71px;
     height: 92px;
     background-image: url(../images/player/playerTwoBend.png);
-    animation: bendTwo 2s steps(4);
+    animation: bendTwo 1s steps(4);
     top: -20px;
 }
 
@@ -186,7 +186,7 @@ body {
 }
 
 .jumpCat {
-    animation: jumpCat 2.5s linear .2s;
+    animation: jumpCat 2s linear .1s;
 }
 
 @keyframes catA {
@@ -233,7 +233,7 @@ body {
 }
 
 .jumpDog {
-    animation: jumpDog 2.5s linear .2s;
+    animation: jumpDog 2s linear .1s;
 }
 
 @keyframes DogA {
@@ -273,7 +273,7 @@ body {
     background-image: url(../images/bear.png);
     position: absolute;
     bottom: 40%;
-    animation: bearA 1s steps(6) infinite, bearARun 10s linear infinite;
+    animation: bearA 1s steps(6) infinite, bearARun 7s linear infinite;
 }
 
 @keyframes bearA {
@@ -307,7 +307,7 @@ body {
     background-image: url(../images/bird.png);
     position: absolute;
     top: -60%;
-    animation: bird .6s steps(4) infinite, birdRun 10s linear infinite;
+    animation: bird .6s steps(4) infinite, birdRun 4.5s linear infinite;
 }
 
 @keyframes bird {
@@ -321,9 +321,17 @@ body {
 
 @keyframes birdRun {
     0% {
+        top: -100%;
         right: 0%;
     }
-    100% {
+    30%,50%{
+        top: -70%;
+    }
+    60%,95% {
+        top: -55%;
+    }
+    100%{
+        top: -100%;
         right: 100%;
     }
 }
@@ -511,6 +519,31 @@ body {
 
 .margin-bottom {
     margin-bottom: 10px;
+}
+
+.tutorial{
+    grid-area: body;
+    background-image: none;
+    width: 900px;
+    height: 100%;
+    position: relative;
+    border: 5px solid rgb(43, 42, 42);
+    padding: 20px;
+    text-align: justify;
+}
+
+.tutorial h2{
+    font-family: 'Bebas Neue', cursive;
+    color: rgb(177, 54, 54);
+    font-size: 45px;
+    text-align: center;
+}
+
+.tutorial h3{
+    font-family: 'Bebas Neue', cursive;
+    color: rgb(177, 54, 54);
+    font-size: 25px;
+    text-align: start;
 }
 
 
@@ -701,3 +734,21 @@ select {
 
 
 /*********************************FIN   GAME OVER*************************************************/
+
+
+a{
+    border: 5px solid rgb(43, 42, 42);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 20px;
+    color: rgb(214, 214, 214);
+    text-align: center;
+    transition: all .5s ease;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20px;
+}
+
+a:hover {
+    color: white;
+    transform: scale(1.1,1.1);
+}
