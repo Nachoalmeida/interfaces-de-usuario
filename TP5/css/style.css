@@ -1,0 +1,128 @@
+:root{
+    --color-violet: #4D2472;
+    --color-medium-light-violet: #765298;
+    --color-light-violet: #9B73C0;
+    --color-success: #93C547;
+    --color-info: #009EE4;
+    --color-danger: #D04040;
+    --color-light: #E5E5E5;
+    --color-muted: #555555;
+    --color-dark: #302828;
+    --color-black: #0E0D0D;
+}
+
+
+/*//////////////////////////// TEXTOS ///////////////////////////////////////////*/
+
+.text-user-name{
+   font-size: 15px; 
+   font-family: 'Roboto';
+   font-weight: bold;
+   color: var(--color-black);
+}
+
+.mini-text-user-name{
+    font-size: 13px; 
+    font-family: 'Roboto';
+    font-weight: bold;
+    color: var(--color-black);
+}
+
+.title-text{
+    font-size: 15px; 
+    color: var(--color-black);
+    font-family: 'Roboto';
+    font-weight: normal;
+}
+
+.text-muted{
+    font-size: 13px;
+    font-family: 'Roboto';
+    font-weight: normal;
+    color: var(--color-muted);
+}
+
+.medium-text-muted{
+    font-size: 14px;
+    font-family: 'Roboto';
+    font-weight: normal;
+    color: var(--color-muted);
+}
+
+.post-text{
+    font-size: 17px; 
+    color: var(--color-muted);
+    font-family: 'Roboto';
+    font-weight: normal;
+}
+
+.text-link{
+    font-size: 13px;
+    color: var(--color-info);
+    font-family: 'Roboto';
+    font-weight: normal;
+}
+
+/*//////////////////////////// FIN TEXTOS ///////////////////////////////////////////*/
+
+.nav-height{
+    height: 50px;
+}
+
+.navbar-color{
+    background-color: var(--color-medium-light-violet);
+}
+
+.search{
+    height: 40px;
+    width: 394px;
+}
+
+
+/*////////////////////////////////////// Circulo de usuario en linea /////////////////////////////////*/
+.line-span{
+    top: 28px;
+    left: 30px;
+    width: 12px;
+    height: 12px;
+    background-color: var(--color-success);
+}
+
+/*////////////////////////////////////// FIN Circulo de usuario en linea /////////////////////////////////*/
+
+.btn-color-light{
+    background-color: var(--color-light);
+    border: none;
+    transition: all .5s ease;
+}
+
+.btn-color-light:hover{
+    background-color: rgb(212, 212, 212);
+}
+
+.btn-color-light:active{
+    background-color: var(--color-medium-light-violet);
+    color: white;
+}
+
+.btn-color-light:focus{
+    background-color: var(--color-medium-light-violet);
+    color: white;
+    border: solid 5px rgba(90, 90, 90, 0.308);
+}
+
+.btn-color-violet{
+    background-color: var(--color-light-violet);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    transition: background-color .5s ease;
+}
+
+.btn-color-violet:hover{
+    background-color: var(--color-medium-light-violet);
+}
+
+.btn-color-violet:focus{
+    background-color: var(--color-violet);
+}
