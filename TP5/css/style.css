@@ -42,6 +42,13 @@
     font-weight: normal;
 }
 
+.title-text-small {
+    font-size: 13px;
+    font-family: 'Roboto';
+    font-weight: normal;
+    color: var(--color-black);
+}
+
 .text-muted {
     font-size: 13px;
     font-family: 'Roboto';
@@ -157,3 +164,15 @@
 
 
 /*//////////////////////////// FORMULARIOS LOGIN-REGISTRARSE ///////////////////////////////////////////*/
+
+
+/*////////////////////////////  PERFIL USUARIO ///////////////////////////////////////////*/
+.user-img{
+    top: 26rem;
+}
+
+.div-container-perfil{
+    background-color: var(--color-light);
+    height: 39rem;
+}
+/*//////////////////////////// PERFIL USUARIO ///////////////////////////////////////////*/
