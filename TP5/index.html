@@ -12,31 +12,76 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-color  nav-height">
-        <div class="container-fluid pt-3">
-            <form class="d-flex ps-4">
-                <div class="row">
-                    <div class="col-3">
-                        <a class="navbar-brand ">
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <nav class="navbar navbar-expand-lg navbar-color nav-height">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-3">
+                    <a class="navbar-brand ">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40Z" fill="#93C547"/>
                                 <path d="M24.6774 5.9677C24.6774 3.38444 22.5833 1.29028 20 1.29028C17.4167 1.29028 15.3226 3.38444 15.3226 5.9677V9.12254C15.3226 10.2376 15.3226 10.7952 15.234 11.2594C14.8497 13.2741 13.2741 14.8497 11.2595 15.234C10.7952 15.3225 10.2377 15.3225 9.12258 15.3225H5.96774C3.38447 15.3225 1.29032 17.4167 1.29032 20C1.29032 22.5832 3.38447 24.6774 5.96774 24.6774H9.12258C10.2377 24.6774 10.7952 24.6774 11.2595 24.7659C13.2741 25.1503 14.8497 26.7259 15.234 28.7405C15.3226 29.2047 15.3226 29.7623 15.3226 30.8774V34.0322C15.3226 36.6155 17.4167 38.7096 20 38.7096C22.5833 38.7096 24.6774 36.6155 24.6774 34.0322V30.8774C24.6774 29.7623 24.6774 29.2047 24.766 28.7405C25.1503 26.7259 26.7259 25.1503 28.7405 24.7659C29.2048 24.6774 29.7623 24.6774 30.8774 24.6774H34.0323C36.6155 24.6774 38.7097 22.5832 38.7097 20C38.7097 17.4167 36.6155 15.3225 34.0323 15.3225H30.8774C29.7623 15.3225 29.2048 15.3225 28.7405 15.234C26.7259 14.8497 25.1503 13.2741 24.766 11.2594C24.6774 10.7952 24.6774 10.2376 24.6774 9.12254V5.9677Z" fill="#4D2472"/>
                             </svg>
-                        </a>
-                    </div>
-                    <div class="col-9">
-                        <input class="rounded-pill form-control me-2 search" type="search" placeholder="Buscar en VetNet" aria-label="Buscar en VetNet" name="Buscar en VetNet">
+                    </a>
+                </div>
+
+                <div class="col-8 rounded-pill border bg-white">
+                    <div class="row">
+                        <div class="col-3 pt-2">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_7_131)">
+                                        <path d="M17.6134 15.5151C19.0659 13.5331 19.7164 11.0758 19.4349 8.63478C19.1534 6.19376 17.9606 3.94906 16.0951 2.34975C14.2296 0.750434 11.8291 -0.0855425 9.3737 0.00906718C6.91833 0.103677 4.58922 1.1219 2.85235 2.86001C1.11547 4.59813 0.0989223 6.92797 0.00606953 9.3834C-0.0867832 11.8388 0.75091 14.2388 2.35156 16.1031C3.95221 17.9674 6.19776 19.1587 8.63898 19.4384C11.0802 19.7182 13.537 19.0659 15.5179 17.6121H15.5164C15.5614 17.6721 15.6094 17.7291 15.6634 17.7846L21.4384 23.5596C21.7197 23.841 22.1013 23.9992 22.4992 23.9994C22.8971 23.9995 23.2787 23.8416 23.5602 23.5603C23.8417 23.279 23.9999 22.8975 24 22.4996C24.0001 22.1017 23.8422 21.72 23.5609 21.4386L17.7859 15.6636C17.7323 15.6093 17.6747 15.5591 17.6134 15.5136V15.5151ZM18.0004 9.74905C18.0004 10.8325 17.7871 11.9053 17.3725 12.9062C16.9579 13.9071 16.3502 14.8166 15.5841 15.5827C14.818 16.3488 13.9085 16.9565 12.9076 17.3711C11.9066 17.7857 10.8339 17.9991 9.75045 17.9991C8.66704 17.9991 7.59424 17.7857 6.59331 17.3711C5.59237 16.9565 4.6829 16.3488 3.91682 15.5827C3.15073 14.8166 2.54304 13.9071 2.12844 12.9062C1.71384 11.9053 1.50045 10.8325 1.50045 9.74905C1.50045 7.56102 2.36964 5.4626 3.91682 3.91542C5.46399 2.36825 7.56241 1.49905 9.75045 1.49905C11.9385 1.49905 14.0369 2.36825 15.5841 3.91542C17.1313 5.4626 18.0004 7.56102 18.0004 9.74905Z" fill="#555555"/>
+                                        </g>
+                                        <defs>
+                                        <clipPath id="clip0_7_131">
+                                        <rect width="24" height="24" fill="white"/>
+                                        </clipPath>
+                                        </defs>
+                                        </svg>
+                        </div>
+
+                        <input class="input-chat col-9 p-0 m-0 pt-2" type="text" placeholder="Buscar en VetNet" aria-label="Buscar en VetNet" name="Buscar en VetNet">
                     </div>
                 </div>
-            </form>
+
+
+            </div>
         </div>
-        <svg aria-label="inicio" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="me-3 bi bi-house-door" viewBox="0 0 16 16">
-      <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
-    </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="me-3 bi bi-bell" viewBox="0 0 16 16">
-      <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
-    </svg>
+        </div>
+
+        <div class="d-flex flex-row align-items-center">
+
+            <!--Home con barrita-->
+            <svg class="me-5 mt-3" width="46" height="36" viewBox="0 0 46 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line y1="34.5" x2="46" y2="34.5" stroke="#E5E5E5" stroke-width="3"/>
+                <path d="M20.75 20.75V15.4925C20.75 15.125 21.125 14.75 21.5 14.75H24.5C24.875 14.75 25.25 15.125 25.25 15.5V20.75C25.25 20.9489 25.329 21.1397 25.4697 21.2803C25.6103 21.421 25.8011 21.5 26 21.5H32C32.1989 21.5 32.3897 21.421 32.5303 21.2803C32.671 21.1397 32.75 20.9489 32.75 20.75V10.25C32.7502 10.1514 32.7309 10.0538 32.6934 9.9627C32.6558 9.87159 32.6006 9.78878 32.531 9.719L30.5 7.6895V2.75C30.5 2.55109 30.421 2.36032 30.2803 2.21967C30.1397 2.07902 29.9489 2 29.75 2H28.25C28.0511 2 27.8603 2.07902 27.7197 2.21967C27.579 2.36032 27.5 2.55109 27.5 2.75V4.6895L23.531 0.718998C23.4613 0.649153 23.3786 0.593739 23.2875 0.555929C23.1963 0.518119 23.0987 0.498657 23 0.498657C22.9014 0.498657 22.8037 0.518119 22.7126 0.555929C22.6214 0.593739 22.5387 0.649153 22.469 0.718998L13.469 9.719C13.3994 9.78878 13.3442 9.87159 13.3067 9.9627C13.2691 10.0538 13.2498 10.1514 13.25 10.25V20.75C13.25 20.9489 13.329 21.1397 13.4697 21.2803C13.6103 21.421 13.8011 21.5 14 21.5H20C20.1989 21.5 20.3897 21.421 20.5303 21.2803C20.671 21.1397 20.75 20.9489 20.75 20.75Z" fill="#E5E5E5"/>
+                </svg>
+
+            <!--bell con notificaciones-->
+            <svg class="me-5" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_52_470)">
+                <path d="M12 25.0005C12.7956 25.0005 13.5587 24.6844 14.1213 24.1218C14.6839 23.5592 15 22.7961 15 22.0005H9C9 22.7961 9.31607 23.5592 9.87868 24.1218C10.4413 24.6844 11.2044 25.0005 12 25.0005ZM12 3.87746L10.8045 4.11896C9.44844 4.39526 8.2295 5.13161 7.35398 6.20339C6.47846 7.27517 6.00015 8.61654 6 10.0005C6 10.9425 5.799 13.296 5.3115 15.6135C5.0715 16.764 4.7475 17.9625 4.317 19.0005H19.683C19.2525 17.9625 18.93 16.7655 18.6885 15.6135C18.201 13.296 18 10.9425 18 10.0005C17.9995 8.61679 17.521 7.27578 16.6455 6.20431C15.7701 5.13284 14.5513 4.39671 13.1955 4.12046L12 3.87596V3.87746ZM21.33 19.0005C21.6645 19.671 22.0515 20.202 22.5 20.5005H1.5C1.9485 20.202 2.3355 19.671 2.67 19.0005C4.02 16.3005 4.5 11.3205 4.5 10.0005C4.5 6.37046 7.08 3.34046 10.5075 2.64896C10.4866 2.44039 10.5096 2.22975 10.5751 2.03062C10.6405 1.83149 10.747 1.64829 10.8876 1.49284C11.0283 1.3374 11.1999 1.21315 11.3915 1.12811C11.5831 1.04308 11.7904 0.999146 12 0.999146C12.2096 0.999146 12.4169 1.04308 12.6085 1.12811C12.8001 1.21315 12.9717 1.3374 13.1124 1.49284C13.253 1.64829 13.3595 1.83149 13.4249 2.03062C13.4904 2.22975 13.5134 2.44039 13.4925 2.64896C15.1879 2.99381 16.7121 3.914 17.8069 5.25371C18.9016 6.59342 19.4998 8.27032 19.5 10.0005C19.5 11.3205 19.98 16.3005 21.33 19.0005Z" fill="#E5E5E5"/>
+                </g>
+                <circle cx="19.5" cy="7.5" r="7.5" fill="#D04040"/>
+                <path d="M21.2852 9.13477H22.4688V10.0195H21.2852V12H20.1953V10.0195H16.3105V9.38086L20.1309 3.46875H21.2852V9.13477ZM17.541 9.13477H20.1953V4.95117L20.0664 5.18555L17.541 9.13477Z" fill="#DAC9C9"/>
+                <defs>
+                <clipPath id="clip0_52_470">
+                <rect width="24" height="24" fill="white" transform="translate(0 1)"/>
+                </clipPath>
+                </defs>
+                </svg>
+            <div class="d-flex flex-row me-5">
+                <!--foto user-->
+                <img src="images/chip_4.png" class="rounded-circle" height="24px" width="24px" alt="...">
+                <!--flechita display-->
+                <svg class="mt-1" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3.204 5H12.796L8 10.481L3.204 5ZM2.451 5.659L7.247 11.139C7.34086 11.2464 7.45661 11.3325 7.58649 11.3915C7.71636 11.4505 7.85736 11.481 8 11.481C8.14264 11.481 8.28363 11.4505 8.41351 11.3915C8.54338 11.3325 8.65914 11.2464 8.753 11.139L13.549 5.659C14.115 5.012 13.655 4 12.796 4H3.204C3.01175 3.99984 2.82354 4.05509 2.66189 4.15914C2.50024 4.26319 2.372 4.41164 2.29255 4.58669C2.21309 4.76175 2.18578 4.956 2.21388 5.14618C2.24198 5.33636 2.32431 5.51441 2.451 5.659Z" fill="#E5E5E5"/>
+                </svg>
+            </div>
+            <div class="ms-3 me-5"></div>
+
+        </div>
     </nav>
+
     <div class="container">
         <div class="row">
             <aside class="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3 p-3">
@@ -610,6 +655,7 @@
                             </div>
 
                         </div>
+                        <!--input c svg-->
                         <div class="row ms-1 mt-1">
                             <div class="col-10 rounded-pill border my-auto pe-3 ps-2">
                                 <div class="row">
@@ -650,48 +696,48 @@
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-                <div class="modal-header bg-color-black">
-                    <button type="button" class="btn-close btn-video-close" data-bs-dismiss="modal" aria-label="Close">
+                <div class="modal-content">
+                    <div class="modal-header bg-color-black">
+                        <button type="button" class="btn-close btn-video-close" data-bs-dismiss="modal" aria-label="Close">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
                             <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
                         </svg>
                     </button>
-                </div>
-                <div class="modal-body modal-tamaño bg-color-black d-flex align-items-center justify-content-center">
-                    <h1 class="text-center text-video">Llamando...</h1>
-                </div>
-                <div class="modal-footer bg-color-black d-flex justify-content-center">
-                    <button type="button" class="me-4 rounded-circle btn-video">
+                    </div>
+                    <div class="modal-body modal-tamaño bg-color-black d-flex align-items-center justify-content-center">
+                        <h1 class="text-center text-video">Llamando...</h1>
+                    </div>
+                    <div class="modal-footer bg-color-black d-flex justify-content-center">
+                        <button type="button" class="me-4 rounded-circle btn-video">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-up-square" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.5 9.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
                         </svg>
                     </button>
-                    <button type="button" class="me-4 rounded-circle btn-video">
+                        <button type="button" class="me-4 rounded-circle btn-video">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
                             <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
                             <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
                         </svg>
                     </button>
-                    <button type="button" class="me-4 rounded-circle btn-video">
+                        <button type="button" class="me-4 rounded-circle btn-video">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-camera-video-off" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M10.961 12.365a1.99 1.99 0 0 0 .522-1.103l3.11 1.382A1 1 0 0 0 16 11.731V4.269a1 1 0 0 0-1.406-.913l-3.111 1.382A2 2 0 0 0 9.5 3H4.272l.714 1H9.5a1 1 0 0 1 1 1v6a1 1 0 0 1-.144.518l.605.847zM1.428 4.18A.999.999 0 0 0 1 5v6a1 1 0 0 0 1 1h5.014l.714 1H2a2 2 0 0 1-2-2V5c0-.675.334-1.272.847-1.634l.58.814zM15 11.73l-3.5-1.555v-4.35L15 4.269v7.462zm-4.407 3.56-10-14 .814-.58 10 14-.814.58z"/>
                         </svg>
                     </button>
-                    <button type="button" class="me-4 rounded-circle btn-video">
+                        <button type="button" class="me-4 rounded-circle btn-video">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-mic-mute" viewBox="0 0 16 16">
                             <path d="M13 8c0 .564-.094 1.107-.266 1.613l-.814-.814A4.02 4.02 0 0 0 12 8V7a.5.5 0 0 1 1 0v1zm-5 4c.818 0 1.578-.245 2.212-.667l.718.719a4.973 4.973 0 0 1-2.43.923V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 1 0v1a4 4 0 0 0 4 4zm3-9v4.879l-1-1V3a2 2 0 0 0-3.997-.118l-.845-.845A3.001 3.001 0 0 1 11 3z"/>
                             <path d="m9.486 10.607-.748-.748A2 2 0 0 1 6 8v-.878l-1-1V8a3 3 0 0 0 4.486 2.607zm-7.84-9.253 12 12 .708-.708-12-12-.708.708z"/>
                         </svg>
                     </button>
-                    <button type="button" class="me-4 rounded-circle btn-video" data-bs-dismiss="modal">
+                        <button type="button" class="me-4 rounded-circle btn-video" data-bs-dismiss="modal">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
                             <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
                         </svg>
                     </button>
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
     </div>
