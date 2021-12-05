@@ -415,5 +415,32 @@
     /*background-position: 50% 50%;*/
 }
 
+/*//////////////////////////// fin Parallax ///////////////////////////////////////////*/
 
-/*//////////////////////////// Parallax ///////////////////////////////////////////*/
+
+/*//////////////////////////// post ///////////////////////////////////////////*/
+.post-title{
+    font-size: 20px;
+    font-family: 'Roboto';
+    font-weight: normal;
+    color: var(--color-black);
+}
+
+.post-textarea{
+    border: none;
+}
+
+.box-insert{
+    border-style: dashed;
+    border-width: 2px;
+    border-radius: 3px;
+    border-color: var(--color-dark);
+    background-color: rgba(255, 255, 255, 0);
+    transition: background-color .1s ease-in;
+}
+
+.box-insert:hover{
+    background-color: var(--color-light);
+}
+
+/*//////////////////////////// fin post ///////////////////////////////////////////*/

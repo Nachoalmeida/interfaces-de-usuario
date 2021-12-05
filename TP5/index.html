@@ -157,7 +157,7 @@
                             <div class="col-1">
                                 <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
                             </div>
-                            <button type="button" class="ms-4 col-10 rounded-pill btn-color-violet btn-lg p-0">Publicar..</button>
+                            <button type="button" class="ms-4 col-10 rounded-pill btn-color-violet btn-lg p-0" data-bs-toggle="modal" data-bs-target="#publicModal">Publicar..</button>
                         </div>
                     </div>
                     <hr>
@@ -692,6 +692,62 @@
                     </button>
                 </div>
             </div>
+            </div>
+        </div>
+
+
+        <!-- Modal post-->
+        <div class="modal fade" id="publicModal" tabindex="-1" aria-labelledby="publicModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="post-title">Crea tu publicanción</h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row pe-4 ps-4 d-flex justify-content-center">
+                            <div class="col-1">
+                                <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                            </div>
+                            <div class="col-11 ps-4 pt-1">
+                                <h4 class="text-user-name mb-0">Nombre Usuario</h4>
+                            </div>
+                            <div class="col-10 mt-3 mb-5 ms-4">
+                                <textarea name="" id="" cols="47%" rows="3" placeholder="¡Escribe aqui!" class="post-textarea"></textarea>
+                            </div>
+                            <div class="col-6 mb-4 ps-4">
+                                <button class="box-insert d-flex justify-content-center pt-3 pb-3">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="ms-4 me-4 bi bi-image" viewBox="0 0 16 16">
+                                        <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                                        <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z"/>
+                                    </svg>
+    
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="me-4 bi bi-link" viewBox="0 0 16 16">
+                                        <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+                                        <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+                                    </svg>
+    
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="me-4 bi bi-camera-video" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5zm11.5 5.175 3.5 1.556V4.269l-3.5 1.556v4.35zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H2z"/>
+                                    </svg>
+                                </button>
+                               
+                            </div>
+                            <div class="col-6">
+                                <div class="btn-group ms-5 pt-2 pb-3" role="group" aria-label="Basic radio toggle button group">
+                                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                                    <label class="btn btn-outline-secondary" for="btnradio1">Social</label>
+                                  
+                                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                                    <label class="btn btn-outline-secondary" for="btnradio3">Tecnica</label>
+                                  </div>
+                            </div>
+                            <button class="col-8 rounded-pill btn-color-violet btn-lg" data-bs-dismiss="modal" aria-label="Close">Publicar</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
