@@ -240,4 +240,87 @@
     color: var(--color-light);
 }
 
-/*//////////////////////////// Lista de chats ///////////////////////////////////////////*/
+/*//////////////////////////// FIN Lista de chats ///////////////////////////////////////////*/
+
+/*//////////////////////////// chat 1:1 ///////////////////////////////////////////*/
+.chat-1-on{
+    position: fixed;
+    bottom: 0;
+    right: 24rem;
+    width: 300px;
+    height: 300px;
+    transition: bottom 1s ease;
+}
+
+.chat-1-off{
+    position: fixed;
+    bottom: -300;
+    right: 24rem;
+    width: 300px;
+    height: 300px;
+    transition: bottom 1s ease;
+}
+
+.chat-1-body{
+    height: 300px;
+}
+.chat-1-body .chats{
+    width: 304px;
+    max-height: 223px;
+    overflow-y: scroll;
+}
+.text-chat-1-header{
+    font-size: 13px;
+    font-family: 'Roboto';
+    font-weight: normal;
+    color: white;
+}
+
+#btnOnVideoChat{
+    color: white;
+}
+
+#btnOnPhone{
+    color: white;
+}
+
+#btnCloseChat{
+    color: white;
+}
+
+.text-align{
+    text-align: right;
+}
+
+.text-chat-1{
+    background-color: var(--color-light);
+}
+
+.btn-emoji{
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    transition: all .5s ease;
+}
+
+.btn-emoji .bi-send{
+    transform: rotate(45deg);
+    color: var(--color-info);
+    transition: all .2s ease-in;
+}
+
+.btn-emoji .bi-send:hover{
+    transform: scale(1.2);
+    color: rgb(107, 220, 255);
+}
+
+.btn-emoji:hover{
+    transform: scale(1.2);
+    color: var(--color-muted);
+}
+
+.input-chat{
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+/*////////////////////////////  FIN chat 1:1 ///////////////////////////////////////////*/
