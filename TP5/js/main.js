@@ -35,3 +35,19 @@ function offchat(){
     chat1.classList.add('chat-1-off');
 }
 
+
+
+
+const boxcomment1 = document.getElementById("boxcomment1");
+const post1comment = document.getElementById("post1comment").addEventListener('click', ()=>onComment());
+
+
+function onComment(){
+    if(boxcomment1.classList.contains('box-comment-off')){
+        boxcomment1.classList.remove('box-comment-off');
+        boxcomment1.classList.add('box-comment-on');
+    }else{
+        boxcomment1.classList.add('box-comment-off');
+        boxcomment1.classList.remove('box-comment-on');
+    }
+}
