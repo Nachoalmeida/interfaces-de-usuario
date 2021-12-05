@@ -167,19 +167,23 @@
 
 
 /*////////////////////////////  PERFIL USUARIO ///////////////////////////////////////////*/
-.user-img{
+
+.user-img {
     top: 26rem;
 }
 
-.div-container-perfil{
+.div-container-perfil {
     background-color: var(--color-light);
     height: 39rem;
 }
+
+
 /*//////////////////////////// PERFIL USUARIO ///////////////////////////////////////////*/
 
 
 /*//////////////////////////// Lista de chats ///////////////////////////////////////////*/
-.list-chats-on{
+
+.list-chats-on {
     position: fixed;
     bottom: 0;
     right: 4.8rem;
@@ -188,7 +192,7 @@
     transition: bottom 1s ease;
 }
 
-.list-chats-off{
+.list-chats-off {
     position: fixed;
     bottom: -560px;
     right: 4.8rem;
@@ -197,30 +201,30 @@
     transition: bottom 1s ease;
 }
 
-.list-chats-off .bi-chevron-compact-down{
+.list-chats-off .bi-chevron-compact-down {
     transform: rotate(180deg);
 }
 
-.list-chats-header{
+.list-chats-header {
     background-color: var(--color-medium-light-violet);
     height: 40px;
 }
 
-.list-chats-body{
+.list-chats-body {
     background-color: white;
     height: 560px
 }
 
-.chat-paragraph{
+.chat-paragraph {
     max-width: 190px;
 }
 
-.chat-badge-color{
+.chat-badge-color {
     background-color: var(--color-medium-light-violet);
     color: white;
 }
 
-.line-span-chats{
+.line-span-chats {
     top: 20px;
     left: 24px;
     width: 8px;
@@ -228,7 +232,7 @@
     background-color: var(--color-success);
 }
 
-.list-text-chats-header{
+.list-text-chats-header {
     padding-top: 4px;
     font-size: 13px;
     font-family: 'Roboto';
@@ -236,14 +240,17 @@
     color: white;
 }
 
-.bi-chevron-compact-down{
+.bi-chevron-compact-down {
     color: var(--color-light);
 }
 
+
 /*//////////////////////////// FIN Lista de chats ///////////////////////////////////////////*/
 
+
 /*//////////////////////////// chat 1:1 ///////////////////////////////////////////*/
-.chat-1-on{
+
+.chat-1-on {
     position: fixed;
     bottom: 0;
     right: 24rem;
@@ -252,7 +259,7 @@
     transition: bottom 1s ease;
 }
 
-.chat-1-off{
+.chat-1-off {
     position: fixed;
     bottom: -310;
     right: 24rem;
@@ -261,76 +268,81 @@
     transition: bottom 1s ease;
 }
 
-.chat-1-body{
+.chat-1-body {
     height: 300px;
 }
-.chat-1-body .chats{
+
+.chat-1-body .chats {
     width: 304px;
     max-height: 223px;
     overflow-y: scroll;
 }
-.text-chat-1-header{
+
+.text-chat-1-header {
     font-size: 13px;
     font-family: 'Roboto';
     font-weight: normal;
     color: white;
 }
 
-#btnOnVideoChat{
+#btnOnVideoChat {
     color: white;
 }
 
-#btnOnPhone{
+#btnOnPhone {
     color: white;
 }
 
-#btnCloseChat{
+#btnCloseChat {
     color: white;
 }
 
-.text-align{
+.text-align {
     text-align: right;
 }
 
-.text-chat-1{
+.text-chat-1 {
     background-color: var(--color-light);
 }
 
-.btn-emoji{
+.btn-emoji {
     border: none;
     background-color: rgba(255, 255, 255, 0);
     transition: all .5s ease;
 }
 
-.btn-emoji .bi-send{
+.btn-emoji .bi-send {
     transform: rotate(45deg);
     color: var(--color-info);
     transition: all .2s ease-in;
 }
 
-.btn-emoji .bi-send:hover{
+.btn-emoji .bi-send:hover {
     transform: scale(1.2);
     color: rgb(107, 220, 255);
 }
 
-.btn-emoji:hover{
+.btn-emoji:hover {
     transform: scale(1.2);
     color: var(--color-muted);
 }
 
-.input-chat{
+.input-chat {
     border: none;
     background-color: rgba(255, 255, 255, 0);
 }
 
+
 /*////////////////////////////  FIN chat 1:1 ///////////////////////////////////////////*/
 
+
 /*////////////////////////////  VIDEO LLAMADA ///////////////////////////////////////////*/
-.modal-tamaño{
+
+.modal-tamaño {
     height: 450;
 }
 
-.bg-color-black{
+.bg-color-black {
     background-color: var(--color-black);
 }
 
@@ -340,7 +352,7 @@
     border-radius: 100%;
 }
 
-.btn-video{
+.btn-video {
     width: 40px;
     height: 40px;
     background-color: var(--color-light);
@@ -349,37 +361,59 @@
     transition: all .1s ease-in;
 }
 
-.btn-video:hover{
+.btn-video:hover {
     transform: scale(1.1);
     background-color: rgb(240, 240, 240);
 }
 
-.btn-video .bi-telephone{
+.btn-video .bi-telephone {
     color: var(--color-danger);
     transform: rotate(135deg);
 }
 
-.text-video{
+.text-video {
     font-size: 32px;
     font-family: 'Roboto';
     font-weight: bold;
     color: white;
 }
+
+
 /*////////////////////////////  FIN VIDEO LLAMADA ///////////////////////////////////////////*/
+
 
 /*////////////////////////////  CAJA DE COMENTARIOS ///////////////////////////////////////////*/
 
-.input-comment{
+.input-comment {
     background-color: var(--color-light);
     border: none;
 }
 
-.box-comment-off{
+.box-comment-off {
     display: none;
 }
 
-.box-comment-on{
+.box-comment-on {
     display: block;
 }
 
+
 /*////////////////////////////  CAJA DE COMENTARIOS ///////////////////////////////////////////*/
+
+
+/*//////////////////////////// Parallax ///////////////////////////////////////////*/
+
+#login {
+    background-color: white;
+}
+
+#parallax {
+    position: relative;
+    background-image: url(/TP5/images/pataPerro.png);
+    background-repeat: repeat;
+    background-position: center;
+    /*background-position: 50% 50%;*/
+}
+
+
+/*//////////////////////////// Parallax ///////////////////////////////////////////*/
