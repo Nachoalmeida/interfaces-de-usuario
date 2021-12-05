@@ -254,7 +254,7 @@
 
 .chat-1-off{
     position: fixed;
-    bottom: -300;
+    bottom: -310;
     right: 24rem;
     width: 300px;
     height: 300px;
@@ -324,3 +324,44 @@
 }
 
 /*////////////////////////////  FIN chat 1:1 ///////////////////////////////////////////*/
+
+
+.modal-tamaño{
+    height: 450;
+}
+
+.bg-color-black{
+    background-color: var(--color-black);
+}
+
+.btn-video-close .bi-x-lg {
+    background-color: var(--color-light);
+    color: var(--color-muted);
+    border-radius: 100%;
+}
+
+.btn-video{
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-light);
+    color: var(--color-muted);
+    border: none;
+    transition: all .1s ease-in;
+}
+
+.btn-video:hover{
+    transform: scale(1.1);
+    background-color: rgb(240, 240, 240);
+}
+
+.btn-video .bi-telephone{
+    color: var(--color-danger);
+    transform: rotate(135deg);
+}
+
+.text-video{
+    font-size: 32px;
+    font-family: 'Roboto';
+    font-weight: bold;
+    color: white;
+}
