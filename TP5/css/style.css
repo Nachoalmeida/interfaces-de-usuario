@@ -176,3 +176,68 @@
     height: 39rem;
 }
 /*//////////////////////////// PERFIL USUARIO ///////////////////////////////////////////*/
+
+
+/*//////////////////////////// Lista de chats ///////////////////////////////////////////*/
+.list-chats-on{
+    position: fixed;
+    bottom: 0;
+    right: 4.8rem;
+    width: 300px;
+    height: 600px;
+    transition: bottom 1s ease;
+}
+
+.list-chats-off{
+    position: fixed;
+    bottom: -560px;
+    right: 4.8rem;
+    width: 300px;
+    height: 600px;
+    transition: bottom 1s ease;
+}
+
+.list-chats-off .bi-chevron-compact-down{
+    transform: rotate(180deg);
+}
+
+.list-chats-header{
+    background-color: var(--color-medium-light-violet);
+    height: 40px;
+}
+
+.list-chats-body{
+    background-color: white;
+    height: 560px
+}
+
+.chat-paragraph{
+    max-width: 190px;
+}
+
+.chat-badge-color{
+    background-color: var(--color-medium-light-violet);
+    color: white;
+}
+
+.line-span-chats{
+    top: 20px;
+    left: 24px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-success);
+}
+
+.list-text-chats-header{
+    padding-top: 4px;
+    font-size: 13px;
+    font-family: 'Roboto';
+    font-weight: bold;
+    color: white;
+}
+
+.bi-chevron-compact-down{
+    color: var(--color-light);
+}
+
+/*//////////////////////////// Lista de chats ///////////////////////////////////////////*/
