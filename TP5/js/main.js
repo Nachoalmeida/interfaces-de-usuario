@@ -3,25 +3,36 @@
 const btnChatsOn = document.getElementById("btnChatsOn");
 const listChats = document.getElementById("listChats");
 
-btnChatsOn.addEventListener('click', () => {
-    if(listChats.classList.contains('list-chats-off')){
-        listChats.classList.remove('list-chats-off');
-        listChats.classList.add('list-chats-on');
-    }else{
-        listChats.classList.add('list-chats-off');
-        listChats.classList.remove('list-chats-on');
-    }
-});
+if(btnChatsOn){
+    btnChatsOn.addEventListener('click', () => {
+        if(listChats.classList.contains('list-chats-off')){
+            listChats.classList.remove('list-chats-off');
+            listChats.classList.add('list-chats-on');
+        }else{
+            listChats.classList.add('list-chats-off');
+            listChats.classList.remove('list-chats-on');
+        }
+    });
+}
 
 const chat1 = document.getElementById("chat1-1");
-const onChat1 = document.getElementById("onChat1").addEventListener('click', ()=>onchat());
-const onChat2 = document.getElementById("onChat2").addEventListener('click', ()=>onchat());;
+const onChat1 = document.getElementById("onChat1");
+const onChat2 = document.getElementById("onChat2");
 const btnCloseChat = document.getElementById("btnCloseChat");
 
+if(onChat1){
+    onChat1.addEventListener('click', ()=>onchat());
+}
 
-btnCloseChat.addEventListener('click', () => {
-    offchat();
-});
+if(onChat2){
+    onChat2.addEventListener('click', ()=>onchat());
+}
+
+if(btnCloseChat){
+    btnCloseChat.addEventListener('click', () => {
+        offchat();
+    });
+}
 
 function onchat(){
     chat1.classList.remove('chat-1-off');
@@ -208,4 +219,30 @@ function boxContactsPostOn(){
     contacts.classList.remove('invisible');
     contacts.classList.add('visible');
     loadingcontacts.classList.add('d-none');
+}
+
+const persons = document.getElementById("persons");
+const loadingPersons = document.getElementById("loadingPersons");
+
+setTimeout(() => {
+    if(persons){
+        boxPersonsPostOn();
+    }
+}, 1300);
+
+function boxPersonsPostOn(){
+    persons.classList.remove('invisible');
+    persons.classList.add('visible');
+    loadingPersons.classList.add('d-none');
+}
+
+
+const search = document.getElementById('search');
+
+if(search){
+    search.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            window.location="/TP5/search.html";
+        }
+    });
 }

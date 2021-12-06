@@ -98,6 +98,13 @@ li {
     font-weight: normal;
 }
 
+.title2 {
+    font-size: 21px;
+    font-family: 'Roboto';
+    font-weight: bold;
+    color: var(--color-black);
+}
+
 .color-hr-login {
     color: #b8b4b4;
 }
