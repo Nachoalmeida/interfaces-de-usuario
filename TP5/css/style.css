@@ -117,9 +117,17 @@ li {
     width: 290px;
 }
 
+.dropdown-nav-bell {
+    width: 220px;
+}
+
 .search {
     height: 40px;
     width: 394px;
+}
+
+.navSvgMargin {
+    margin-top: 13px;
 }
 
 
