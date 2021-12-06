@@ -42,7 +42,18 @@
             <aside class="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3 p-3">
                 <div class="row sticky-top">
                     <div class="col-12 shadow p-0 mb-3 rounded">
-                        <div class="text-center">
+                        <div class="d-flex justify-content-center pt-5" id="loadingpefil">
+                            <div class="spinner-grow text-info me-3 spinner-grow-sm" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <div class="spinner-grow text-info me-3 spinner-grow-sm" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <div class="spinner-grow text-info spinner-grow-sm" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                        <div class="text-center invisible" id="pefil">
                             <div class="position-relative">
                                 <img src="images/post/p1.jpg" class="rounded-top" height="40%" width="100%" alt="...">
                                 <div class="position-absolute top-100 start-50 translate-middle">
@@ -57,205 +68,227 @@
                         </div>
                     </div>
 
+                   
+
+
                     <div class="col-12 shadow p-3 mb-3 bg-body rounded">
-                        <h5 class="title-text mt-1">Contactos preferidos</h5>
 
-                        <div class="row mt-4">
-                            <div class="col-1 me-3">
-                                <div class="position-relative">
-                                    <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
-                                    <span class="position-absolute badge border border-light rounded-circle p-1 line-span"><span class="visually-hidden">unread messages</span></span>
-                                </div>
+                        <div class="d-flex justify-content-center pt-5" id="loadingcontacts">
+                            <div class="spinner-grow text-info me-3 spinner-grow-sm" role="status">
+                                <span class="visually-hidden">Loading...</span>
                             </div>
-                            <div class="col-8 ps-4 pt-1">
-                                <h4 class="text-user-name mb-0">Nombre Usuario</h4>
+                            <div class="spinner-grow text-info me-3 spinner-grow-sm" role="status">
+                                <span class="visually-hidden">Loading...</span>
                             </div>
-                            <div class="col-1">
-                                <button class="btn-three-dots" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-                                        <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-                                    </svg>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">Visitar perfil</a></li>
-                                    <li><a class="dropdown-item" href="#">Enviar mensaje</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Repotar</a></li>
-                                    <li><a class="dropdown-item" href="#">Bloquear cuenta</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Quitar</a></li>
-                                </ul>
+                            <div class="spinner-grow text-info spinner-grow-sm" role="status">
+                                <span class="visually-hidden">Loading...</span>
                             </div>
                         </div>
+                       
+                        <div class="row invisible" id="contacts">
+                            <div class="col-12">
 
-
-                        <div class="row mt-4">
-                            <div class="col-1 me-3">
-                                <div class="position-relative">
-                                    <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
-                                    <span class="position-absolute badge border border-light rounded-circle p-1 line-span"><span class="visually-hidden">unread messages</span></span>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h5 class="title-text mt-1">Contactos preferidos</h5>
+                                        <div class="row mt-4">
+                                        <div class="col-1 me-3">
+                                            <div class="position-relative">
+                                                <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                                                <span class="position-absolute badge border border-light rounded-circle p-1 line-span"><span class="visually-hidden">unread messages</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-8 ps-4 pt-1">
+                                            <h4 class="text-user-name mb-0">Nombre Usuario</h4>
+                                        </div>
+                                        <div class="col-1">
+                                            <button class="btn-three-dots" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                                    <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                                                </svg>
+                                            </button>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                <li><a class="dropdown-item" href="#">Visitar perfil</a></li>
+                                                <li><a class="dropdown-item" href="#">Enviar mensaje</a></li>
+                                                <li><hr class="dropdown-divider"></li>
+                                                <li><a class="dropdown-item" href="#">Repotar</a></li>
+                                                <li><a class="dropdown-item" href="#">Bloquear cuenta</a></li>
+                                                <li><hr class="dropdown-divider"></li>
+                                                <li><a class="dropdown-item" href="#">Quitar</a></li>
+                                            </ul>
+                                        </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-8 ps-4 pt-1">
-                                <h4 class="text-user-name mb-0">Nombre Usuario</h4>
-                            </div>
-                            <div class="col-1">
-                                <button class="btn-three-dots" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-                                        <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-                                    </svg>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">Visitar perfil</a></li>
-                                    <li><a class="dropdown-item" href="#">Enviar mensaje</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Repotar</a></li>
-                                    <li><a class="dropdown-item" href="#">Bloquear cuenta</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Quitar</a></li>
-                                </ul>
-                            </div>
-                        </div>
 
-
-                        <div class="row mt-4">
-                            <div class="col-1 me-3">
-                                <div class="position-relative">
-                                    <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
-                                    <span class="position-absolute badge border border-light rounded-circle p-1 line-span"><span class="visually-hidden">unread messages</span></span>
+                                <div class="row mt-4">
+                                    <div class="col-1 me-3">
+                                        <div class="position-relative">
+                                            <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                                            <span class="position-absolute badge border border-light rounded-circle p-1 line-span"><span class="visually-hidden">unread messages</span></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-8 ps-4 pt-1">
+                                        <h4 class="text-user-name mb-0">Nombre Usuario</h4>
+                                    </div>
+                                    <div class="col-1">
+                                        <button class="btn-three-dots" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                                <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                                            </svg>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item" href="#">Visitar perfil</a></li>
+                                            <li><a class="dropdown-item" href="#">Enviar mensaje</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="#">Repotar</a></li>
+                                            <li><a class="dropdown-item" href="#">Bloquear cuenta</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="#">Quitar</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-8 ps-4 pt-1">
-                                <h4 class="text-user-name mb-0">Nombre Usuario</h4>
-                            </div>
-                            <div class="col-1">
-                                <button class="btn-three-dots" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-                                        <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-                                    </svg>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">Visitar perfil</a></li>
-                                    <li><a class="dropdown-item" href="#">Enviar mensaje</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Repotar</a></li>
-                                    <li><a class="dropdown-item" href="#">Bloquear cuenta</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Quitar</a></li>
-                                </ul>
-                            </div>
-                        </div>
 
-
-                        <div class="row mt-4">
-                            <div class="col-1 me-3">
-                                <div class="position-relative">
-                                    <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
-                                    <span class="position-absolute badge border border-light rounded-circle p-1 line-span"><span class="visually-hidden">unread messages</span></span>
+                                <div class="row mt-4">
+                                    <div class="col-1 me-3">
+                                        <div class="position-relative">
+                                            <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                                            <span class="position-absolute badge border border-light rounded-circle p-1 line-span"><span class="visually-hidden">unread messages</span></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-8 ps-4 pt-1">
+                                        <h4 class="text-user-name mb-0">Nombre Usuario</h4>
+                                    </div>
+                                    <div class="col-1">
+                                        <button class="btn-three-dots" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                                <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                                            </svg>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item" href="#">Visitar perfil</a></li>
+                                            <li><a class="dropdown-item" href="#">Enviar mensaje</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="#">Repotar</a></li>
+                                            <li><a class="dropdown-item" href="#">Bloquear cuenta</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="#">Quitar</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-8 ps-4 pt-1">
-                                <h4 class="text-user-name mb-0">Nombre Usuario</h4>
-                            </div>
-                            <div class="col-1">
-                                <button class="btn-three-dots" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-                                        <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-                                    </svg>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">Visitar perfil</a></li>
-                                    <li><a class="dropdown-item" href="#">Enviar mensaje</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Repotar</a></li>
-                                    <li><a class="dropdown-item" href="#">Bloquear cuenta</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Quitar</a></li>
-                                </ul>
-                            </div>
-                        </div>
 
-                        <div class="row mt-4">
-                            <div class="col-1 me-3">
-                                <div class="position-relative">
-                                    <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
-                                    <span class="position-absolute badge border border-light rounded-circle p-1 line-span"><span class="visually-hidden">unread messages</span></span>
+                                <div class="row mt-4">
+                                    <div class="col-1 me-3">
+                                        <div class="position-relative">
+                                            <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                                            <span class="position-absolute badge border border-light rounded-circle p-1 line-span"><span class="visually-hidden">unread messages</span></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-8 ps-4 pt-1">
+                                        <h4 class="text-user-name mb-0">Nombre Usuario</h4>
+                                    </div>
+                                    <div class="col-1">
+                                        <button class="btn-three-dots" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                                <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                                            </svg>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item" href="#">Visitar perfil</a></li>
+                                            <li><a class="dropdown-item" href="#">Enviar mensaje</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="#">Repotar</a></li>
+                                            <li><a class="dropdown-item" href="#">Bloquear cuenta</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="#">Quitar</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-8 ps-4 pt-1">
-                                <h4 class="text-user-name mb-0">Nombre Usuario</h4>
-                            </div>
-                            <div class="col-1">
-                                <button class="btn-three-dots" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-                                        <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-                                    </svg>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">Visitar perfil</a></li>
-                                    <li><a class="dropdown-item" href="#">Enviar mensaje</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Repotar</a></li>
-                                    <li><a class="dropdown-item" href="#">Bloquear cuenta</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Quitar</a></li>
-                                </ul>
-                            </div>
-                        </div>
 
-                        <div class="row mt-4">
-                            <div class="col-1 me-3">
-                                <div class="position-relative">
-                                    <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
-                                    <span class="position-absolute badge border border-light rounded-circle p-1 line-span"><span class="visually-hidden">unread messages</span></span>
+                                <div class="row mt-4">
+                                    <div class="col-1 me-3">
+                                        <div class="position-relative">
+                                            <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                                            <span class="position-absolute badge border border-light rounded-circle p-1 line-span"><span class="visually-hidden">unread messages</span></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-8 ps-4 pt-1">
+                                        <h4 class="text-user-name mb-0">Nombre Usuario</h4>
+                                    </div>
+                                    <div class="col-1">
+                                        <button class="btn-three-dots" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                                <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                                            </svg>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item" href="#">Visitar perfil</a></li>
+                                            <li><a class="dropdown-item" href="#">Enviar mensaje</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="#">Repotar</a></li>
+                                            <li><a class="dropdown-item" href="#">Bloquear cuenta</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="#">Quitar</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-8 ps-4 pt-1">
-                                <h4 class="text-user-name mb-0">Nombre Usuario</h4>
-                            </div>
-                            <div class="col-1">
-                                <button class="btn-three-dots" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-                                        <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-                                    </svg>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">Visitar perfil</a></li>
-                                    <li><a class="dropdown-item" href="#">Enviar mensaje</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Repotar</a></li>
-                                    <li><a class="dropdown-item" href="#">Bloquear cuenta</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Quitar</a></li>
-                                </ul>
-                            </div>
-                        </div>
 
-                        <div class="row mt-4">
-                            <div class="col-1 me-3">
-                                <div class="position-relative">
-                                    <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
-                                    <span class="position-absolute badge border border-light rounded-circle p-1 line-span"><span class="visually-hidden">unread messages</span></span>
+                                <div class="row mt-4">
+                                    <div class="col-1 me-3">
+                                        <div class="position-relative">
+                                            <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                                            <span class="position-absolute badge border border-light rounded-circle p-1 line-span"><span class="visually-hidden">unread messages</span></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-8 ps-4 pt-1">
+                                        <h4 class="text-user-name mb-0">Nombre Usuario</h4>
+                                    </div>
+                                    <div class="col-1">
+                                        <button class="btn-three-dots" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                                <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                                            </svg>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item" href="#">Visitar perfil</a></li>
+                                            <li><a class="dropdown-item" href="#">Enviar mensaje</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="#">Repotar</a></li>
+                                            <li><a class="dropdown-item" href="#">Bloquear cuenta</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="#">Quitar</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-8 ps-4 pt-1">
-                                <h4 class="text-user-name mb-0">Nombre Usuario</h4>
-                            </div>
-                            <div class="col-1">
-                                <button class="btn-three-dots" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-                                        <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-                                    </svg>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">Visitar perfil</a></li>
-                                    <li><a class="dropdown-item" href="#">Enviar mensaje</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Repotar</a></li>
-                                    <li><a class="dropdown-item" href="#">Bloquear cuenta</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Quitar</a></li>
-                                </ul>
+
+                                <div class="row mt-4">
+                                    <div class="col-1 me-3">
+                                        <div class="position-relative">
+                                            <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                                            <span class="position-absolute badge border border-light rounded-circle p-1 line-span"><span class="visually-hidden">unread messages</span></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-8 ps-4 pt-1">
+                                        <h4 class="text-user-name mb-0">Nombre Usuario</h4>
+                                    </div>
+                                    <div class="col-1">
+                                        <button class="btn-three-dots" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                                <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                                            </svg>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item" href="#">Visitar perfil</a></li>
+                                            <li><a class="dropdown-item" href="#">Enviar mensaje</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="#">Repotar</a></li>
+                                            <li><a class="dropdown-item" href="#">Bloquear cuenta</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="#">Quitar</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -263,7 +296,19 @@
             </aside>
 
             <section class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                <div class="row pt-3 pe-5 ps-5">
+                <div class="row pt-3 pe-5 ps-5 d-flex justify-content-center mt-5" id="loadingPost">
+                    <div class="spinner-grow text-info me-3" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-info me-3" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-info" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+                <div class="row pt-3 pe-5 ps-5 invisible" id="boxPost">
+                    <!--posteo-->
                     <div class="col-12 shadow p-3 mb-3 bg-body rounded">
                         <div class="row pt-4 pb-4">
                             <div class="col-1">
@@ -273,6 +318,7 @@
                         </div>
                     </div>
                     <hr>
+                    <!--Publicacion 1-->
                     <article class="col-12 shadow pt-3 pb-3 bg-body rounded mb-3 position-relative">
                         <div class="row">
                             <div class="col-1">
@@ -419,7 +465,7 @@
                         </div>
                     </article>
 
-
+                    <!--Publicacion 2-->
                     <article class="col-12 shadow pt-3 pb-3 bg-body rounded mb-3 position-relative">
                         <div class="row">
                             <div class="col-1">
@@ -720,122 +766,135 @@
                             </div>
                         </div>
                     </article>
-
                 </div>
             </section>
 
             <aside class="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3 p-3 position-relative">
                 <section class="row shadow mb-3 pt-2 rounded">
-                    <h5 class="title-text mt-2">Aportes en tendencia</h5>
-                    <article class="col-12">
-                        <div class="row">
-                            <div class="col-12 d-flex flex-row-reverse bd-highlight">
-                                <button class="btn-three-dots" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-                                        <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-                                    </svg>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">No me interesa</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Repotar</a></li>
-                                    <li><a class="dropdown-item" href="#">Bloquear cuenta</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Visitar perfil</a></li>
-                                </ul>
-
-                                <p class="text-link m-0 me-2">Tecnica</p>
-                            </div>
-                            <div class="col-2">
-                                <img src="images/chip_4.png" class="rounded-circle" height="20px" width="20px" alt="...">
-                            </div>
-                            <div class="col-10 ps-0">
-                                <h6 class="mini-text-user-name m-0">Nombre Usuario
-                                    <span class="text-muted"> . Ayer</span>
-                                </h6>
-                            </div>
-                            <div class="col-12 mt-1 pe-3">
-                                <p class="title-text col-12 mb-1">Some quick example text to build on the card ti.</p>
-                                <p class="text-muted mb-1">200 Reacciones</p>
-                            </div>
-                            <div class="col-12">
-                                <hr class="mt-1">
-                            </div>
+                    <div class="d-flex justify-content-center mt-3" id="loadingContributesPost">
+                        <div class="spinner-grow text-info me-3 spinner-grow-sm" role="status">
+                            <span class="visually-hidden">Loading...</span>
                         </div>
-                    </article>
-
-                    <article class="col-12">
-                        <div class="row">
-                            <div class="col-12 d-flex flex-row-reverse bd-highlight">
-                                <button class="btn-three-dots" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-                                        <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-                                    </svg>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">No me interesa</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Repotar</a></li>
-                                    <li><a class="dropdown-item" href="#">Bloquear cuenta</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Visitar perfil</a></li>
-                                </ul>
-                                <p class="text-link m-0 me-2">Tecnica</p>
-                            </div>
-                            <div class="col-2">
-                                <img src="images/chip_4.png" class="rounded-circle" height="20px" width="20px" alt="...">
-                            </div>
-                            <div class="col-10 ps-0">
-                                <h6 class="mini-text-user-name m-0">Nombre Usuario
-                                    <span class="text-muted"> . Ayer</span>
-                                </h6>
-                            </div>
-                            <div class="col-12 mt-1 pe-3">
-                                <p class="title-text col-12 mb-1">Some quick example text to build on the card ti.</p>
-                                <p class="text-muted mb-1">200 Reacciones</p>
-                            </div>
-                            <div class="col-12">
-                                <hr class="mt-1">
-                            </div>
+                        <div class="spinner-grow text-info me-3 spinner-grow-sm" role="status">
+                            <span class="visually-hidden">Loading...</span>
                         </div>
-                    </article>
-
-                    <article class="col-12">
-                        <div class="row">
-                            <div class="col-12 d-flex flex-row-reverse bd-highlight">
-                                <button class="btn-three-dots" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-                                        <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-                                    </svg>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">No me interesa</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Repotar</a></li>
-                                    <li><a class="dropdown-item" href="#">Bloquear cuenta</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Visitar perfil</a></li>
-                                </ul>
-                                <p class="text-link m-0 me-2">Tecnica</p>
-                            </div>
-                            <div class="col-2">
-                                <img src="images/chip_4.png" class="rounded-circle" height="20px" width="20px" alt="...">
-                            </div>
-                            <div class="col-10 ps-0">
-                                <h6 class="mini-text-user-name m-0">Nombre Usuario
-                                    <span class="text-muted"> . Ayer</span>
-                                </h6>
-                            </div>
-                            <div class="col-12 mt-1 pe-3">
-                                <p class="title-text col-12 mb-1">Some quick example text to build on the card ti.</p>
-                                <p class="text-muted mb-1">200 Reacciones</p>
-                            </div>
-                            <div class="col-12">
-                                <hr class="mt-1">
-                            </div>
+                        <div class="spinner-grow text-info spinner-grow-sm" role="status">
+                            <span class="visually-hidden">Loading...</span>
                         </div>
-                    </article>
+                    </div>
+                    <div class="col-12 invisible" id="contributesPost">
+                        <div class="row">
+                            <h5 class="title-text mt-2">Aportes en tendencia</h5>
+                            <article class="col-12">
+                                <div class="row">
+                                    <div class="col-12 d-flex flex-row-reverse bd-highlight">
+                                        <button class="btn-three-dots" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                                <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                                            </svg>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item" href="#">No me interesa</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="#">Repotar</a></li>
+                                            <li><a class="dropdown-item" href="#">Bloquear cuenta</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="#">Visitar perfil</a></li>
+                                        </ul>
 
+                                        <p class="text-link m-0 me-2">Tecnica</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <img src="images/chip_4.png" class="rounded-circle" height="20px" width="20px" alt="...">
+                                    </div>
+                                    <div class="col-10 ps-0">
+                                        <h6 class="mini-text-user-name m-0">Nombre Usuario
+                                            <span class="text-muted"> . Ayer</span>
+                                        </h6>
+                                    </div>
+                                    <div class="col-12 mt-1 pe-3">
+                                        <p class="title-text col-12 mb-1">Some quick example text to build on the card ti.</p>
+                                        <p class="text-muted mb-1">200 Reacciones</p>
+                                    </div>
+                                    <div class="col-12">
+                                        <hr class="mt-1">
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="col-12">
+                                <div class="row">
+                                    <div class="col-12 d-flex flex-row-reverse bd-highlight">
+                                        <button class="btn-three-dots" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                                <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                                            </svg>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item" href="#">No me interesa</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="#">Repotar</a></li>
+                                            <li><a class="dropdown-item" href="#">Bloquear cuenta</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="#">Visitar perfil</a></li>
+                                        </ul>
+                                        <p class="text-link m-0 me-2">Tecnica</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <img src="images/chip_4.png" class="rounded-circle" height="20px" width="20px" alt="...">
+                                    </div>
+                                    <div class="col-10 ps-0">
+                                        <h6 class="mini-text-user-name m-0">Nombre Usuario
+                                            <span class="text-muted"> . Ayer</span>
+                                        </h6>
+                                    </div>
+                                    <div class="col-12 mt-1 pe-3">
+                                        <p class="title-text col-12 mb-1">Some quick example text to build on the card ti.</p>
+                                        <p class="text-muted mb-1">200 Reacciones</p>
+                                    </div>
+                                    <div class="col-12">
+                                        <hr class="mt-1">
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="col-12">
+                                <div class="row">
+                                    <div class="col-12 d-flex flex-row-reverse bd-highlight">
+                                        <button class="btn-three-dots" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                                <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                                            </svg>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item" href="#">No me interesa</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="#">Repotar</a></li>
+                                            <li><a class="dropdown-item" href="#">Bloquear cuenta</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="#">Visitar perfil</a></li>
+                                        </ul>
+                                        <p class="text-link m-0 me-2">Tecnica</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <img src="images/chip_4.png" class="rounded-circle" height="20px" width="20px" alt="...">
+                                    </div>
+                                    <div class="col-10 ps-0">
+                                        <h6 class="mini-text-user-name m-0">Nombre Usuario
+                                            <span class="text-muted"> . Ayer</span>
+                                        </h6>
+                                    </div>
+                                    <div class="col-12 mt-1 pe-3">
+                                        <p class="title-text col-12 mb-1">Some quick example text to build on the card ti.</p>
+                                        <p class="text-muted mb-1">200 Reacciones</p>
+                                    </div>
+                                    <div class="col-12">
+                                        <hr class="mt-1">
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
                     <a class="text-link m-0 me-2 mb-3">Ver mas tendencias 
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
@@ -844,57 +903,73 @@
 
                 </section>
                 <div class="row shadow mb-3 rounded">
-                    <h5 class="title-text mt-3">Sugerencias</h5>
-
-                    <div class="row mt-3">
-                        <div class="col-1 me-3">
-                            <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                    <div class="d-flex justify-content-center mt-3" id="loadingSuggestions">
+                        <div class="spinner-grow text-info me-3 spinner-grow-sm" role="status">
+                            <span class="visually-hidden">Loading...</span>
                         </div>
-                        <div class="col-7 ps-4 pt-1">
-                            <h4 class="text-user-name mb-0">Nombre Usuario</h4>
-                            <p class="text-muted">profesión</p>
+                        <div class="spinner-grow text-info me-3 spinner-grow-sm" role="status">
+                            <span class="visually-hidden">Loading...</span>
                         </div>
-                        <div class="col-3">
-                            <button type="button" class="btn-color-violet btn-sm">Seguir</button>
+                        <div class="spinner-grow text-info spinner-grow-sm" role="status">
+                            <span class="visually-hidden">Loading...</span>
                         </div>
                     </div>
+                    <div class="col-12 invisible" id="suggestions">
+                        <div class="row">
 
-                    <div class="row mt-3">
-                        <div class="col-1 me-3">
-                            <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
-                        </div>
-                        <div class="col-7 ps-4 pt-1">
-                            <h4 class="text-user-name mb-0">Nombre Usuario</h4>
-                            <p class="text-muted">profesión</p>
-                        </div>
-                        <div class="col-3">
-                            <button type="button" class="btn-color-violet btn-sm">Seguir</button>
-                        </div>
-                    </div>
+                            <h5 class="title-text mt-3">Sugerencias</h5>
 
-                    <div class="row mt-3">
-                        <div class="col-1 me-3">
-                            <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
-                        </div>
-                        <div class="col-7 ps-4 pt-1">
-                            <h4 class="text-user-name mb-0">Nombre Usuario</h4>
-                            <p class="text-muted">profesión</p>
-                        </div>
-                        <div class="col-3">
-                            <button type="button" class="btn-color-violet btn-sm">Seguir</button>
-                        </div>
-                    </div>
+                            <div class="row mt-3">
+                                <div class="col-1 me-3">
+                                    <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                                </div>
+                                <div class="col-7 ps-4 pt-1">
+                                    <h4 class="text-user-name mb-0">Nombre Usuario</h4>
+                                    <p class="text-muted">profesión</p>
+                                </div>
+                                <div class="col-3">
+                                    <button type="button" class="btn-color-violet btn-sm">Seguir</button>
+                                </div>
+                            </div>
 
-                    <div class="row mt-3">
-                        <div class="col-1 me-3">
-                            <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
-                        </div>
-                        <div class="col-7 ps-4 pt-1">
-                            <h4 class="text-user-name mb-0">Nombre Usuario</h4>
-                            <p class="text-muted">profesión</p>
-                        </div>
-                        <div class="col-3">
-                            <button type="button" class="btn-color-violet btn-sm">Seguir</button>
+                            <div class="row mt-3">
+                                <div class="col-1 me-3">
+                                    <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                                </div>
+                                <div class="col-7 ps-4 pt-1">
+                                    <h4 class="text-user-name mb-0">Nombre Usuario</h4>
+                                    <p class="text-muted">profesión</p>
+                                </div>
+                                <div class="col-3">
+                                    <button type="button" class="btn-color-violet btn-sm">Seguir</button>
+                                </div>
+                            </div>
+
+                            <div class="row mt-3">
+                                <div class="col-1 me-3">
+                                    <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                                </div>
+                                <div class="col-7 ps-4 pt-1">
+                                    <h4 class="text-user-name mb-0">Nombre Usuario</h4>
+                                    <p class="text-muted">profesión</p>
+                                </div>
+                                <div class="col-3">
+                                    <button type="button" class="btn-color-violet btn-sm">Seguir</button>
+                                </div>
+                            </div>
+
+                            <div class="row mt-3">
+                                <div class="col-1 me-3">
+                                    <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                                </div>
+                                <div class="col-7 ps-4 pt-1">
+                                    <h4 class="text-user-name mb-0">Nombre Usuario</h4>
+                                    <p class="text-muted">profesión</p>
+                                </div>
+                                <div class="col-3">
+                                    <button type="button" class="btn-color-violet btn-sm">Seguir</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -905,8 +980,22 @@
                     </a>
 
                 </div>
-                <div class="row">
-                    <div class="col-12 shadow p-3 mb-3 bg-body rounded">
+                <div class="row shadow mb-3 bg-body rounded">
+                    <div class="d-flex justify-content-center mt-3" id="loadingaAds">
+                        <div class="spinner-grow text-info me-3 spinner-grow-sm" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <div class="spinner-grow text-info me-3 spinner-grow-sm" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <div class="spinner-grow text-info spinner-grow-sm" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                    <div class="col-12 invisible" id="ads">
+                        <h5 class="title-text mt-3">Publicidad</h5>
+                        <img src="images/post/p1.jpg" class="col-12 pb-3" alt="...">
+                        <img src="images/post/p1.jpg" class="col-12 pb-3" alt="...">
                     </div>
                 </div>
                 <aside class="row list-chats-off rounded-top shadow-lg" id="listChats">

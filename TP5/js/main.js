@@ -73,3 +73,139 @@ function onComment(){
         boxcomment1.classList.remove('box-comment-on');
     }
 }
+
+const boxPost = document.getElementById("boxPost");
+const loadingPost = document.getElementById("loadingPost");
+
+setTimeout(() => {
+    if(boxPost){
+        boxPostOn();
+    }
+}, 2000);
+
+function boxPostOn(){
+    boxPost.classList.remove('invisible');
+    boxPost.classList.add('visible');
+    loadingPost.classList.add('d-none');
+}
+
+const contributesPost = document.getElementById("contributesPost");
+const loadingContributesPost = document.getElementById("loadingContributesPost");
+
+setTimeout(() => {
+    if(contributesPost){
+        boxContributesPostOn();
+    }
+}, 1500);
+
+function boxContributesPostOn(){
+    contributesPost.classList.remove('invisible');
+    contributesPost.classList.add('visible');
+    loadingContributesPost.classList.add('d-none');
+}
+
+const suggestions = document.getElementById("suggestions");
+const loadingSuggestions = document.getElementById("loadingSuggestions");
+
+setTimeout(() => {
+    if(suggestions){
+        boxSuggestionsPostOn();
+    }
+}, 1700);
+
+function boxSuggestionsPostOn(){
+    suggestions.classList.remove('invisible');
+    suggestions.classList.add('visible');
+    loadingSuggestions.classList.add('d-none');
+}
+
+const ads = document.getElementById("ads");
+const loadingaAds = document.getElementById("loadingaAds");
+
+setTimeout(() => {
+    if(ads){
+        boxAdsPostOn();
+    }
+}, 1900);
+
+function boxAdsPostOn(){
+    ads.classList.remove('invisible');
+    ads.classList.add('visible');
+    loadingaAds.classList.add('d-none');
+}
+
+const face = document.getElementById("face");
+const loadingFace = document.getElementById("loadingFace");
+
+setTimeout(() => {
+    if(face){
+        boxFacePostOn();
+    }
+}, 1300);
+
+function boxFacePostOn(){
+    face.classList.remove('invisible');
+    face.classList.add('visible');
+    loadingFace.classList.add('d-none');
+}
+
+const interests = document.getElementById("interests");
+const loadingInterests = document.getElementById("loadingInterests");
+
+setTimeout(() => {
+    if(interests){
+        boxInterestsPostOn();
+    }
+}, 1000);
+
+function boxInterestsPostOn(){
+    interests.classList.remove('invisible');
+    interests.classList.add('visible');
+    loadingInterests.classList.add('d-none');
+}
+
+
+const followed = document.getElementById("followed");
+const loadingFollowed = document.getElementById("loadingFollowed");
+
+setTimeout(() => {
+    if(followed){
+        boxFollowedPostOn();
+    }
+}, 1500);
+
+function boxFollowedPostOn(){
+    followed.classList.remove('invisible');
+    followed.classList.add('visible');
+    loadingFollowed.classList.add('d-none');
+}
+
+const pefil = document.getElementById("pefil");
+const loadingpefil = document.getElementById("loadingpefil");
+
+setTimeout(() => {
+    if(pefil){
+        boxFefilPostOn();
+    }
+}, 1500);
+
+function boxFefilPostOn(){
+    pefil.classList.remove('invisible');
+    pefil.classList.add('visible');
+    loadingpefil.classList.add('d-none');
+}
+
+const contacts = document.getElementById("contacts");
+const loadingcontacts = document.getElementById("loadingcontacts");
+
+setTimeout(() => {
+    if(contacts){
+        boxContactsPostOn();
+    }
+}, 1300);
+
+function boxContactsPostOn(){
+    contacts.classList.remove('invisible');
+    contacts.classList.add('visible');
+    loadingcontacts.classList.add('d-none');
+}

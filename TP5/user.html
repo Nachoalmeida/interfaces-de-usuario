@@ -38,7 +38,18 @@
     </svg>
     </nav>
     <div class="div-container-perfil">
-        <div class="container p-5 pt-4">
+        <div class="d-flex justify-content-center pt-5" id="loadingFace">
+            <div class="spinner-grow text-info me-3" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow text-info me-3" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow text-info" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        <div class="container p-5 pt-4 invisible" id="face">
             <div class="row pe-5 ps-5 position-relative">
                 <div class="col-12 rounded">
                     <img class="rounded" src="images/post/p1.jpg" width="100%" height="350rem" alt="">
@@ -84,9 +95,19 @@
     <div class="container mt-2">
         <div class="row">
             <aside class="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3 p-3">
-
                 <div class="row mb-3 shadow rounded">
-                    <div class="col-12">
+                    <div class="d-flex justify-content-center pt-5" id="loadingInterests">
+                        <div class="spinner-grow text-info me-3 spinner-grow-sm" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <div class="spinner-grow text-info me-3 spinner-grow-sm" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <div class="spinner-grow text-info spinner-grow-sm" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                    <div class="col-12 invisible" id="interests">
                         <h5 class="title-text mt-2">Intereses</h5>
                         <div class="mt-2 mb-3">
                             <ul class="list-group">
@@ -100,44 +121,473 @@
                 </div>
             </aside>
             <section class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                <div class="row pt-3 pe-5 ps-5">
+                <div class="row pt-3 pe-5 ps-5 d-flex justify-content-center mt-5" id="loadingPost">
+                    <div class="spinner-grow text-info me-3" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-info me-3" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-info" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+                <div class="row pt-3 pe-5 ps-5 invisible" id="boxPost">
+                    <!--posteo-->
                     <div class="col-12 shadow p-3 mb-3 bg-body rounded">
                         <div class="row pt-4 pb-4">
                             <div class="col-1">
                                 <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
                             </div>
-                            <button type="button" class="ms-4 col-10 rounded-pill btn-color-violet btn-lg p-0">Publicar..</button>
+                            <button type="button" class="ms-4 col-10 rounded-pill btn-color-violet btn-lg p-0" data-bs-toggle="modal" data-bs-target="#publicModal">Publicar..</button>
                         </div>
                     </div>
                     <hr>
-                    <article class="mb-3 col-12 shadow pt-3 pb-3 bg-body rounded">
+                    <!--Publicacion 1-->
+                    <article class="col-12 shadow pt-3 pb-3 bg-body rounded mb-3 position-relative">
                         <div class="row">
                             <div class="col-1">
                                 <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
                             </div>
-                            <div class="col-6 ps-4 pt-1">
+                            <div class="col-8 ps-4 pt-1">
                                 <h4 class="text-user-name mb-0">Nombre Usuario</h4>
                                 <p class="text-muted">3hs</p>
+                            </div>
+                            <div class="col-2 ps-4">
+                                <p class="text-link m-0 me-2">Tecnica</p>
+                            </div>
+                            <div class="col-1">
+                                <button class="btn-three-dots" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                        <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                                    </svg>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="#">Dejar de seguir</a></li>
+                                    <li><a class="dropdown-item" href="#">Silenciar</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#">Repotar</a></li>
+                                    <li><a class="dropdown-item" href="#">Bloquear cuenta</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#">Quitar</a></li>
+                                </ul>
                             </div>
                             <p class="post-text col-12">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             <img src="images/post/p1.jpg" class="col-12 p-0" alt="...">
                             <div class="col-12 pt-3">
                                 <hr class="mt-1 mb-2">
-                                <a href="#" class="btn">
+                                <button class="btn">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
-                    <path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"/>
-                  </svg> 100
-                                </a>
-                                <a href="#" class="btn"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-chat-left" viewBox="0 0 16 16">
-                  <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                  </svg>
-                  2
-                </a>
-                                <a href="#" class="btn">
+                                        <path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"/>
+                                    </svg> 100
+                                </button>
+                                <button class="btn" id="post1comment"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-chat-left" viewBox="0 0 16 16">
+                                    <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                    </svg>
+                                    2
+                                </button>
+                                <button class="btn">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="28" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
-                    <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
-                  </svg>
-                                </a>
+                                        <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <!--Comentarios-->
+                            <div class="col-12 pt-1 box-comment-off" id="boxcomment1">
+                                <hr class="mt-1 mb-2">
+                                <div class="row pt-3 pb-3">
+                                    <div class="col-1">
+                                        <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                                    </div>
+                                    <input type="text" class="input-comment ms-4 col-10 rounded-pill p-0 ps-2" placeholder="Comentar..">
+                                </div>
+                                <hr class="mt-1 mb-2">
+                                <div class="row mt-4">
+                                    <div class="col-1">
+                                        <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                                    </div>
+                                    <div class="col-11 ps-4 pt-1">
+                                        <h4 class="text-user-name mb-0">Nombre Usuario</h4>
+                                        <p class="text-muted m-0">Respuesta a <span class="text-link">@Nombre de usuario</span></p>
+                                    </div>
+                                    <div class="col-1"></div>
+                                    <div class="col-11 ps-4 p-1">
+                                        <p class="medium-text-muted m-0">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem praesentium quia voluptatem iusto atque saepe odit!
+                                        </p>
+                                    </div>
+                                    <div class="col-1"></div>
+                                    <div class="col-11 ps-3 p-1">
+                                        <a href="#" class="btn">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
+                                                <path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"/>
+                                            </svg> 5
+                                        </a>
+                                        <a href="#" class="btn"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-chat-left" viewBox="0 0 16 16">
+                                            <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                            </svg>
+                                            2
+                                        </a>
+                                    </div>
+
+                                    <div class="col-1"></div>
+                                    <div class="col-11 ps-3 p-1">
+                                        <div class="row">
+                                            <div class="col-1">
+                                                <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                                            </div>
+                                            <div class="col-11 ps-4 pt-1">
+                                                <h4 class="text-user-name mb-0">Nombre Usuario</h4>
+                                                <p class="text-muted m-0">Respuesta a <span class="text-link">@Nombre de usuario</span></p>
+                                            </div>
+                                            <div class="col-1"></div>
+                                            <div class="col-11 ps-4 p-1">
+                                                <p class="medium-text-muted m-0">
+                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit!
+                                                </p>
+                                            </div>
+                                            <div class="col-1"></div>
+                                            <div class="col-11 ps-3 p-1">
+                                                <a href="#" class="btn">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
+                                                        <path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"/>
+                                                    </svg> 5
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-1"></div>
+                                    <div class="col-11 ps-3 p-1">
+                                        <div class="row">
+                                            <div class="col-1">
+                                                <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                                            </div>
+                                            <div class="col-11 ps-4 pt-1">
+                                                <h4 class="text-user-name mb-0">Nombre Usuario</h4>
+                                                <p class="text-muted m-0">Respuesta a <span class="text-link">@Nombre de usuario</span></p>
+                                            </div>
+                                            <div class="col-1"></div>
+                                            <div class="col-11 ps-4 p-1">
+                                                <p class="medium-text-muted m-0">
+                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit!
+                                                </p>
+                                            </div>
+                                            <div class="col-1"></div>
+                                            <div class="col-11 ps-3 p-1">
+                                                <a href="#" class="btn">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
+                                                        <path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"/>
+                                                    </svg> 5
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!--Publicacion 2-->
+                    <article class="col-12 shadow pt-3 pb-3 bg-body rounded mb-3 position-relative">
+                        <div class="row">
+                            <div class="col-1">
+                                <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                            </div>
+                            <div class="col-8 ps-4 pt-1">
+                                <h4 class="text-user-name mb-0">Nombre Usuario</h4>
+                                <p class="text-muted">3hs</p>
+                            </div>
+                            <div class="col-2 ps-4">
+                                <p class="text-link m-0 me-2">Tecnica</p>
+                            </div>
+                            <div class="col-1">
+                                <button class="btn-three-dots" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                        <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                                    </svg>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="#">Dejar de seguir</a></li>
+                                    <li><a class="dropdown-item" href="#">Silenciar</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#">Repotar</a></li>
+                                    <li><a class="dropdown-item" href="#">Bloquear cuenta</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#">Quitar</a></li>
+                                </ul>
+                            </div>
+                            <p class="post-text col-12">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <img src="images/post/p1.jpg" class="col-6 p-0 border-secondary border-end border-bottom" alt="...">
+                            <img src="images/post/p1.jpg" class="col-6 p-0 border-secondary border-bottom" alt="...">
+                            <img src="images/post/p1.jpg" class="col-6 p-0 border-secondary border-end" alt="...">
+                            <div class="col-6 img-galery position-relative p-0">
+                                <p class="text-img-galery position-absolute top-50 start-50 translate-middle">+3</p>
+                                <div class="hover-img-galery position-absolute">
+                                    
+                                </div>
+                                <img src="images/post/p1.jpg" class="w-100 p-0" alt="...">
+                            </div>
+                            <div class="col-12 pt-3">
+                                <hr class="mt-1 mb-2">
+                                <button class="btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
+                                        <path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"/>
+                                    </svg> 100
+                                </button>
+                                <button class="btn" id="post2comment"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-chat-left" viewBox="0 0 16 16">
+                                    <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                    </svg>
+                                    2
+                                </button>
+                                <button class="btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="28" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
+                                        <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <!--Comentarios-->
+                            <div class="col-12 pt-1 box-comment-off" id="boxcomment2">
+                                <hr class="mt-1 mb-2">
+                                <div class="row pt-3 pb-3">
+                                    <div class="col-1">
+                                        <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                                    </div>
+                                    <input type="text" class="input-comment ms-4 col-10 rounded-pill p-0 ps-2" placeholder="Comentar..">
+                                </div>
+                                <hr class="mt-1 mb-2">
+                                <div class="row mt-4">
+                                    <div class="col-1">
+                                        <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                                    </div>
+                                    <div class="col-11 ps-4 pt-1">
+                                        <h4 class="text-user-name mb-0">Nombre Usuario</h4>
+                                        <p class="text-muted m-0">Respuesta a <span class="text-link">@Nombre de usuario</span></p>
+                                    </div>
+                                    <div class="col-1"></div>
+                                    <div class="col-11 ps-4 p-1">
+                                        <p class="medium-text-muted m-0">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem praesentium quia voluptatem iusto atque saepe odit!
+                                        </p>
+                                    </div>
+                                    <div class="col-1"></div>
+                                    <div class="col-11 ps-3 p-1">
+                                        <a href="#" class="btn">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
+                                                <path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"/>
+                                            </svg> 5
+                                        </a>
+                                        <a href="#" class="btn"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-chat-left" viewBox="0 0 16 16">
+                                            <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                            </svg>
+                                            2
+                                        </a>
+                                    </div>
+
+                                    <div class="col-1"></div>
+                                    <div class="col-11 ps-3 p-1">
+                                        <div class="row">
+                                            <div class="col-1">
+                                                <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                                            </div>
+                                            <div class="col-11 ps-4 pt-1">
+                                                <h4 class="text-user-name mb-0">Nombre Usuario</h4>
+                                                <p class="text-muted m-0">Respuesta a <span class="text-link">@Nombre de usuario</span></p>
+                                            </div>
+                                            <div class="col-1"></div>
+                                            <div class="col-11 ps-4 p-1">
+                                                <p class="medium-text-muted m-0">
+                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit!
+                                                </p>
+                                            </div>
+                                            <div class="col-1"></div>
+                                            <div class="col-11 ps-3 p-1">
+                                                <a href="#" class="btn">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
+                                                        <path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"/>
+                                                    </svg> 5
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-1"></div>
+                                    <div class="col-11 ps-3 p-1">
+                                        <div class="row">
+                                            <div class="col-1">
+                                                <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                                            </div>
+                                            <div class="col-11 ps-4 pt-1">
+                                                <h4 class="text-user-name mb-0">Nombre Usuario</h4>
+                                                <p class="text-muted m-0">Respuesta a <span class="text-link">@Nombre de usuario</span></p>
+                                            </div>
+                                            <div class="col-1"></div>
+                                            <div class="col-11 ps-4 p-1">
+                                                <p class="medium-text-muted m-0">
+                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit!
+                                                </p>
+                                            </div>
+                                            <div class="col-1"></div>
+                                            <div class="col-11 ps-3 p-1">
+                                                <a href="#" class="btn">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
+                                                        <path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"/>
+                                                    </svg> 5
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!--Publicacion 3-->
+                    <article class="col-12 shadow pt-3 pb-3 bg-body rounded mb-3 position-relative">
+                        <div class="row">
+                            <div class="col-1">
+                                <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                            </div>
+                            <div class="col-8 ps-4 pt-1">
+                                <h4 class="text-user-name mb-0">Nombre Usuario</h4>
+                                <p class="text-muted">3hs</p>
+                            </div>
+                            <div class="col-2 ps-4">
+                                <p class="text-link m-0 me-2">Tecnica</p>
+                            </div>
+                            <div class="col-1">
+                                <button class="btn-three-dots" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                        <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                                    </svg>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="#">Dejar de seguir</a></li>
+                                    <li><a class="dropdown-item" href="#">Silenciar</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#">Repotar</a></li>
+                                    <li><a class="dropdown-item" href="#">Bloquear cuenta</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#">Quitar</a></li>
+                                </ul>
+                            </div>
+                            <p class="post-text col-12">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <div class="col-12 pt-3">
+                                <hr class="mt-1 mb-2">
+                                <button class="btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
+                                        <path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"/>
+                                    </svg> 100
+                                </button>
+                                <button class="btn" id="post3comment"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-chat-left" viewBox="0 0 16 16">
+                                    <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                    </svg>
+                                    2
+                                </button>
+                                <button class="btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="28" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
+                                        <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <!--Comentarios-->
+                            <div class="col-12 pt-1 box-comment-off" id="boxcomment3">
+                                <hr class="mt-1 mb-2">
+                                <div class="row pt-3 pb-3">
+                                    <div class="col-1">
+                                        <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                                    </div>
+                                    <input type="text" class="input-comment ms-4 col-10 rounded-pill p-0 ps-2" placeholder="Comentar..">
+                                </div>
+                                <hr class="mt-1 mb-2">
+                                <div class="row mt-4">
+                                    <div class="col-1">
+                                        <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                                    </div>
+                                    <div class="col-11 ps-4 pt-1">
+                                        <h4 class="text-user-name mb-0">Nombre Usuario</h4>
+                                        <p class="text-muted m-0">Respuesta a <span class="text-link">@Nombre de usuario</span></p>
+                                    </div>
+                                    <div class="col-1"></div>
+                                    <div class="col-11 ps-4 p-1">
+                                        <p class="medium-text-muted m-0">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem praesentium quia voluptatem iusto atque saepe odit!
+                                        </p>
+                                    </div>
+                                    <div class="col-1"></div>
+                                    <div class="col-11 ps-3 p-1">
+                                        <a href="#" class="btn">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
+                                                <path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"/>
+                                            </svg> 5
+                                        </a>
+                                        <a href="#" class="btn"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-chat-left" viewBox="0 0 16 16">
+                                            <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                            </svg>
+                                            2
+                                        </a>
+                                    </div>
+
+                                    <div class="col-1"></div>
+                                    <div class="col-11 ps-3 p-1">
+                                        <div class="row">
+                                            <div class="col-1">
+                                                <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                                            </div>
+                                            <div class="col-11 ps-4 pt-1">
+                                                <h4 class="text-user-name mb-0">Nombre Usuario</h4>
+                                                <p class="text-muted m-0">Respuesta a <span class="text-link">@Nombre de usuario</span></p>
+                                            </div>
+                                            <div class="col-1"></div>
+                                            <div class="col-11 ps-4 p-1">
+                                                <p class="medium-text-muted m-0">
+                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit!
+                                                </p>
+                                            </div>
+                                            <div class="col-1"></div>
+                                            <div class="col-11 ps-3 p-1">
+                                                <a href="#" class="btn">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
+                                                        <path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"/>
+                                                    </svg> 5
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-1"></div>
+                                    <div class="col-11 ps-3 p-1">
+                                        <div class="row">
+                                            <div class="col-1">
+                                                <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                                            </div>
+                                            <div class="col-11 ps-4 pt-1">
+                                                <h4 class="text-user-name mb-0">Nombre Usuario</h4>
+                                                <p class="text-muted m-0">Respuesta a <span class="text-link">@Nombre de usuario</span></p>
+                                            </div>
+                                            <div class="col-1"></div>
+                                            <div class="col-11 ps-4 p-1">
+                                                <p class="medium-text-muted m-0">
+                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit!
+                                                </p>
+                                            </div>
+                                            <div class="col-1"></div>
+                                            <div class="col-11 ps-3 p-1">
+                                                <a href="#" class="btn">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
+                                                        <path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"/>
+                                                    </svg> 5
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                     </article>
@@ -145,7 +595,18 @@
             </section>
             <aside class="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3 p-3">
                 <div class="row mb-3 shadow rounded">
-                    <div class="col-12">
+                    <div class="d-flex justify-content-center pt-5" id="loadingFollowed">
+                        <div class="spinner-grow text-info me-3 spinner-grow-sm" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <div class="spinner-grow text-info me-3 spinner-grow-sm" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <div class="spinner-grow text-info spinner-grow-sm" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                    <div class="col-12 invisible" id="followed">
                         <h5 class="title-text mt-2">135 seguidos</h5>
                         <div class="mt-2 mb-2 rounded border">
                             <div class="m-3 ms-4 row">
@@ -187,68 +648,287 @@
                     </div>
                 </div>
                 <div class="row shadow mb-3 rounded">
-                    <h5 class="title-text mt-3">Sugerencias</h5>
-
-                    <div class="row mt-3">
-                        <div class="col-1 me-3">
-                            <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                    <div class="d-flex justify-content-center mt-3" id="loadingSuggestions">
+                        <div class="spinner-grow text-info me-3 spinner-grow-sm" role="status">
+                            <span class="visually-hidden">Loading...</span>
                         </div>
-                        <div class="col-7 ps-4 pt-1">
-                            <h4 class="text-user-name mb-0">Nombre Usuario</h4>
-                            <p class="text-muted">profesión</p>
+                        <div class="spinner-grow text-info me-3 spinner-grow-sm" role="status">
+                            <span class="visually-hidden">Loading...</span>
                         </div>
-                        <div class="col-3">
-                            <button type="button" class="btn-color-violet btn-sm">Seguir</button>
+                        <div class="spinner-grow text-info spinner-grow-sm" role="status">
+                            <span class="visually-hidden">Loading...</span>
                         </div>
                     </div>
+                    <div class="col-12 invisible" id="suggestions">
+                        <div class="row">
 
-                    <div class="row mt-3">
-                        <div class="col-1 me-3">
-                            <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
-                        </div>
-                        <div class="col-7 ps-4 pt-1">
-                            <h4 class="text-user-name mb-0">Nombre Usuario</h4>
-                            <p class="text-muted">profesión</p>
-                        </div>
-                        <div class="col-3">
-                            <button type="button" class="btn-color-violet btn-sm">Seguir</button>
-                        </div>
-                    </div>
+                            <h5 class="title-text mt-3">Sugerencias</h5>
 
-                    <div class="row mt-3">
-                        <div class="col-1 me-3">
-                            <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
-                        </div>
-                        <div class="col-7 ps-4 pt-1">
-                            <h4 class="text-user-name mb-0">Nombre Usuario</h4>
-                            <p class="text-muted">profesión</p>
-                        </div>
-                        <div class="col-3">
-                            <button type="button" class="btn-color-violet btn-sm">Seguir</button>
-                        </div>
-                    </div>
+                            <div class="row mt-3">
+                                <div class="col-1 me-3">
+                                    <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                                </div>
+                                <div class="col-7 ps-4 pt-1">
+                                    <h4 class="text-user-name mb-0">Nombre Usuario</h4>
+                                    <p class="text-muted">profesión</p>
+                                </div>
+                                <div class="col-3">
+                                    <button type="button" class="btn-color-violet btn-sm">Seguir</button>
+                                </div>
+                            </div>
 
-                    <div class="row mt-3">
-                        <div class="col-1 me-3">
-                            <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
-                        </div>
-                        <div class="col-7 ps-4 pt-1">
-                            <h4 class="text-user-name mb-0">Nombre Usuario</h4>
-                            <p class="text-muted">profesión</p>
-                        </div>
-                        <div class="col-3">
-                            <button type="button" class="btn-color-violet btn-sm">Seguir</button>
+                            <div class="row mt-3">
+                                <div class="col-1 me-3">
+                                    <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                                </div>
+                                <div class="col-7 ps-4 pt-1">
+                                    <h4 class="text-user-name mb-0">Nombre Usuario</h4>
+                                    <p class="text-muted">profesión</p>
+                                </div>
+                                <div class="col-3">
+                                    <button type="button" class="btn-color-violet btn-sm">Seguir</button>
+                                </div>
+                            </div>
+
+                            <div class="row mt-3">
+                                <div class="col-1 me-3">
+                                    <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                                </div>
+                                <div class="col-7 ps-4 pt-1">
+                                    <h4 class="text-user-name mb-0">Nombre Usuario</h4>
+                                    <p class="text-muted">profesión</p>
+                                </div>
+                                <div class="col-3">
+                                    <button type="button" class="btn-color-violet btn-sm">Seguir</button>
+                                </div>
+                            </div>
+
+                            <div class="row mt-3">
+                                <div class="col-1 me-3">
+                                    <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                                </div>
+                                <div class="col-7 ps-4 pt-1">
+                                    <h4 class="text-user-name mb-0">Nombre Usuario</h4>
+                                    <p class="text-muted">profesión</p>
+                                </div>
+                                <div class="col-3">
+                                    <button type="button" class="btn-color-violet btn-sm">Seguir</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <a class="text-link m-0 me-2 mb-3">Ver mas recomendaciones 
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-            </svg>
-          </a>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                        </svg>
+                    </a>
 
                 </div>
+
+                <aside class="row list-chats-off rounded-top shadow-lg" id="listChats">
+                    <div class="list-chats-header col-12 rounded-top">
+                        <div class="row">
+                            <div class="col-1 me-3 mt-1">
+                                <div class="position-relative">
+                                    <img src="images/chip_4.png" class="rounded-circle" height="31px" width="31px" alt="...">
+                                    <span class="position-absolute badge border border-light rounded-circle p-1 line-span-chats"><span class="visually-hidden">unread messages</span></span>
+                                </div>
+                            </div>
+                            <div class="col-9 ps-2 pt-2 mb-1">
+                                <h4 class="mb-0 list-text-chats-header">Mensajes</h4>
+                            </div>
+                            <button class="col-1 mt-2 p-0 btn" id="btnChatsOn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-compact-down" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="list-chats-body col-12 pe-2 ps-2 bg-light">
+                        <div class="row">
+
+                            <div class="col-12 mt-3 mb-3 ps-4 pe-4">
+                                <input class="search-chats rounded-pill form-control me-2 search-chats" type="search" placeholder="Buscar en VetNet" aria-label="Buscar en VetNet" name="Buscar en VetNet">
+                            </div>
+
+                            <div class="col-12 " id="onChat1">
+                                <div class="row mt-2">
+                                    <div class="col-1 me-3">
+                                        <div class="position-relative">
+                                            <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                                            <span class="position-absolute badge border border-light rounded-circle p-1 line-span"><span class="visually-hidden">unread messages</span></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-8 ps-4 pt-1 mb-1">
+                                        <h4 class="text-user-name mb-0">Nombre Usuario</h4>
+                                        <p class="mb-0 text-muted text-truncate chat-paragraph d-inline-block">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque magni ab aliquid ad odio aspernatur
+                                        </p>
+                                    </div>
+                                    <div class="col-2 text-muted pe-0 ps-2">
+                                        <p>Oct 12</p>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="row d-flex flex-row-reverse">
+                                            <div class="col-10">
+                                                <hr class="pt-0 mt-0">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12" id="onChat2">
+                                <div class="row mt-2">
+                                    <div class="col-1 me-3">
+                                        <div class="position-relative">
+                                            <img src="images/chip_4.png" class="rounded-circle" height="40px" width="40px" alt="...">
+                                            <span class="position-absolute badge border border-light rounded-circle p-1 line-span"><span class="visually-hidden">unread messages</span></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-8 ps-4 pt-1 mb-1">
+                                        <h4 class="text-user-name mb-0">Nombre Usuario</h4>
+                                        <p class="mb-0 mini-text-user-name text-truncate chat-paragraph d-inline-block">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque magni ab aliquid ad odio aspernatur
+                                        </p>
+                                    </div>
+                                    <div class="col-2 text-muted pe-0 ps-2 position-relative">
+                                        <p>Oct 12</p>
+                                        <span class="position-absolute top-50 start-50 translate-middle-x badge rounded-circle chat-badge-color">2<span class="visually-hidden">unread messages</span></span>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="row d-flex flex-row-reverse">
+                                            <div class="col-10">
+                                                <hr class="pt-0 mt-0">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </aside>
+
+                <aside class="row chat-1-off rounded-top shadow-lg" id="chat1-1">
+                    <div class="list-chats-header col-12 rounded-top">
+                        <div class="row">
+                            <div class="col-1 me-3 mt-1">
+                                <div class="position-relative">
+                                    <img src="images/chip_4.png" class="rounded-circle" height="31px" width="31px" alt="...">
+                                    <span class="position-absolute badge border border-light rounded-circle p-1 line-span-chats"><span class="visually-hidden">unread messages</span></span>
+                                </div>
+                            </div>
+                            <div class="col-6 ps-2 mb-1">
+                                <h4 class="mb-0 list-text-chats-header">Nombre usuario</h4>
+                                <p class="text-chat-1-header">Profesion</p>
+                            </div>
+                            <button class="col-1 btn pb-5 ps-2 pe-4" id="btnOnVideoChat" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-camera-video" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5zm11.5 5.175 3.5 1.556V4.269l-3.5 1.556v4.35zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H2z"/>
+                                  </svg>                                  
+                            </button>
+                            <button class="col-1 btn pb-5 ps-2 pe-4" id="btnOnPhone">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
+                                    <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                                </svg>
+                            </button>
+                            <button class="col-1 btn pb-5 ps-2 pe-4" id="btnCloseChat">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
+                                    <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="chat-1-body col-12 bg-light pe-2 ps-2 pt-1">
+                        <div class="row d-flex justify-content-center chats">
+                            <div class="col-10 m-2">
+                                <div class="row">
+                                    <div class="col-9"></div>
+                                    <p class="p-0 text-muted m-0 col-3">9:20 p.m</p>
+                                    <div class="col-12">
+                                        <p class="text-muted d-inline-block shadow-lg rounded-pill PS-2 pe-2 pt-1 pb-1 m-0">hola</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-10 m-2">
+                                <div class="row">
+                                    <div class="col-9"></div>
+                                    <p class="p-0 text-muted m-0 col-3">9:50 p.m</p>
+                                    <div class="col-12">
+                                        <p class="text-muted d-inline-block shadow-lg rounded-pill PS-2 pe-2 pt-1 pb-1 m-0">todo bien?</p>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <p class="text-muted d-inline-block shadow-lg rounded-pill PS-2 pe-2 pt-1 pb-1 m-0 mt-1">Esto anda makl</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-10 m-2">
+                                <div class="row">
+                                    <div class="col-9"></div>
+                                    <p class="p-0 text-muted m-0 col-3">9:50 p.m</p>
+                                    <div class="col-12 text-align pe-0">
+                                        <p class="text-chat-1 title-text-small d-inline-block shadow-lg rounded-pill PS-2 pe-2 pt-1 pb-1 m-0">todo bien?
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="pt-1 bi bi-check2" viewBox="0 0 16 16">
+                                                <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+                                            </svg>
+                                        </p>
+                                    </div>
+
+                                    <div class="col-12 text-align pe-0">
+                                        <p class="text-chat-1 title-text-small d-inline-block shadow-lg rounded-pill PS-2 pe-2 pt-1 pb-1 m-0 mt-1">Esto anda makl
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="pt-1 bi bi-check2" viewBox="0 0 16 16">
+                                                <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+                                            </svg>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row ms-1 mt-1">
+                            <div class="col-10 rounded-pill border my-auto pe-3 ps-2">
+                                <div class="row">
+                                    <button class="btn-emoji col-2 pe-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-smile" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                            <path d="M4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zm4 0c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5z"/>
+                                        </svg>
+                                    </button>
+                                    <input class="input-chat col-7 p-0 m-0" type="text" placeholder="Mensaje..">
+                                    <button class="btn-emoji col-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-image" viewBox="0 0 16 16">
+                                            <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                                            <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z"/>
+                                        </svg>
+                                    </button>
+                                    <button class="btn-emoji col-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+                                            <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+                                            <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-2 my-auto p-0">
+                                <button class="btn-emoji">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
+                                        <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/>
+                                      </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
             </aside>
         </div>
     </div>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
