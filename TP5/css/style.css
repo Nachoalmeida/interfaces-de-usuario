@@ -11,6 +11,13 @@
     --color-black: #0E0D0D;
 }
 
+li {
+    font-size: 15px;
+    color: var(--color-black);
+    font-family: 'Roboto';
+    font-weight: normal;
+}
+
 
 /*//////////////////////////// TEXTOS ///////////////////////////////////////////*/
 
@@ -214,6 +221,10 @@
     height: 40px;
 }
 
+.list-chats-header:hover {
+    cursor: pointer;
+}
+
 .list-chats-body {
     background-color: white;
     height: 560px
@@ -345,6 +356,7 @@
     outline: none;
 }
 
+
 /*////////////////////////////  FIN chat 1:1 ///////////////////////////////////////////*/
 
 
@@ -427,22 +439,24 @@
     /*background-position: 50% 50%;*/
 }
 
+
 /*//////////////////////////// fin Parallax ///////////////////////////////////////////*/
 
 
 /*//////////////////////////// post ///////////////////////////////////////////*/
-.post-title{
+
+.post-title {
     font-size: 20px;
     font-family: 'Roboto';
     font-weight: normal;
     color: var(--color-black);
 }
 
-.post-textarea{
+.post-textarea {
     border: none;
 }
 
-.box-insert{
+.box-insert {
     border-style: dashed;
     border-width: 2px;
     border-radius: 3px;
@@ -451,31 +465,31 @@
     transition: background-color .1s ease-in;
 }
 
-.box-insert:hover{
+.box-insert:hover {
     background-color: var(--color-light);
 }
 
+
 /*//////////////////////////// fin post ///////////////////////////////////////////*/
 
-
-.btn-three-dots{
+.btn-three-dots {
     border: none;
     background-color: rgba(255, 255, 255, 0);
     transition: color .1s ease-in;
 }
 
-.btn-three-dots:hover{
+.btn-three-dots:hover {
     color: var(--color-muted);
 }
 
-.hover-img-galery{
+.hover-img-galery {
     background-color: rgba(0, 0, 0, 0.712);
     width: 100%;
     height: 100%;
     z-index: 100;
 }
 
-.text-img-galery{
+.text-img-galery {
     z-index: 200;
     font-size: 32px;
     font-family: 'Roboto';
