@@ -133,7 +133,7 @@ li {
     width: 394px;
 }
 
-.bi-search{
+.bi-search {
     color: var(--color-light);
 }
 
@@ -452,7 +452,7 @@ li {
 
 #parallax {
     position: relative;
-    background-image: url(/TP5/images/huella.png);
+    background-image: url(../TP5/images/huella.png);
     background-repeat: repeat;
     background-position: center;
     /*background-position: 50% 50%;*/
