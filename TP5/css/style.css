@@ -195,12 +195,12 @@ li {
 /*////////////////////////////  PERFIL USUARIO ///////////////////////////////////////////*/
 
 .user-img {
-    top: 26rem;
+    top: 20rem;
 }
 
 .div-container-perfil {
     background-color: var(--color-light);
-    height: 39rem;
+    height: 26rem;
 }
 
 
