@@ -133,6 +133,10 @@ li {
     width: 394px;
 }
 
+.bi-search{
+    color: var(--color-light);
+}
+
 .navSvgMargin {
     margin-top: 13px;
 }
