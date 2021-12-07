@@ -18,6 +18,13 @@ li {
     font-weight: normal;
 }
 
+label {
+    font-size: 15px;
+    color: var(--color-black);
+    font-family: 'Roboto';
+    font-weight: normal;
+}
+
 
 /*//////////////////////////// TEXTOS ///////////////////////////////////////////*/
 
@@ -190,6 +197,14 @@ li {
 
 .btn-color-violet:active {
     background-color: var(--color-violet);
+}
+
+.bi-hand-thumbs-down-fill {
+    color: var(--color-medium-light-violet);
+}
+
+.bi-hand-thumbs-up-fill {
+    color: var(--color-medium-light-violet);
 }
 
 
