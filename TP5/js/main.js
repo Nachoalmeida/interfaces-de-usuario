@@ -54,6 +54,19 @@ const post2comment = document.getElementById("post2comment").addEventListener('c
 const boxcomment3 = document.getElementById("boxcomment3");
 const post3comment = document.getElementById("post3comment").addEventListener('click', () => onComment3());
 
+const boxcomment4 = document.getElementById("boxcomment4");
+const post4comment = document.getElementById("post4comment").addEventListener('click', () => onComment4());
+
+function onComment4() {
+    if (boxcomment4.classList.contains('box-comment-off')) {
+        boxcomment4.classList.remove('box-comment-off');
+        boxcomment4.classList.add('box-comment-on');
+    } else {
+        boxcomment4.classList.add('box-comment-off');
+        boxcomment4.classList.remove('box-comment-on');
+    }
+}
+
 function onComment3() {
     if (boxcomment3.classList.contains('box-comment-off')) {
         boxcomment3.classList.remove('box-comment-off');
