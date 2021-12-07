@@ -239,7 +239,7 @@ label {
 .list-chats-on {
     position: fixed;
     bottom: 0;
-    right: 4.8rem;
+    right: 6rem;
     width: 300px;
     height: 500px;
     transition: bottom 1s ease;
@@ -248,7 +248,7 @@ label {
 .list-chats-off {
     position: fixed;
     bottom: -460px;
-    right: 4.8rem;
+    right: 6rem;
     width: 300px;
     height: 500px;
     transition: bottom 1s ease;
@@ -311,7 +311,7 @@ label {
     z-index: 300;
     position: fixed;
     bottom: 0;
-    right: 24rem;
+    right: 25.5rem;
     width: 300px;
     height: 300px;
     transition: bottom 1s ease;
@@ -321,7 +321,7 @@ label {
     z-index: 300;
     position: fixed;
     bottom: -310;
-    right: 24rem;
+    right: 25.5rem;
     width: 300px;
     height: 300px;
     transition: bottom 1s ease;
@@ -539,6 +539,7 @@ label {
     color: white;
 }
 
+
 /*//////////////////// Barra de carga /////////////////////////////*/
 
 .inicio {
@@ -554,5 +555,6 @@ label {
 .animacion {
     transition: all 2s ease 2s;
 }
+
 
 /*//////////////////// FIN Barra de carga /////////////////////////////*/
