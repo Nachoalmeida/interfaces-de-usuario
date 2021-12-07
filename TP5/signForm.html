@@ -52,7 +52,7 @@
         <div class="row justify-content-center d-flex">
             <div class="col-5 text-center">
 
-                <form class="row text-start mt-3">
+                <form class="row text-start mt-3 g-3 needs-validation">
                     <div class="col-12 p-0">
                         <h3 class="text-user-name">Completá los siguientes datos</h3>
                     </div>
@@ -61,30 +61,30 @@
                     </div>
                     <div class="col-12 mt-1 p-0">
                         <label for="inputName" class="form-label mb-1">Nombre*</label>
-                        <input type="text" class="form-control" id="inputName">
+                        <input type="text" class="form-control" id="inputName" required>
                     </div>
                     <div class="col-12 mt-3 p-0">
                         <label for="inputSurname" class="form-label mb-1">Apellido*</label>
-                        <input type="text" class="form-control" id="inputSurname">
+                        <input type="text" class="form-control" id="inputSurname" required>
                     </div>
 
                     <div class="col-12 mt-3 p-0">
-                        <label class="form-label mb-1" for="inputBirthDate">Fecha de nacimiento*</label>
+                        <label class="form-label mb-1" for="inputBirthDate">Fecha de nacimiento</label>
                         <div class="row">
                             <div class="col-4 btn-group">
-                                <select class="col-4 form-select" id="inputBirthDay">
+                                <select class="col-4 form-select" id="inputBirthDay" required>
                                     <option selected>Día</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                 </select>
-                                <select class="col-4 form-select ms-4 me-4" id="inputBirthMonth">
+                                <select class="col-4 form-select ms-4 me-4" id="inputBirthMonth" required>
                                     <option selected>Mes</option>
                                     <option value="Enero">Enero</option>
                                     <option value="Febrero">Febrero</option>
                                     <option value="Marzo">Marzo</option>
                                 </select>
-                                <select class="col-4 form-select" id="inputBirthYear">
+                                <select class="col-4 form-select" id="inputBirthYear" required>
                                     <option selected>Año</option>
                                     <option value="2000">2000</option>
                                     <option value="2001">2001</option>
@@ -96,10 +96,10 @@
 
                     <div class="col-12 mt-3 mb-1 p-0">
                         <label for="inputCity" class="form-label mb-1">Ciudad*</label>
-                        <input type="text" class="form-control" id="inputCity">
+                        <input type="text" class="form-control" id="inputCity" required>
                     </div>
                     <div class="mt-3 p-0">
-                        <h3 class="mb-0 title-text">Vínculo con las Ciencias Veterinarias*</h3>
+                        <h3 class="mb-0 title-text">Vínculo con las Ciencias Veterinarias</h3>
                     </div>
                     <div class="col-12 mt-1 p-0">
                         <div class="form-check">
@@ -139,7 +139,7 @@
                                 </label>
                         </div>
                     </div>
-                    <button type="button" class="col-12 btn-lg btn-color-violet mt-2 ms-0 me-0">Aceptar y unirse</button>
+                    <button type="submit" class="col-12 btn-lg btn-color-violet mt-2 ms-0 me-0">Aceptar y unirse</button>
 
 
 
