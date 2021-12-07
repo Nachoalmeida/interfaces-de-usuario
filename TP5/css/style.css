@@ -538,3 +538,21 @@ label {
     font-weight: bold;
     color: white;
 }
+
+/*//////////////////// Barra de carga /////////////////////////////*/
+
+.inicio {
+    width: 0%;
+    visibility: hidden;
+}
+
+.final {
+    width: 100%;
+    visibility: visible;
+}
+
+.animacion {
+    transition: all 2s ease 2s;
+}
+
+/*//////////////////// FIN Barra de carga /////////////////////////////*/

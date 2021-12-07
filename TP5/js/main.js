@@ -100,17 +100,22 @@ function onComment() {
 
 const boxPost = document.getElementById("boxPost");
 const loadingPost = document.getElementById("loadingPost");
-
-setTimeout(() => {
-    if (boxPost) {
-        boxPostOn();
-    }
-}, 2000);
+if(boxPost){
+    loadingPost.classList.toggle("final");
+    setTimeout(() => {
+        if (boxPost) {
+            loadingPost.classList.toggle("inicio");
+            boxPostOn();
+        }
+    }, 2000);
+}
 
 function boxPostOn() {
     boxPost.classList.remove('invisible');
     boxPost.classList.add('visible');
-    loadingPost.classList.add('d-none');
+    let padre = loadingPost.parentNode;
+    padre = padre.parentNode;
+    padre.classList.add('d-none');
 }
 
 const contributesPost = document.getElementById("contributesPost");
